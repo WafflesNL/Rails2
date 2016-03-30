@@ -34,18 +34,20 @@
             // lblGay
             // 
             this.lblGay.AutoSize = true;
-            this.lblGay.Location = new System.Drawing.Point(186, 140);
+            this.lblGay.Location = new System.Drawing.Point(140, 114);
+            this.lblGay.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblGay.Name = "lblGay";
-            this.lblGay.Size = new System.Drawing.Size(132, 17);
+            this.lblGay.Size = new System.Drawing.Size(179, 13);
             this.lblGay.TabIndex = 0;
-            this.lblGay.Text = "BART IS UBERGAY";
+            this.lblGay.Text = "Kevin houdt van Piemels in zijn anus";
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(728, 387);
+            this.ClientSize = new System.Drawing.Size(546, 314);
             this.Controls.Add(this.lblGay);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Form1";
             this.Text = "Form1";
             this.ResumeLayout(false);
