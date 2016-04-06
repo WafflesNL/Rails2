@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _4Rails_2
+namespace ClassLibrary1
 {
-    class dataCom
+    public static class DataCom
     {
+        
     }
 }
