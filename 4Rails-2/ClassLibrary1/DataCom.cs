@@ -3,29 +3,51 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Oracle.DataAccess;
+using Oracle.DataAccess.Client;
 
 namespace ClassLibrary1
 {
     public static class DataCom
     {
-        static void ConnectToDB()
-        {
+        private static OracleConnection connection;
+        private static OracleCommand command;
+        private static OracleDataReader reader;
 
+        private static void ConnectToDB()
+        {
+            string connectionString = "";
+            connection = new OracleConnection(connectionString);
+            connection.Open();
         }
 
-        static void Insert()
+        public static void nonQuery(string sql)
         {
+            ConnectToDB();
 
+            command = new OracleCommand(sql);
+            command.ExecuteNonQuery();
+
+            connection.Close();
         }
 
-        static string Read()
+        public static string Read(string sql, string columnName)
         {
-            return "";
-        }
+            ConnectToDB();
 
-        static void Remove()
-        {
+            command = new OracleCommand(sql);
+            reader = command.ExecuteReader();
 
+            string returnstring = "";
+            while (reader.Read())
+            {
+                returnstring = Convert.ToString(reader[columnName]);
+            }
+
+            connection.Close();
+            if (returnstring != "" || returnstring != null)
+                return returnstring;
+            return null;
         }
     }
 }
