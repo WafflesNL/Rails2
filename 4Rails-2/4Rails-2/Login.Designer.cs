@@ -28,35 +28,65 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblGebruikersnaam = new System.Windows.Forms.Label();
+            this.lblWachtwoord = new System.Windows.Forms.Label();
+            this.tbGebruikersnaam = new System.Windows.Forms.TextBox();
+            this.tbWachtwoord = new System.Windows.Forms.TextBox();
+            this.btnLogin = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // label1
+            // lblGebruikersnaam
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(62, 57);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(46, 17);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "label1";
+            this.lblGebruikersnaam.AutoSize = true;
+            this.lblGebruikersnaam.Location = new System.Drawing.Point(62, 82);
+            this.lblGebruikersnaam.Name = "lblGebruikersnaam";
+            this.lblGebruikersnaam.Size = new System.Drawing.Size(113, 17);
+            this.lblGebruikersnaam.TabIndex = 0;
+            this.lblGebruikersnaam.Text = "Gebruikersnaam";
             // 
-            // label2
+            // lblWachtwoord
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(190, 156);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(46, 17);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "label2";
+            this.lblWachtwoord.AutoSize = true;
+            this.lblWachtwoord.Location = new System.Drawing.Point(62, 135);
+            this.lblWachtwoord.Name = "lblWachtwoord";
+            this.lblWachtwoord.Size = new System.Drawing.Size(86, 17);
+            this.lblWachtwoord.TabIndex = 1;
+            this.lblWachtwoord.Text = "Wachtwoord";
+            // 
+            // tbGebruikersnaam
+            // 
+            this.tbGebruikersnaam.Location = new System.Drawing.Point(65, 102);
+            this.tbGebruikersnaam.Name = "tbGebruikersnaam";
+            this.tbGebruikersnaam.Size = new System.Drawing.Size(129, 22);
+            this.tbGebruikersnaam.TabIndex = 2;
+            // 
+            // tbWachtwoord
+            // 
+            this.tbWachtwoord.Location = new System.Drawing.Point(65, 155);
+            this.tbWachtwoord.Name = "tbWachtwoord";
+            this.tbWachtwoord.PasswordChar = '*';
+            this.tbWachtwoord.Size = new System.Drawing.Size(129, 22);
+            this.tbWachtwoord.TabIndex = 3;
+            // 
+            // btnLogin
+            // 
+            this.btnLogin.Location = new System.Drawing.Point(64, 195);
+            this.btnLogin.Name = "btnLogin";
+            this.btnLogin.Size = new System.Drawing.Size(130, 31);
+            this.btnLogin.TabIndex = 4;
+            this.btnLogin.Text = "Login";
+            this.btnLogin.UseVisualStyleBackColor = true;
             // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(426, 329);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.btnLogin);
+            this.Controls.Add(this.tbWachtwoord);
+            this.Controls.Add(this.tbGebruikersnaam);
+            this.Controls.Add(this.lblWachtwoord);
+            this.Controls.Add(this.lblGebruikersnaam);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Login";
             this.Text = "Login";
@@ -68,8 +98,11 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblGebruikersnaam;
+        private System.Windows.Forms.Label lblWachtwoord;
+        private System.Windows.Forms.TextBox tbGebruikersnaam;
+        private System.Windows.Forms.TextBox tbWachtwoord;
+        private System.Windows.Forms.Button btnLogin;
     }
 }
 
