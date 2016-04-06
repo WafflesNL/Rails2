@@ -6,7 +6,18 @@ using System.Threading.Tasks;
 
 namespace _4Rails_2
 {
-    class Sector
+    public class Sector
     {
+        private int SectorNummer;
+
+        public Sector()
+        {
+
+        }
+
+        public int getTram()
+        {
+            return 0;
+        }
     }
 }
