@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "4Rails-2", "4Rails-2\4Rails
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLibrary1", "ClassLibrary1\ClassLibrary1.csproj", "{A0F87D70-EDB4-4B1F-9B0D-5611F99A6969}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTest", "UnitTest\UnitTest.csproj", "{C120A5F5-CB35-4933-8F7C-A815C19F4D4E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{A0F87D70-EDB4-4B1F-9B0D-5611F99A6969}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A0F87D70-EDB4-4B1F-9B0D-5611F99A6969}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A0F87D70-EDB4-4B1F-9B0D-5611F99A6969}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C120A5F5-CB35-4933-8F7C-A815C19F4D4E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C120A5F5-CB35-4933-8F7C-A815C19F4D4E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C120A5F5-CB35-4933-8F7C-A815C19F4D4E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C120A5F5-CB35-4933-8F7C-A815C19F4D4E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
