@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace _4Rails_2
 {
-    public partial class Form1 : Form
+    public partial class customBox : Form
     {
-        public Form1()
+        public customBox()
         {
             InitializeComponent();
         }
