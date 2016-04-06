@@ -28,17 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
             this.lblGebruikersnaam = new System.Windows.Forms.Label();
             this.lblWachtwoord = new System.Windows.Forms.Label();
             this.tbGebruikersnaam = new System.Windows.Forms.TextBox();
             this.tbWachtwoord = new System.Windows.Forms.TextBox();
             this.btnLogin = new System.Windows.Forms.Button();
+            this.pbLogo = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).BeginInit();
             this.SuspendLayout();
             // 
             // lblGebruikersnaam
             // 
             this.lblGebruikersnaam.AutoSize = true;
-            this.lblGebruikersnaam.Location = new System.Drawing.Point(62, 82);
+            this.lblGebruikersnaam.Location = new System.Drawing.Point(58, 157);
             this.lblGebruikersnaam.Name = "lblGebruikersnaam";
             this.lblGebruikersnaam.Size = new System.Drawing.Size(113, 17);
             this.lblGebruikersnaam.TabIndex = 0;
@@ -47,7 +50,7 @@
             // lblWachtwoord
             // 
             this.lblWachtwoord.AutoSize = true;
-            this.lblWachtwoord.Location = new System.Drawing.Point(62, 135);
+            this.lblWachtwoord.Location = new System.Drawing.Point(58, 210);
             this.lblWachtwoord.Name = "lblWachtwoord";
             this.lblWachtwoord.Size = new System.Drawing.Size(86, 17);
             this.lblWachtwoord.TabIndex = 1;
@@ -55,14 +58,14 @@
             // 
             // tbGebruikersnaam
             // 
-            this.tbGebruikersnaam.Location = new System.Drawing.Point(65, 102);
+            this.tbGebruikersnaam.Location = new System.Drawing.Point(61, 177);
             this.tbGebruikersnaam.Name = "tbGebruikersnaam";
             this.tbGebruikersnaam.Size = new System.Drawing.Size(129, 22);
             this.tbGebruikersnaam.TabIndex = 2;
             // 
             // tbWachtwoord
             // 
-            this.tbWachtwoord.Location = new System.Drawing.Point(65, 155);
+            this.tbWachtwoord.Location = new System.Drawing.Point(61, 230);
             this.tbWachtwoord.Name = "tbWachtwoord";
             this.tbWachtwoord.PasswordChar = '*';
             this.tbWachtwoord.Size = new System.Drawing.Size(129, 22);
@@ -70,18 +73,29 @@
             // 
             // btnLogin
             // 
-            this.btnLogin.Location = new System.Drawing.Point(64, 195);
+            this.btnLogin.Location = new System.Drawing.Point(60, 270);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(130, 31);
             this.btnLogin.TabIndex = 4;
             this.btnLogin.Text = "Login";
             this.btnLogin.UseVisualStyleBackColor = true;
             // 
+            // pbLogo
+            // 
+            this.pbLogo.Image = ((System.Drawing.Image)(resources.GetObject("pbLogo.Image")));
+            this.pbLogo.Location = new System.Drawing.Point(12, 12);
+            this.pbLogo.Name = "pbLogo";
+            this.pbLogo.Size = new System.Drawing.Size(237, 132);
+            this.pbLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbLogo.TabIndex = 5;
+            this.pbLogo.TabStop = false;
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(426, 329);
+            this.ClientSize = new System.Drawing.Size(279, 328);
+            this.Controls.Add(this.pbLogo);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.tbWachtwoord);
             this.Controls.Add(this.tbGebruikersnaam);
@@ -91,6 +105,7 @@
             this.Name = "Login";
             this.Text = "Login";
             this.Load += new System.EventHandler(this.Login_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -103,6 +118,7 @@
         private System.Windows.Forms.TextBox tbGebruikersnaam;
         private System.Windows.Forms.TextBox tbWachtwoord;
         private System.Windows.Forms.Button btnLogin;
+        private System.Windows.Forms.PictureBox pbLogo;
     }
 }
 
