@@ -119,15 +119,14 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(756, 17);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(214, 17);
+            this.label1.Size = new System.Drawing.Size(110, 17);
             this.label1.TabIndex = 9;
-            this.label1.Text = "Wählen Sie ein Auto zu Auswitch";
+            this.label1.Text = "Hier moet iets in";
             // 
             // beheerGUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::_4Rails_2.Properties.Resources.beheerder;
             this.ClientSize = new System.Drawing.Size(1002, 568);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cbType);
