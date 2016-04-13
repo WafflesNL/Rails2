@@ -48,7 +48,8 @@ namespace _4Rails_2
                 return;
 
             command = new OracleCommand(sql, connection);
-            command.ExecuteNonQuery();
+            try { command.ExecuteNonQuery(); }
+            catch(Exception) { }
 
             Close();
         }
@@ -171,7 +172,11 @@ namespace _4Rails_2
                 return null;
 
             command = new OracleCommand(sql, connection);
-            reader = command.ExecuteReader();
+            try
+            {
+                reader = command.ExecuteReader();
+            }
+            catch (Exception) { Close(); return null; }
 
             string returnstring = "";
             while (reader.Read())
