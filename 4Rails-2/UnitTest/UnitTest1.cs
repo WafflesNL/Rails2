@@ -12,6 +12,9 @@ namespace _4Rails_2
         {
             DataCom.ConnectToDB();
             Assert.IsNotNull(DataCom.Connection, "rip");
+            //DataCom.nonQuery("INSERT INTO spoor (spoornr, blocked, aantalsectoren) VALUES (2, 0, 1)");
+            string temp = DataCom.Read("SELECT spoornr FROM spoor WHERE spoornr = 1", "spoornr");
+            Assert.AreEqual("1", temp, "rip");
         }
     }
 }

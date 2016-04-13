@@ -20,6 +20,8 @@ namespace _4Rails_2
         {
             InitializeComponent();
             DataCom.ConnectToDB();
+            //DataCom.nonQuery("INSERT INTO spoor (spoornr, blocked, aantalsectoren) VALUES (1, 0, 1)");
+            string temp = DataCom.Read("SELECT spoornr FROM spoor WHERE spoornr = 1", "spoornr");
         }
 
         

@@ -18,8 +18,7 @@ namespace _4Rails_2
         {
             try
             {
-            //TODO: change username and passowrd
-            string connectionString = "Data Source=(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=192.168.15.50)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=fhictora))); User Id=dbi317853; Password=qJKLqFc7Sh";
+                string connectionString = "Data Source=(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=192.168.15.50)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=fhictora))); User Id=dbi317853; Password=qJKLqFc7Sh";
                 connection = new OracleConnection(connectionString);
                 connection.Open();
             }
@@ -42,7 +41,7 @@ namespace _4Rails_2
             if (connection.State != System.Data.ConnectionState.Open)
                 return;
 
-            command = new OracleCommand(sql);
+            command = new OracleCommand(sql, connection);
             command.ExecuteNonQuery();
 
             Close();
@@ -54,7 +53,7 @@ namespace _4Rails_2
             if (connection.State != System.Data.ConnectionState.Open)
                 return null;
 
-            command = new OracleCommand(sql);
+            command = new OracleCommand(sql, connection);
             reader = command.ExecuteReader();
 
             string returnstring = "";
