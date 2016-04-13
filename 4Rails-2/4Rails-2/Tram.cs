@@ -8,27 +8,6 @@ namespace _4Rails_2
 {
     public class Tram
     {
-        enum tramStatus
-        {
-            Defect,
-            Schoonmaak,
-            Dienst,
-            Remise
-        };
-
-        /// <summary>
-        /// G11 = 11G
-        /// G12 = 12G
-        /// </summary>
-        enum tramType
-        {
-            Combino,
-            G11,
-            Dubbelkop_Combino,
-            G12,
-            OpleidingsTrams
-        };
-
         private tramType TramType;
         private tramStatus TramStatus;
 
