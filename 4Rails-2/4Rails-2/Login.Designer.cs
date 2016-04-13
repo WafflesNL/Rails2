@@ -31,8 +31,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
             this.lblGebruikersnaam = new System.Windows.Forms.Label();
             this.lblWachtwoord = new System.Windows.Forms.Label();
-            this.tbGebruikersnaam = new System.Windows.Forms.TextBox();
-            this.tbWachtwoord = new System.Windows.Forms.TextBox();
+            this.tbUsername = new System.Windows.Forms.TextBox();
+            this.tbPassword = new System.Windows.Forms.TextBox();
             this.btnLogin = new System.Windows.Forms.Button();
             this.pbLogo = new System.Windows.Forms.PictureBox();
             this.chbRemember = new System.Windows.Forms.CheckBox();
@@ -59,20 +59,20 @@
             this.lblWachtwoord.TabIndex = 1;
             this.lblWachtwoord.Text = "Password";
             // 
-            // tbGebruikersnaam
+            // tbUsername
             // 
-            this.tbGebruikersnaam.Location = new System.Drawing.Point(48, 146);
-            this.tbGebruikersnaam.Name = "tbGebruikersnaam";
-            this.tbGebruikersnaam.Size = new System.Drawing.Size(152, 22);
-            this.tbGebruikersnaam.TabIndex = 2;
+            this.tbUsername.Location = new System.Drawing.Point(48, 146);
+            this.tbUsername.Name = "tbUsername";
+            this.tbUsername.Size = new System.Drawing.Size(152, 22);
+            this.tbUsername.TabIndex = 2;
             // 
-            // tbWachtwoord
+            // tbPassword
             // 
-            this.tbWachtwoord.Location = new System.Drawing.Point(48, 201);
-            this.tbWachtwoord.Name = "tbWachtwoord";
-            this.tbWachtwoord.PasswordChar = '*';
-            this.tbWachtwoord.Size = new System.Drawing.Size(153, 22);
-            this.tbWachtwoord.TabIndex = 3;
+            this.tbPassword.Location = new System.Drawing.Point(48, 201);
+            this.tbPassword.Name = "tbPassword";
+            this.tbPassword.PasswordChar = '*';
+            this.tbPassword.Size = new System.Drawing.Size(153, 22);
+            this.tbPassword.TabIndex = 3;
             // 
             // btnLogin
             // 
@@ -82,6 +82,7 @@
             this.btnLogin.TabIndex = 4;
             this.btnLogin.Text = "Login";
             this.btnLogin.UseVisualStyleBackColor = true;
+            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
             // pbLogo
             // 
@@ -111,8 +112,8 @@
             this.Controls.Add(this.chbRemember);
             this.Controls.Add(this.pbLogo);
             this.Controls.Add(this.btnLogin);
-            this.Controls.Add(this.tbWachtwoord);
-            this.Controls.Add(this.tbGebruikersnaam);
+            this.Controls.Add(this.tbPassword);
+            this.Controls.Add(this.tbUsername);
             this.Controls.Add(this.lblWachtwoord);
             this.Controls.Add(this.lblGebruikersnaam);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -129,8 +130,8 @@
 
         private System.Windows.Forms.Label lblGebruikersnaam;
         private System.Windows.Forms.Label lblWachtwoord;
-        private System.Windows.Forms.TextBox tbGebruikersnaam;
-        private System.Windows.Forms.TextBox tbWachtwoord;
+        private System.Windows.Forms.TextBox tbUsername;
+        private System.Windows.Forms.TextBox tbPassword;
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.PictureBox pbLogo;
         private System.Windows.Forms.CheckBox chbRemember;

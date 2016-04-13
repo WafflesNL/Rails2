@@ -79,6 +79,7 @@
     <Compile Include="Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
+    <Compile Include="LoginClass.cs" />
     <Compile Include="mainWindow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -98,6 +99,9 @@
     <Compile Include="Spoor.cs" />
     <Compile Include="techniekPlanning.cs" />
     <Compile Include="Tram.cs" />
+    <EmbeddedResource Include="beheerGUI.resx">
+      <DependentUpon>beheerGUI.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>

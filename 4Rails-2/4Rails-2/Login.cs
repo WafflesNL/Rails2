@@ -15,11 +15,12 @@ namespace _4Rails_2
         private string Username;
         private string Password;
         private bool Remember;
+        LoginClass LC;
 
         public Login()
         {
             InitializeComponent();
-            DataCom.ConnectToDB();
+            LC = new LoginClass();
         }
 
         
@@ -27,6 +28,24 @@ namespace _4Rails_2
         private void Login_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+            Username = tbUsername.Text;
+            Password = tbPassword.Text;
+
+            string temp = LC.Check(Username, Password);
+
+            if (temp != null)
+            {
+                //change screen based on functie
+                tbUsername.Text = "ok";
+            }
+            else
+            {
+                tbUsername.Text = "rip";
+            }
         }
     }
 }
