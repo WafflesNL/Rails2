@@ -10,10 +10,12 @@ namespace _4Rails_2
     public static class DataCom
     {
         private static OracleConnection connection;
-        public static OracleConnection Connection { get { return connection; } }
         private static OracleCommand command;
         private static OracleDataReader reader;
 
+        /// <summary>
+        /// DO NOT USE! Only public for unit test.
+        /// </summary>
         public static void ConnectToDB()
         {
             try
