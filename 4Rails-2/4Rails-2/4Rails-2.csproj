@@ -99,6 +99,9 @@
     <Compile Include="Spoor.cs" />
     <Compile Include="techniekPlanning.cs" />
     <Compile Include="Tram.cs" />
+    <EmbeddedResource Include="beheerGUI.resx">
+      <DependentUpon>beheerGUI.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
@@ -114,6 +117,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="regelingGUI.resx">
+      <DependentUpon>regelingGUI.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
