@@ -52,6 +52,7 @@
             this.ToRegelingGUI.TabIndex = 1;
             this.ToRegelingGUI.Text = "Regeling";
             this.ToRegelingGUI.UseVisualStyleBackColor = true;
+            this.ToRegelingGUI.Click += new System.EventHandler(this.ToRegelingGUI_Click);
             // 
             // Welkomlabel
             // 
