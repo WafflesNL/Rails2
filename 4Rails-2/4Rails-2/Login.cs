@@ -35,12 +35,43 @@ namespace _4Rails_2
             Username = tbUsername.Text;
             Password = tbPassword.Text;
 
-            string temp = LC.Check(Username, Password);
+            int temp = Convert.ToInt16(LC.Check(Username, Password));
 
-            if (temp != null)
+            if (temp != 0   )
             {
-                //change screen based on functie
-                tbUsername.Text = "ok";
+                switch (temp)
+                {
+                    case 1:
+                        beheerGUI beheer = new beheerGUI();
+                        this.Hide();
+                        beheer.ShowDialog();
+                        this.Close();
+                        break;
+                    case 2:
+                        beheerGUI beheer2 = new beheerGUI();
+                        this.Hide();
+                        beheer2.ShowDialog();
+                        this.Close();
+                        break;
+                    case 3:
+                        regelingGUI regeling = new regelingGUI();
+                        this.Hide();
+                        regeling.ShowDialog();
+                        this.Close();
+                        break;
+                    case 4:
+                        customBox techniek = new customBox();
+                        this.Hide();
+                        techniek.ShowDialog();
+                        this.Close();
+                        break;
+                    case 5:
+                        customBox schoonmaak = new customBox();
+                        this.Hide();
+                        schoonmaak.ShowDialog();
+                        this.Close();
+                        break;
+                }
             }
             else
             {
