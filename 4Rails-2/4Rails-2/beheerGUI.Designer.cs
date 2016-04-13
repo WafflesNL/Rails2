@@ -36,6 +36,7 @@
             this.cbTramnr = new System.Windows.Forms.ComboBox();
             this.lbType = new System.Windows.Forms.ListBox();
             this.cbType = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lbTramNr
@@ -113,12 +114,22 @@
             this.cbType.Size = new System.Drawing.Size(214, 24);
             this.cbType.TabIndex = 8;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(756, 17);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(214, 17);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "Wählen Sie ein Auto zu Auswitch";
+            // 
             // beheerGUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::_4Rails_2.Properties.Resources.beheerder;
             this.ClientSize = new System.Drawing.Size(1002, 568);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.cbType);
             this.Controls.Add(this.lbType);
             this.Controls.Add(this.cbTramnr);
@@ -130,6 +141,7 @@
             this.Name = "beheerGUI";
             this.Text = "beheerGUI";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -143,5 +155,6 @@
         private System.Windows.Forms.ComboBox cbTramnr;
         private System.Windows.Forms.ListBox lbType;
         private System.Windows.Forms.ComboBox cbType;
+        private System.Windows.Forms.Label label1;
     }
 }
