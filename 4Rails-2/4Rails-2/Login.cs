@@ -39,39 +39,10 @@ namespace _4Rails_2
 
             if (temp != 0   )
             {
-                switch (temp)
-                {
-                    case 1:
-                        beheerGUI beheer = new beheerGUI();
-                        this.Hide();
-                        beheer.ShowDialog();
-                        this.Close();
-                        break;
-                    case 2:
-                        beheerGUI beheer2 = new beheerGUI();
-                        this.Hide();
-                        beheer2.ShowDialog();
-                        this.Close();
-                        break;
-                    case 3:
-                        regelingGUI regeling = new regelingGUI();
-                        this.Hide();
-                        regeling.ShowDialog();
-                        this.Close();
-                        break;
-                    case 4:
-                        customBox techniek = new customBox();
-                        this.Hide();
-                        techniek.ShowDialog();
-                        this.Close();
-                        break;
-                    case 5:
-                        customBox schoonmaak = new customBox();
-                        this.Hide();
-                        schoonmaak.ShowDialog();
-                        this.Close();
-                        break;
-                }
+                mainWindow window = new mainWindow(temp);
+                this.Hide();
+                window.ShowDialog();
+                this.Close();
             }
             else
             {
