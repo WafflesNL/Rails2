@@ -40,6 +40,11 @@ namespace _4Rails_2
             if (temp != null)
             {
                 //change screen based on functie
+                tbUsername.Text = "ok";
+            }
+            else
+            {
+                tbUsername.Text = "rip";
             }
         }
     }
