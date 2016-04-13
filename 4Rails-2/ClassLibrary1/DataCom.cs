@@ -55,7 +55,7 @@ namespace _4Rails_2
         }
 
         /// <summary>
-        /// 
+        /// Used to read 1 column
         /// </summary>
         /// <param name="select"></param>
         /// <param name="from"></param>
@@ -70,7 +70,7 @@ namespace _4Rails_2
         }
 
         /// <summary>
-        /// 
+        /// Used to read 1 column
         /// </summary>
         /// <param name="select"></param>
         /// <param name="from"></param>
@@ -85,7 +85,7 @@ namespace _4Rails_2
         }
 
         /// <summary>
-        /// 
+        /// Used to read 1 column
         /// </summary>
         /// <param name="select"></param>
         /// <param name="from"></param>
@@ -100,7 +100,7 @@ namespace _4Rails_2
         }
 
         /// <summary>
-        /// 
+        /// Used to read multiple columns
         /// </summary>
         /// <param name="select"></param>
         /// <param name="from"></param>
@@ -121,7 +121,7 @@ namespace _4Rails_2
         }
 
         /// <summary>
-        /// 
+        /// Used to read multiple columns
         /// </summary>
         /// <param name="select"></param>
         /// <param name="from"></param>
@@ -143,7 +143,7 @@ namespace _4Rails_2
         }
 
         /// <summary>
-        /// 
+        /// Used to read multiple columns
         /// </summary>
         /// <param name="select"></param>
         /// <param name="from"></param>
