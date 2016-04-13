@@ -48,13 +48,14 @@ namespace _4Rails_2
                 return;
 
             command = new OracleCommand(sql, connection);
-            command.ExecuteNonQuery();
+            try { command.ExecuteNonQuery(); }
+            catch(Exception) { }
 
             Close();
         }
 
         /// <summary>
-        /// 
+        /// Used to read 1 column
         /// </summary>
         /// <param name="select"></param>
         /// <param name="from"></param>
@@ -69,7 +70,7 @@ namespace _4Rails_2
         }
 
         /// <summary>
-        /// 
+        /// Used to read 1 column
         /// </summary>
         /// <param name="select"></param>
         /// <param name="from"></param>
@@ -84,7 +85,7 @@ namespace _4Rails_2
         }
 
         /// <summary>
-        /// 
+        /// Used to read 1 column
         /// </summary>
         /// <param name="select"></param>
         /// <param name="from"></param>
@@ -99,7 +100,7 @@ namespace _4Rails_2
         }
 
         /// <summary>
-        /// 
+        /// Used to read multiple columns
         /// </summary>
         /// <param name="select"></param>
         /// <param name="from"></param>
@@ -120,7 +121,7 @@ namespace _4Rails_2
         }
 
         /// <summary>
-        /// 
+        /// Used to read multiple columns
         /// </summary>
         /// <param name="select"></param>
         /// <param name="from"></param>
@@ -142,7 +143,7 @@ namespace _4Rails_2
         }
 
         /// <summary>
-        /// 
+        /// Used to read multiple columns
         /// </summary>
         /// <param name="select"></param>
         /// <param name="from"></param>
@@ -171,7 +172,11 @@ namespace _4Rails_2
                 return null;
 
             command = new OracleCommand(sql, connection);
-            reader = command.ExecuteReader();
+            try
+            {
+                reader = command.ExecuteReader();
+            }
+            catch (Exception) { Close(); return null; }
 
             string returnstring = "";
             while (reader.Read())
