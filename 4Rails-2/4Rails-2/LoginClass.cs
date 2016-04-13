@@ -13,12 +13,13 @@ namespace _4Rails_2
 
         }
 
-        public bool Check(string Username, string Password)
+        public string Check(string Username, string Password)
         {
-            string temp = DataCom.Read("wachtwoord", "gebruiker", "naam = " + Username, "wachtwoord");
-            if (temp == Password)
-                return true;
-            return false;
+            string[] columns = new string[2] { "password", "functionnr" };
+            string[] temp = DataCom.Read("password", "username", "name = " + Username, columns);
+            if (temp[0] == Password)
+                return temp[1];
+            return null;
         }
     }
 }

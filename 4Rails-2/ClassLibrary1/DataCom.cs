@@ -65,21 +65,103 @@ namespace _4Rails_2
         {
             string sql = "SELECT " + select + " FROM " + from + " WHERE " + where;
 
-            return Read(sql, columnName);
+            return Read(sql, columnName); ;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="select"></param>
+        /// <param name="from"></param>
+        /// <param name="where"></param>
+        /// <param name="columnName">The column you want as returnvalue</param>
+        /// <returns></returns>
         public static string Read(string select, string from, string where, string groupby, string columnName)
         {
-            string sql = "SELECT " + select + " FROM " + from + " WHERE " + where;
+            string sql = "SELECT " + select + " FROM " + from + " WHERE " + where + " GROUP BY " + groupby;
 
-            return Read(sql, columnName);
+            return Read(sql, columnName); ;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="select"></param>
+        /// <param name="from"></param>
+        /// <param name="where"></param>
+        /// <param name="columnName">The column you want as returnvalue</param>
+        /// <returns></returns>
         public static string Read(string select, string from, string where, string groupby, string orderby, string columnName)
         {
+            string sql = "SELECT " + select + " FROM " + from + " WHERE " + where + " GROUP BY " + groupby + " ORDER BY " + orderby;
+
+            return Read(sql, columnName); ;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="select"></param>
+        /// <param name="from"></param>
+        /// <param name="where"></param>
+        /// <param name="columnName">The columns you want as returnvalue</param>
+        /// <returns></returns>
+        public static string[] Read(string select, string from, string where, string[] columnNames)
+        {
+            string[] returnvalue = new string[columnNames.Count()];
             string sql = "SELECT " + select + " FROM " + from + " WHERE " + where;
 
-            return Read(sql, columnName);
+            for (int i = 0; i < columnNames.Count(); i++)
+            {
+                returnvalue[i] = Read(sql, columnNames[i]);
+            }
+
+            return returnvalue;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="select"></param>
+        /// <param name="from"></param>
+        /// <param name="where"></param>
+        /// <param name="groupby"></param>
+        /// <param name="columnName">The columns you want as returnvalue</param>
+        /// <returns></returns>
+        public static string[] Read(string select, string from, string where, string groupby, string[] columnNames)
+        {
+            string[] returnvalue = new string[columnNames.Count()];
+            string sql = "SELECT " + select + " FROM " + from + " WHERE " + where + " GROUP BY " + groupby;
+
+            for (int i = 0; i < columnNames.Count(); i++)
+            {
+                returnvalue[i] = Read(sql, columnNames[i]);
+            }
+
+            return returnvalue;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="select"></param>
+        /// <param name="from"></param>
+        /// <param name="where"></param>
+        /// <param name="groupby"></param>
+        /// <param name="orderby"></param>
+        /// <param name="columnName">The columns you want as returnvalue</param>
+        /// <returns></returns>
+        public static string[] Read(string select, string from, string where, string groupby, string orderby, string[] columnNames)
+        {
+            string[] returnvalue = new string[columnNames.Count()];
+            string sql = "SELECT " + select + " FROM " + from + " WHERE " + where + " GROUP BY " + groupby + " ORDER BY " + orderby;
+
+            for (int i = 0; i < columnNames.Count(); i++)
+            {
+                returnvalue[i] = Read(sql, columnNames[i]);
+            }
+
+            return returnvalue;
         }
 
         private static string Read(string sql, string columnName)
