@@ -19,7 +19,7 @@ namespace _4Rails_2
         public Login()
         {
             InitializeComponent();
-            
+            DataCom.ConnectToDB();
         }
 
         

@@ -3,21 +3,23 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Oracle.DataAccess.Client;
+using Oracle.ManagedDataAccess.Client;
 
-namespace ClassLibrary1
+namespace _4Rails_2
 {
     public static class DataCom
     {
         private static OracleConnection connection;
+        public static OracleConnection Connection { get { return connection; } }
         private static OracleCommand command;
         private static OracleDataReader reader;
 
-        private static void ConnectToDB()
+        public static void ConnectToDB()
         {
             try
             {
-                string connectionString = "Data Source=MyOracleDB; User Id=username; Password=password; Integrated Security=no;";
+            //TODO: change username and passowrd
+            string connectionString = "Data Source=(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=192.168.15.50)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=fhictora))); User Id=dbi317853; Password=qJKLqFc7Sh";
                 connection = new OracleConnection(connectionString);
                 connection.Open();
             }
