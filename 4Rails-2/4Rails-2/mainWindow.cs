@@ -16,5 +16,10 @@ namespace _4Rails_2
         {
             InitializeComponent();
         }
+
+        private void ToBeheerGUI_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
