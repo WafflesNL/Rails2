@@ -25,6 +25,8 @@ namespace _4Rails_2
             this.duration = duration;
         }
 
+        public CleaningPlanning() { }
+
         //Methods
         public void AddCleaning()
         {
@@ -45,6 +47,7 @@ namespace _4Rails_2
         public void CheckSchoonmaak()
         {
             //Search for all the trams that need to be cleaned
+            DataCom.ReadAll("Tram_id,User_ID,Date_,Time,Duration", "Cleaning_Schedule", null);
         }
     }
 }

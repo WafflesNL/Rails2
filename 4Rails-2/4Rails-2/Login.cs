@@ -19,6 +19,8 @@ namespace _4Rails_2
 
         public Login()
         {
+            //CleaningPlanning c = new CleaningPlanning();
+            //c.CheckSchoonmaak();
             InitializeComponent();
             LC = new LoginClass();
         }
@@ -37,7 +39,7 @@ namespace _4Rails_2
 
             int temp = Convert.ToInt16(LC.Check(Username, Password));
 
-            if (temp != 0   )
+            if (temp != 0)
             {
                 mainWindow window = new mainWindow(temp);
                 this.Hide();
@@ -46,7 +48,7 @@ namespace _4Rails_2
             }
             else
             {
-                tbUsername.Text = "rip";
+                tbUsername.Text = "fout";
             }
         }
     }

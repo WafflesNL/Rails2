@@ -16,7 +16,7 @@ namespace _4Rails_2
         public string Check(string Username, string Password)
         {
             string[] columns = new string[2] { "password", "function_id" };
-            string[] temp = DataCom.Read("password, function_id", "user_", "username = " + "'" + Username + "'", columns);
+            string[] temp = DataCom.ReadAll("password, function_id", "user_", "username = " + "'" + Username + "'", columns);
 
             if (temp[0] == Password)
                 return temp[1];
