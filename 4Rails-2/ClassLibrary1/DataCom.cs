@@ -141,19 +141,28 @@ namespace _4Rails_2
         /// <param name="from"></param>
         /// <param name="columnNames">The columns you want as returnvalue, if null uses select</param>
         /// <returns></returns>
-        public static string[] ReadAll(string select, string from, string[] columnNames)
+        public static List<string[]> ReadAll(string select, string from, string[] columnNames)
         {
-            string[] returnvalue;
-            string sql = "SELECT " + select + " FROM " + from;
+            List<string[]> returnvalue = new List<string[]>();
+            string[] tempvalue;
+
+            string sql = "SELECT COUNT(*) FROM " + from;
+            int amount = Convert.ToInt16(Read(sql, null));
+
+            sql = "SELECT " + select + " FROM " + from;
 
             if (columnNames == null)
                 columnNames = SetColumnNames(select, from);
 
-            returnvalue = new string[columnNames.Count()];
+            tempvalue = new string[columnNames.Count()];
 
-            for (int i = 0; i < columnNames.Count(); i++)
+            for (int j = 0; j < amount; j++)
             {
-                returnvalue[i] = Read(sql, columnNames[i]);
+                for (int i = 0; i < columnNames.Count(); i++)
+                {
+                    tempvalue[i] = Read(sql, columnNames[i]);
+                }
+                returnvalue.Add(tempvalue);
             }
 
             return returnvalue;
@@ -167,14 +176,28 @@ namespace _4Rails_2
         /// <param name="where"></param>
         /// <param name="columnName">The columns you want as returnvalue, if null uses select</param>
         /// <returns></returns>
-        public static string[] ReadAll(string select, string from, string where, string[] columnNames)
+        public static List<string[]> ReadAll(string select, string from, string where, string[] columnNames)
         {
-            string[] returnvalue = new string[columnNames.Count()];
-            string sql = "SELECT " + select + " FROM " + from + " WHERE " + where;
+            List<string[]> returnvalue = new List<string[]>();
+            string[] tempvalue;
 
-            for (int i = 0; i < columnNames.Count(); i++)
+            string sql = "SELECT COUNT(*) FROM " + from + " WHERE " + where;
+            int amount = Convert.ToInt16(Read(sql, null));
+
+            sql = "SELECT " + select + " FROM " + from + " Where " + where;
+
+            if (columnNames == null)
+                columnNames = SetColumnNames(select, from);
+
+            tempvalue = new string[columnNames.Count()];
+
+            for (int j = 0; j < amount; j++)
             {
-                returnvalue[i] = Read(sql, columnNames[i]);
+                for (int i = 0; i < columnNames.Count(); i++)
+                {
+                    tempvalue[i] = Read(sql, columnNames[i]);
+                }
+                returnvalue.Add(tempvalue);
             }
 
             return returnvalue;
@@ -189,14 +212,28 @@ namespace _4Rails_2
         /// <param name="groupby"></param>
         /// <param name="columnName">The columns you want as returnvalue, if null uses select</param>
         /// <returns></returns>
-        public static string[] ReadAll(string select, string from, string where, string groupby, string[] columnNames)
+        public static List<string[]> ReadAll(string select, string from, string where, string groupby, string[] columnNames)
         {
-            string[] returnvalue = new string[columnNames.Count()];
-            string sql = "SELECT " + select + " FROM " + from + " WHERE " + where + " GROUP BY " + groupby;
+            List<string[]> returnvalue = new List<string[]>();
+            string[] tempvalue;
 
-            for (int i = 0; i < columnNames.Count(); i++)
+            string sql = "SELECT COUNT(*) FROM " + from + " WHERE " + where + " GROUP BY " + groupby;
+            int amount = Convert.ToInt16(Read(sql, null));
+
+            sql = "SELECT " + select + " FROM " + from + " Where " + where + " GROUP BY " + groupby;
+
+            if (columnNames == null)
+                columnNames = SetColumnNames(select, from);
+
+            tempvalue = new string[columnNames.Count()];
+
+            for (int j = 0; j < amount; j++)
             {
-                returnvalue[i] = Read(sql, columnNames[i]);
+                for (int i = 0; i < columnNames.Count(); i++)
+                {
+                    tempvalue[i] = Read(sql, columnNames[i]);
+                }
+                returnvalue.Add(tempvalue);
             }
 
             return returnvalue;
@@ -212,14 +249,28 @@ namespace _4Rails_2
         /// <param name="orderby"></param>
         /// <param name="columnName">The columns you want as returnvalue, if null uses select</param>
         /// <returns></returns>
-        public static string[] ReadAll(string select, string from, string where, string groupby, string orderby, string[] columnNames)
+        public static List<string[]> ReadAll(string select, string from, string where, string groupby, string orderby, string[] columnNames)
         {
-            string[] returnvalue = new string[columnNames.Count()];
-            string sql = "SELECT " + select + " FROM " + from + " WHERE " + where + " GROUP BY " + groupby + " ORDER BY " + orderby;
+            List<string[]> returnvalue = new List<string[]>();
+            string[] tempvalue;
 
-            for (int i = 0; i < columnNames.Count(); i++)
+            string sql = "SELECT COUNT(*) FROM " + from + " WHERE " + where + " GROUP BY " + groupby + " ORDER BY " + orderby;
+            int amount = Convert.ToInt16(Read(sql, null));
+
+            sql = "SELECT " + select + " FROM " + from + " Where " + where + " GROUP BY " + groupby + " ORDER BY " + orderby;
+
+            if (columnNames == null)
+                columnNames = SetColumnNames(select, from);
+
+            tempvalue = new string[columnNames.Count()];
+
+            for (int j = 0; j < amount; j++)
             {
-                returnvalue[i] = Read(sql, columnNames[i]);
+                for (int i = 0; i < columnNames.Count(); i++)
+                {
+                    tempvalue[i] = Read(sql, columnNames[i]);
+                }
+                returnvalue.Add(tempvalue);
             }
 
             return returnvalue;
@@ -241,7 +292,10 @@ namespace _4Rails_2
             string returnstring = "";
             while (reader.Read())
             {
-                returnstring = Convert.ToString(reader[columnName]);
+                if (columnName == null)
+                    returnstring = Convert.ToString(reader[0]);
+                else
+                    returnstring = Convert.ToString(reader[columnName]);
             }
 
             Close();

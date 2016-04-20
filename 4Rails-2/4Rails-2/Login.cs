@@ -19,8 +19,8 @@ namespace _4Rails_2
 
         public Login()
         {
-            //CleaningPlanning c = new CleaningPlanning();
-            //c.CheckSchoonmaak();
+            CleaningPlanning c = new CleaningPlanning();
+            c.CheckSchoonmaak();
             InitializeComponent();
             LC = new LoginClass();
         }
