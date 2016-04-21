@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Oracle.ManagedDataAccess.Client;
+using System.Collections.Generic;
 
 namespace _4Rails_2
 {
@@ -28,9 +29,9 @@ namespace _4Rails_2
             string[] columns2 = new string[1] { "password" };
             //string[] temp = DataCom.Read("password, functie_id", "user_", "username = " + "'" + "Bart" + "'", columns2);
             string username = "Bart";
-            string[] temp = DataCom.ReadAll("password, function_id", "user_", "username = " + "'" + username + "'", columns);
-            Assert.AreEqual("123", temp[0]);
-            Assert.AreEqual("1", temp[1]);
+            List<string[]> temp = DataCom.ReadAll("password, function_id", "user_", "username = " + "'" + username + "'", columns);
+            Assert.AreEqual("123", temp[0][0]);
+            Assert.AreEqual("1", temp[0][1]);
         }
     }
 }

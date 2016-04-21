@@ -102,6 +102,9 @@
     <EmbeddedResource Include="beheerGUI.resx">
       <DependentUpon>beheerGUI.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="customBox.resx">
+      <DependentUpon>customBox.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
