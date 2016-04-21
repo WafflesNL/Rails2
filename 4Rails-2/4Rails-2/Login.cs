@@ -20,6 +20,8 @@ namespace _4Rails_2
 
         public Login()
         {
+            CleaningPlanning c = new CleaningPlanning();
+            c.CheckSchoonmaak();
             InitializeComponent();
             LC = new LoginClass();
         }
@@ -38,45 +40,16 @@ namespace _4Rails_2
 
             int temp = Convert.ToInt16(LC.Check(Username, Password));
 
-            if (temp != 0   )
+            if (temp != 0)
             {
-                switch (temp)
-                {
-                    case 1:
-                        beheerGUI beheer = new beheerGUI();
-                        this.Hide();
-                        beheer.ShowDialog();
-                        this.Close();
-                        break;
-                    case 2:
-                        beheerGUI beheer2 = new beheerGUI();
-                        this.Hide();
-                        beheer2.ShowDialog();
-                        this.Close();
-                        break;
-                    case 3:
-                        regelingGUI regeling = new regelingGUI();
-                        this.Hide();
-                        regeling.ShowDialog();
-                        this.Close();
-                        break;
-                    case 4:
-                        customBox techniek = new customBox();
-                        this.Hide();
-                        techniek.ShowDialog();
-                        this.Close();
-                        break;
-                    case 5:
-                        customBox schoonmaak = new customBox();
-                        this.Hide();
-                        schoonmaak.ShowDialog();
-                        this.Close();
-                        break;
-                }
+                mainWindow window = new mainWindow(temp);
+                this.Hide();
+                window.ShowDialog();
+                this.Close();
             }
             else
             {
-                tbUsername.Text = "rip";
+                tbUsername.Text = "fout";
             }
         }
     }

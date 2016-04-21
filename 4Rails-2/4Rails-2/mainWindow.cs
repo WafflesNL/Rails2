@@ -12,7 +12,7 @@ namespace _4Rails_2
 {
     public partial class mainWindow : Form
     {
-        public mainWindow()
+        public mainWindow(int id)
         {
             InitializeComponent();
         }
