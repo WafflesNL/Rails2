@@ -59,7 +59,7 @@ namespace _4Rails_2
         }
 
         /// <summary>
-        /// Used to read 1 column
+        /// Used to read 1 value
         /// </summary>
         /// <param name="select"></param>
         /// <param name="from"></param>
@@ -75,7 +75,7 @@ namespace _4Rails_2
         }
 
         /// <summary>
-        /// Used to read 1 column
+        /// Used to read 1 value
         /// </summary>
         /// <param name="select"></param>
         /// <param name="from"></param>
@@ -92,7 +92,7 @@ namespace _4Rails_2
         }
 
         /// <summary>
-        /// Used to read 1 column
+        /// Used to read 1 value
         /// </summary>
         /// <param name="select"></param>
         /// <param name="from"></param>
@@ -109,7 +109,7 @@ namespace _4Rails_2
         }
 
         /// <summary>
-        /// Used to read 1 column
+        /// Used to read 1 value
         /// </summary>
         /// <param name="select"></param>
         /// <param name="from"></param>
@@ -126,7 +126,7 @@ namespace _4Rails_2
         }
 
         /// <summary>
-        /// Used to read multiple columns
+        /// Used to read multiple columns and or rows
         /// </summary>
         /// <param name="select"></param>
         /// <param name="from"></param>
@@ -143,7 +143,7 @@ namespace _4Rails_2
         }
 
         /// <summary>
-        /// Used to read multiple columns
+        /// Used to read multiple columns and or rows
         /// </summary>
         /// <param name="select"></param>
         /// <param name="from"></param>
@@ -161,7 +161,7 @@ namespace _4Rails_2
         }
 
         /// <summary>
-        /// Used to read multiple columns
+        /// Used to read multiple columns and or rows
         /// </summary>
         /// <param name="select"></param>
         /// <param name="from"></param>
@@ -180,7 +180,7 @@ namespace _4Rails_2
         }
 
         /// <summary>
-        /// Used to read multiple columns
+        /// Used to read multiple columns and or rows
         /// </summary>
         /// <param name="select"></param>
         /// <param name="from"></param>
