@@ -12,29 +12,13 @@ namespace _4Rails_2
         public void DataComTest()
         {
             DataCom.ConnectToDB();
-            Assert.IsNotNull(DataCom.Connection, "rip");
-            /*
-            //DataCom.nonQuery("INSERT INTO rail (rail_id, blocked, sectors) VALUES (1, 0, 1)");
-            //string temp = DataCom.Read("rail_id", "rail", "rail_id = 1", "rail_id");
-            //Assert.AreEqual("1", temp, "rip");
-            string[] temp2 = new string[2] { "rail_id", "sectors" };
-            //string[] temp2 = new string[1] { "rail_id" };
-            string[] temp3 = DataCom.Read("rail_id, sectors", "rail", "rail_id = 1", temp2);
-            Assert.IsNotNull(temp3);
-            Assert.AreEqual("1", temp3[0], "rip");
-            Assert.AreEqual("1", temp3[1], "rip");
-            */
             
             string username = "Bart";
-            List<string[]> temp = DataCom.ReadAll("password, function_id", "user", "username = " + "'" + username + "'");
+            List<string[]> temp = DataCom.ReadAll("password, function_id", "user_", "username = " + "'" + username + "'");
             Assert.AreEqual("123", temp[0][0]);
             Assert.AreEqual("1", temp[0][1]);
 
-            /*List<string[]> temp = DataCom.ReadAll("r.Tram_ID, t.Rail_ID", "Regulation r,Tram t", "r.tram_id = t.tram_id", null);
-            string iets;
-            if (temp != null || temp[0] != null)
-                iets = temp[0][0];
-            Assert.AreEqual("2001", temp);*/
+            DataCom.Close();
         }
     }
 }

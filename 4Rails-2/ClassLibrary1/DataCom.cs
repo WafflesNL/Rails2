@@ -35,7 +35,10 @@ namespace _4Rails_2
             }
         }
 
-        private static void Close()
+        /// <summary>
+        /// DO NOT USE! Only public for unit test.
+        /// </summary>
+        public static void Close()
         {
             try
             {
@@ -126,7 +129,81 @@ namespace _4Rails_2
         }
 
         /// <summary>
-        /// Used to read multiple columns and or rows
+        /// Used to read 1 rows and multiple columns
+        /// </summary>
+        /// <param name="select"></param>
+        /// <param name="from"></param>
+        /// <returns></returns>
+        public static string[] ReadRow(string select, string from)
+        {
+            string[] returnvalue;
+
+            string sql = "SELECT " + select + " FROM " + from;
+
+            returnvalue = ReadAll(sql)[0];
+
+            return returnvalue;
+        }
+
+        /// <summary>
+        /// Used to read 1 rows and multiple columns
+        /// </summary>
+        /// <param name="select"></param>
+        /// <param name="from"></param>
+        /// <param name="where"></param>
+        /// <returns></returns>
+        public static string[] ReadRow(string select, string from, string where)
+        {
+            string[] returnvalue;
+
+            string sql = "SELECT " + select + " FROM " + from + " WHERE " + where;
+
+            returnvalue = ReadAll(sql)[0];
+
+            return returnvalue;
+        }
+
+        /// <summary>
+        /// Used to read 1 rows and multiple columns
+        /// </summary>
+        /// <param name="select"></param>
+        /// <param name="from"></param>
+        /// <param name="where"></param>
+        /// <param name="groupby"></param>
+        /// <returns></returns>
+        public static string[] ReadRow(string select, string from, string where, string groupby)
+        {
+            string[] returnvalue;
+
+            string sql = "SELECT " + select + " FROM " + from + " Where " + where + " GROUP BY " + groupby;
+
+            returnvalue = ReadAll(sql)[0];
+
+            return returnvalue;
+        }
+
+        /// <summary>
+        /// Used to read 1 rows and multiple columns
+        /// </summary>
+        /// <param name="select"></param>
+        /// <param name="from"></param>
+        /// <param name="where"></param>
+        /// <param name="groupby"></param>
+        /// <param name="orderby"></param>
+        /// <returns></returns>
+        public static string[] ReadRow(string select, string from, string where, string groupby, string orderby)
+        {
+            string[] returnvalue;
+
+            string sql = "SELECT " + select + " FROM " + from + " Where " + where + " GROUP BY " + groupby + " ORDER BY " + orderby;
+
+            returnvalue = ReadAll(sql)[0];
+
+            return returnvalue;
+        }
+
+        /// <summary>
+        /// Used to read multiple columns and rows
         /// </summary>
         /// <param name="select"></param>
         /// <param name="from"></param>
@@ -161,7 +238,7 @@ namespace _4Rails_2
         }
 
         /// <summary>
-        /// Used to read multiple columns and or rows
+        /// Used to read multiple columns and rows
         /// </summary>
         /// <param name="select"></param>
         /// <param name="from"></param>
@@ -180,7 +257,7 @@ namespace _4Rails_2
         }
 
         /// <summary>
-        /// Used to read multiple columns and or rows
+        /// Used to read multiple columns and rows
         /// </summary>
         /// <param name="select"></param>
         /// <param name="from"></param>
@@ -225,63 +302,6 @@ namespace _4Rails_2
 
             return returnlist;
         }
-
-        /*private static List<string[]> ReadAll(string sql, string[] columnNames)
-        {
-            ConnectToDB();
-            if (connection.State != System.Data.ConnectionState.Open)
-                return null;
-
-            
-            command = new OracleCommand(sql, connection);
-            try
-            {
-                reader = command.ExecuteReader();
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-                Close();
-                return null;
-            }
-
-            string[] returnstring = new string[columnNames.Count()];
-            List<string[]> returnlist = new List<string[]>();
-            //DataTable table = new DataTable();
-
-//while (reader.Read())
-            //    table.Load(reader);
-
-            //while (reader.HasRows)
-            //{ 
-                while (reader.Read())
-                {
-                    returnstring = new string[columnNames.Count()];
-                    for (int i = 0; i < columnNames.Count(); i++)
-                    {
-                        string temp;
-                        if (columnNames[i].Contains("."))
-                        {
-                            temp = columnNames[i].Split('.')[1];
-                            returnstring[i] = Convert.ToString(reader[temp]);
-                        }
-                        else
-                        {
-                            temp = columnNames[i];
-                            returnstring[i] = Convert.ToString(reader[temp]);
-                        }
-                    }
-
-                    returnlist.Add(returnstring);
-                }
-            //    reader.NextResult();
-            //}
-
-            Close();
-            if (returnlist != null)
-                return returnlist;
-            return null;
-        }*/
 
         private static string Read(string sql)
         {
