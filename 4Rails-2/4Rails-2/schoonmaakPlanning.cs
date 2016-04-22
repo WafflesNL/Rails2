@@ -31,9 +31,7 @@ namespace _4Rails_2
         public void AddCleaning()
         {
             //Insert a row to table
-            string a = Convert.ToString(this.Date);
-            string dates = a.Substring(' ');
-            string newCleaning = "INSERT INTO CLEANING_SCHEDULE(tram_id, user_id, date_, time, duration) VALUES (" + this.tramNR + ", " + this.cleaner + ", " + dates[0] + ", " + dates[1] + ", " + this.duration + ");";
+            string newCleaning = "INSERT INTO CLEANING_SCHEDULE(tram_id, user_id, date_, time, duration) VALUES (" + this.tramNR + ", " + this.cleaner + ", " + this.Date + ", " + this.duration + ");";
             DataCom.nonQuery(newCleaning);
         }
 
