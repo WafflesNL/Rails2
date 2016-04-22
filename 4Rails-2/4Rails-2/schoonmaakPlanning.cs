@@ -14,6 +14,7 @@ namespace _4Rails_2
         private int cleaner;
         private String type;
         private int duration;
+        public List<string[]> data = new List<string[]>();
 
         //Constructor
         public CleaningPlanning(DateTime time, int tramNR, int cleaner, string type, int duration)
@@ -42,10 +43,10 @@ namespace _4Rails_2
             DataCom.nonQuery(removeCleaning);
         }
 
-        public void CheckSchoonmaak()
+        public List<string[]> CheckSchoonmaak()
         {
             //Search for all the trams that need to be cleaned
-            List<string[]> data = DataCom.ReadAll("Tram_id,User_ID,Date_,Time,Duration", "Cleaning_Schedule", null); 
+            return data = DataCom.ReadAll("Tram_id,User_ID,Date_,Time,Duration", "Cleaning_Schedule", null); 
         }
     }
 }

@@ -16,5 +16,18 @@ namespace _4Rails_2
         {
             InitializeComponent();
         }
+
+        static customBox planningBox; static DialogResult result = DialogResult.No;
+        public static DialogResult Show(string Title, List<string[]> data)
+        {
+            planningBox = new customBox();
+            planningBox.Text = Title;
+            foreach (string[] items in data)
+            {
+                planningBox.customlstBox.Items.Add(items[0] + items[1] + items[2] + items[3] + items[4]);
+            }            
+            planningBox.ShowDialog();
+            return result;
+        }
     }
 }

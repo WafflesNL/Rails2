@@ -28,12 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.TramNRbox = new System.Windows.Forms.ListBox();
-            this.Datumbox = new System.Windows.Forms.ListBox();
-            this.Duurbox = new System.Windows.Forms.ListBox();
-            this.Statusbox = new System.Windows.Forms.ListBox();
-            this.Personeelsbox = new System.Windows.Forms.ListBox();
-            this.Typebox = new System.Windows.Forms.ListBox();
+            this.customlstBox = new System.Windows.Forms.ListBox();
             this.TramNRlabel = new System.Windows.Forms.Label();
             this.Duurlabel = new System.Windows.Forms.Label();
             this.Typelabel = new System.Windows.Forms.Label();
@@ -42,53 +37,13 @@
             this.Statuslabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // TramNRbox
+            // customlstBox
             // 
-            this.TramNRbox.FormattingEnabled = true;
-            this.TramNRbox.Location = new System.Drawing.Point(12, 31);
-            this.TramNRbox.Name = "TramNRbox";
-            this.TramNRbox.Size = new System.Drawing.Size(33, 446);
-            this.TramNRbox.TabIndex = 0;
-            // 
-            // Datumbox
-            // 
-            this.Datumbox.FormattingEnabled = true;
-            this.Datumbox.Location = new System.Drawing.Point(200, 31);
-            this.Datumbox.Name = "Datumbox";
-            this.Datumbox.Size = new System.Drawing.Size(71, 446);
-            this.Datumbox.TabIndex = 1;
-            // 
-            // Duurbox
-            // 
-            this.Duurbox.FormattingEnabled = true;
-            this.Duurbox.Location = new System.Drawing.Point(73, 31);
-            this.Duurbox.Name = "Duurbox";
-            this.Duurbox.Size = new System.Drawing.Size(33, 446);
-            this.Duurbox.TabIndex = 2;
-            // 
-            // Statusbox
-            // 
-            this.Statusbox.FormattingEnabled = true;
-            this.Statusbox.Location = new System.Drawing.Point(424, 31);
-            this.Statusbox.Name = "Statusbox";
-            this.Statusbox.Size = new System.Drawing.Size(93, 446);
-            this.Statusbox.TabIndex = 3;
-            // 
-            // Personeelsbox
-            // 
-            this.Personeelsbox.FormattingEnabled = true;
-            this.Personeelsbox.Location = new System.Drawing.Point(300, 31);
-            this.Personeelsbox.Name = "Personeelsbox";
-            this.Personeelsbox.Size = new System.Drawing.Size(92, 446);
-            this.Personeelsbox.TabIndex = 4;
-            // 
-            // Typebox
-            // 
-            this.Typebox.FormattingEnabled = true;
-            this.Typebox.Location = new System.Drawing.Point(137, 31);
-            this.Typebox.Name = "Typebox";
-            this.Typebox.Size = new System.Drawing.Size(33, 446);
-            this.Typebox.TabIndex = 5;
+            this.customlstBox.FormattingEnabled = true;
+            this.customlstBox.Location = new System.Drawing.Point(12, 31);
+            this.customlstBox.Name = "customlstBox";
+            this.customlstBox.Size = new System.Drawing.Size(503, 446);
+            this.customlstBox.TabIndex = 0;
             // 
             // TramNRlabel
             // 
@@ -155,12 +110,7 @@
             this.Controls.Add(this.Typelabel);
             this.Controls.Add(this.Duurlabel);
             this.Controls.Add(this.TramNRlabel);
-            this.Controls.Add(this.Typebox);
-            this.Controls.Add(this.Personeelsbox);
-            this.Controls.Add(this.Statusbox);
-            this.Controls.Add(this.Duurbox);
-            this.Controls.Add(this.Datumbox);
-            this.Controls.Add(this.TramNRbox);
+            this.Controls.Add(this.customlstBox);
             this.Name = "customBox";
             this.Text = "customBox";
             this.ResumeLayout(false);
@@ -170,12 +120,7 @@
 
         #endregion
 
-        private System.Windows.Forms.ListBox TramNRbox;
-        private System.Windows.Forms.ListBox Datumbox;
-        private System.Windows.Forms.ListBox Duurbox;
-        private System.Windows.Forms.ListBox Statusbox;
-        private System.Windows.Forms.ListBox Personeelsbox;
-        private System.Windows.Forms.ListBox Typebox;
+        private System.Windows.Forms.ListBox customlstBox;
         private System.Windows.Forms.Label TramNRlabel;
         private System.Windows.Forms.Label Duurlabel;
         private System.Windows.Forms.Label Typelabel;
