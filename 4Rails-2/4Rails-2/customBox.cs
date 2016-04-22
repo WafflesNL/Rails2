@@ -24,7 +24,7 @@ namespace _4Rails_2
             planningBox.Text = Title;
             foreach (string[] items in data)
             {
-                planningBox.customlstBox.Items.Add(items[0] + items[1] + items[2] + items[3] + items[4]);
+                planningBox.customlstBox.DataSource = planningBox.customlstBox.Items.Add(items[0] + items[1] + items[2] + items[3]);
             }            
             planningBox.ShowDialog();
             return result;

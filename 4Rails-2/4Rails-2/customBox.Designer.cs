@@ -42,7 +42,7 @@
             this.customlstBox.FormattingEnabled = true;
             this.customlstBox.Location = new System.Drawing.Point(12, 31);
             this.customlstBox.Name = "customlstBox";
-            this.customlstBox.Size = new System.Drawing.Size(503, 446);
+            this.customlstBox.Size = new System.Drawing.Size(373, 446);
             this.customlstBox.TabIndex = 0;
             // 
             // TramNRlabel
