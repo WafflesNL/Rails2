@@ -336,22 +336,25 @@ namespace _4Rails_2
                     break;
             }
             
-                columnNames = new string[(int)tcc];
-                string temp = select;
-                temp.Replace(" ", "");
-                int counter = 0;
-                for (int i = 0; i < temp.Length; i++)
+            columnNames = new string[(int)tcc];
+            string temp = select;
+            temp.Replace(" ", "");
+            int counter = 0;
+            for (int i = 0; i < temp.Length; i++)
+            {
+                if (temp.Substring(i, 1) == ",")
                 {
-                    if (temp.Substring(i, 1) == ",")
-                    {
-                        columnNames[counter] = temp.Substring(0, i);
-                        counter++;
-                        temp = temp.Remove(0, i + 1);
-                        i = 0;
-                    }
-                    else if (i == temp.Length - 1)
-                        columnNames[counter] = temp;
+                    columnNames[counter] = temp.Substring(0, i);
+                    counter++;
+                    temp = temp.Remove(0, i + 1);
+                    i = 0;
                 }
+                else if (i == temp.Length - 1)
+                    columnNames[counter] = temp;
+            }
+
+            columnNames.
+
             return columnNames;
         }
     }
