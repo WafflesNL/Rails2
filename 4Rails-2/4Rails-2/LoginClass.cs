@@ -18,8 +18,11 @@ namespace _4Rails_2
             string[] columns = new string[2] { "password", "function_id" };
             List<string[]> temp = DataCom.ReadAll("password, function_id", "user_", "username = " + "'" + Username + "'", columns);
 
-            if (temp[0][0] == Password)
-                return temp[0][1];
+            foreach(string[] t in temp)
+            {
+                if (t[0] == Password)
+                    return t[1];
+            }
             return null;
         }
     }

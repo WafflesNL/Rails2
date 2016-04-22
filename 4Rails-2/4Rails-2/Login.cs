@@ -49,7 +49,7 @@ namespace _4Rails_2
             }
             else
             {
-                tbUsername.Text = "fout";
+                MessageBox.Show("Gebruikersnaam en/of wachtwoord komen niet overeen.");
             }
         }
     }
