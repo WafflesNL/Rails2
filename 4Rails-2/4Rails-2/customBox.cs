@@ -16,5 +16,14 @@ namespace _4Rails_2
         {
             InitializeComponent();
         }
+
+        static customBox MsgBox; static DialogResult result = DialogResult.No;
+        public static DialogResult Show(string Title)
+        {
+            MsgBox = new customBox();
+            MsgBox.Text = Title;
+            MsgBox.ShowDialog();
+            return result;
+        }
     }
 }

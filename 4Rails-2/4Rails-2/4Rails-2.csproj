@@ -48,6 +48,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Oracle.ManagedDataAccess, Version=4.121.2.0, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -101,6 +102,9 @@
     <Compile Include="Tram.cs" />
     <EmbeddedResource Include="beheerGUI.resx">
       <DependentUpon>beheerGUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="customBox.resx">
+      <DependentUpon>customBox.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
