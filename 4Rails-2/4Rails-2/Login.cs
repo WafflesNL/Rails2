@@ -52,5 +52,23 @@ namespace _4Rails_2
                 MessageBox.Show("Gebruikersnaam en/of wachtwoord komen niet overeen.");
             }
         }
+
+        private void tbPassword_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnLogin.PerformClick();
+                e.Handled = true;
+            }
+        }
+
+        private void tbUsername_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnLogin.PerformClick();
+                e.Handled = true;
+            }
+        }
     }
 }
