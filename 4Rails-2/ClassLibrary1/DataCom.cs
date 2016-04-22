@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,20 +17,6 @@ namespace _4Rails_2
         public static OracleConnection Connection { get { return connection; } }
         private static OracleCommand command;
         private static OracleDataReader reader;
-
-        private enum TableColumnCount
-        {
-            Cleaning_Schedule = 5,
-            Mechanic_Schedule = 5,
-            Rail = 3,
-            Regulation = 3,
-            Sector = 2,
-            Tram = 4,
-            User_ = 8,
-            Multitable = 20
-        };
-
-        private static TableColumnCount tcc;
 
         /// <summary>
         /// DO NOT USE! Only public for unit test.
@@ -84,7 +71,7 @@ namespace _4Rails_2
             if (columnName == null)
                 columnName = select;
 
-            return Read(sql, columnName);
+            return Read(sql);
         }
 
         /// <summary>
@@ -101,7 +88,7 @@ namespace _4Rails_2
             if (columnName == null)
                 columnName = select;
 
-            return Read(sql, columnName); ;
+            return Read(sql); ;
         }
 
         /// <summary>
@@ -118,7 +105,7 @@ namespace _4Rails_2
             if (columnName == null)
                 columnName = select;
 
-            return Read(sql, columnName); ;
+            return Read(sql); ;
         }
 
         /// <summary>
@@ -135,7 +122,7 @@ namespace _4Rails_2
             if (columnName == null)
                 columnName = select;
 
-            return Read(sql, columnName); ;
+            return Read(sql); ;
         }
 
         /// <summary>
@@ -143,24 +130,14 @@ namespace _4Rails_2
         /// </summary>
         /// <param name="select"></param>
         /// <param name="from"></param>
-        /// <param name="columnNames">The columns you want as returnvalue, if null uses select</param>
         /// <returns></returns>
-        public static List<string[]> ReadAll(string select, string from, string[] columnNames)
+        public static List<string[]> ReadAll(string select, string from)
         {
             List<string[]> returnvalue = new List<string[]>();
-            string[] tempvalue;
 
-            string sql = "SELECT COUNT(*) FROM " + from;
-            int amount = Convert.ToInt16(Read(sql, null));
+            string sql = "SELECT " + select + " FROM " + from;
 
-            sql = "SELECT " + select + " FROM " + from;
-
-            if (columnNames == null)
-                columnNames = SetColumnNames(select, from);
-
-            tempvalue = new string[columnNames.Count()];
-
-            returnvalue = ReadAll(sql, columnNames);
+            returnvalue = ReadAll(sql);
 
             return returnvalue;
         }
@@ -171,24 +148,14 @@ namespace _4Rails_2
         /// <param name="select"></param>
         /// <param name="from"></param>
         /// <param name="where"></param>
-        /// <param name="columnName">The columns you want as returnvalue, if null uses select</param>
         /// <returns></returns>
-        public static List<string[]> ReadAll(string select, string from, string where, string[] columnNames)
+        public static List<string[]> ReadAll(string select, string from, string where)
         {
             List<string[]> returnvalue = new List<string[]>();
-            string[] tempvalue;
 
-            string sql = "SELECT COUNT(*) FROM " + from + " WHERE " + where;
-            int amount = Convert.ToInt16(Read(sql, null));
+            string sql = "SELECT " + select + " FROM " + from + " WHERE " + where;
 
-            sql = "SELECT " + select + " FROM " + from + " WHERE " + where;
-
-            if (columnNames == null)
-                columnNames = SetColumnNames(select, from);
-
-            tempvalue = new string[columnNames.Count()];
-
-            returnvalue = ReadAll(sql, columnNames);
+            returnvalue = ReadAll(sql);
 
             return returnvalue;
         }
@@ -200,24 +167,14 @@ namespace _4Rails_2
         /// <param name="from"></param>
         /// <param name="where"></param>
         /// <param name="groupby"></param>
-        /// <param name="columnName">The columns you want as returnvalue, if null uses select</param>
         /// <returns></returns>
-        public static List<string[]> ReadAll(string select, string from, string where, string groupby, string[] columnNames)
+        public static List<string[]> ReadAll(string select, string from, string where, string groupby)
         {
             List<string[]> returnvalue = new List<string[]>();
-            string[] tempvalue;
 
-            string sql = "SELECT COUNT(*) FROM " + from + " WHERE " + where + " GROUP BY " + groupby;
-            int amount = Convert.ToInt16(Read(sql, null));
+            string sql = "SELECT " + select + " FROM " + from + " Where " + where + " GROUP BY " + groupby;
 
-            sql = "SELECT " + select + " FROM " + from + " Where " + where + " GROUP BY " + groupby;
-
-            if (columnNames == null)
-                columnNames = SetColumnNames(select, from);
-
-            tempvalue = new string[columnNames.Count()];
-
-            returnvalue = ReadAll(sql, columnNames);
+            returnvalue = ReadAll(sql);
 
             return returnvalue;
         }
@@ -230,45 +187,73 @@ namespace _4Rails_2
         /// <param name="where"></param>
         /// <param name="groupby"></param>
         /// <param name="orderby"></param>
-        /// <param name="columnName">The columns you want as returnvalue, if null uses select</param>
         /// <returns></returns>
-        public static List<string[]> ReadAll(string select, string from, string where, string groupby, string orderby, string[] columnNames)
+        public static List<string[]> ReadAll(string select, string from, string where, string groupby, string orderby)
         {
             List<string[]> returnvalue = new List<string[]>();
-            string[] tempvalue;
 
-            string sql = "SELECT COUNT(*) FROM " + from + " WHERE " + where + " GROUP BY " + groupby + " ORDER BY " + orderby;
-            int amount = Convert.ToInt16(Read(sql, null));
+            string sql = "SELECT " + select + " FROM " + from + " Where " + where + " GROUP BY " + groupby + " ORDER BY " + orderby;
 
-            sql = "SELECT " + select + " FROM " + from + " Where " + where + " GROUP BY " + groupby + " ORDER BY " + orderby;
-
-            if (columnNames == null)
-                columnNames = SetColumnNames(select, from);
-
-            tempvalue = new string[columnNames.Count()];
-
-            returnvalue = ReadAll(sql, columnNames);
+            returnvalue = ReadAll(sql);
 
             return returnvalue;
         }
 
-        private static List<string[]> ReadAll(string sql, string[] columnNames)
+        private static List<string[]> ReadAll(string sql)
+        {
+            ConnectToDB();
+
+            if (connection.State != ConnectionState.Open)
+                return null;
+
+            List<string[]> returnlist = new List<string[]>();
+            string[] returnstring;
+
+            OracleDataAdapter da = new OracleDataAdapter(sql, connection);
+            DataTable dataTable = new DataTable();
+            
+            da.Fill(dataTable);
+            foreach(DataRow row in dataTable.Rows)
+            {
+                returnstring = new string[dataTable.Columns.Count];
+                for (int i = 0; i < row.ItemArray.Count(); i++)
+                    returnstring[i] = row.ItemArray[i].ToString();
+                returnlist.Add(returnstring);
+            }
+
+            Close();
+
+            return returnlist;
+        }
+
+        /*private static List<string[]> ReadAll(string sql, string[] columnNames)
         {
             ConnectToDB();
             if (connection.State != System.Data.ConnectionState.Open)
                 return null;
 
+            
             command = new OracleCommand(sql, connection);
             try
             {
                 reader = command.ExecuteReader();
             }
-            catch (Exception) { Close(); return null; }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                Close();
+                return null;
+            }
 
             string[] returnstring = new string[columnNames.Count()];
             List<string[]> returnlist = new List<string[]>();
-            while (reader.HasRows)
-            {
+            //DataTable table = new DataTable();
+
+//while (reader.Read())
+            //    table.Load(reader);
+
+            //while (reader.HasRows)
+            //{ 
                 while (reader.Read())
                 {
                     returnstring = new string[columnNames.Count()];
@@ -289,105 +274,35 @@ namespace _4Rails_2
 
                     returnlist.Add(returnstring);
                 }
-                reader.NextResult();
-            }
+            //    reader.NextResult();
+            //}
 
             Close();
             if (returnlist != null)
                 return returnlist;
             return null;
-        }
+        }*/
 
-        private static string Read(string sql, string columnName)
+        private static string Read(string sql)
         {
             ConnectToDB();
             if (connection.State != System.Data.ConnectionState.Open)
                 return null;
 
-            command = new OracleCommand(sql, connection);
-            try
-            {
-                reader = command.ExecuteReader();
-            }
-            catch (Exception) { Close(); return null; }
+            string returnstring = null;
 
-            string returnstring = "";
-            while (reader.Read())
+            OracleDataAdapter da = new OracleDataAdapter(sql, connection);
+            DataTable dataTable = new DataTable();
+
+            da.Fill(dataTable);
+            foreach (DataRow row in dataTable.Rows)
             {
-                if (columnName == null)
-                {
-                    returnstring = Convert.ToString(reader[0]);
-                }
-                else if (columnName.Contains("."))
-                {
-                    columnName = columnName.Split('.')[1];
-                    returnstring = Convert.ToString(reader[columnName]);
-                }
-                else
-                {
-                    returnstring = Convert.ToString(reader[columnName]);
-                }
-                reader.NextResult();
+                returnstring = row.ItemArray[0].ToString();
             }
 
             Close();
-            if (returnstring != "" || returnstring != null)
-                return returnstring;
-            return null;
-        }
 
-        private static string[] SetColumnNames(string select, string from)
-        {
-            string[] columnNames;
-
-            switch (from)
-            {
-                case "Cleaning_Schedule":
-                    tcc = TableColumnCount.Cleaning_Schedule;
-                    break;
-                case "Mechanic_Schedule":
-                    tcc = TableColumnCount.Mechanic_Schedule;
-                    break;
-                case "Rail":
-                    tcc = TableColumnCount.Rail;
-                    break;
-                case "Regulation":
-                    tcc = TableColumnCount.Regulation;
-                    break;
-                case "Sector":
-                    tcc = TableColumnCount.Sector;
-                    break;
-                case "Tram":
-                    tcc = TableColumnCount.Tram;
-                    break;
-                case "User_":
-                    tcc = TableColumnCount.User_;
-                    break;
-                default:
-                    tcc = TableColumnCount.Multitable;
-                    break;
-            }
-            
-            columnNames = new string[(int)tcc];
-            string temp = select;
-            temp.Replace(" ", "");
-            int counter = 0;
-            for (int i = 0; i < temp.Length; i++)
-            {
-                if (temp.Substring(i, 1) == ",")
-                {
-                    columnNames[counter] = temp.Substring(0, i);
-                    counter++;
-                    temp = temp.Remove(0, i + 1);
-                    i = 0;
-                }
-                else if (i == temp.Length - 1)
-                    columnNames[counter] = temp;
-            }
-
-            columnNames = columnNames.Where(c => c != null).ToArray();
-
-            return columnNames;
+            return returnstring;
         }
     }
 }

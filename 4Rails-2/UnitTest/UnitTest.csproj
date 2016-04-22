@@ -55,6 +55,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\4Rails-2\4Rails-2.csproj">
+      <Project>{a6f24c22-9d68-41d4-b309-8cd0a88aab77}</Project>
+      <Name>4Rails-2</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ClassLibrary1\ClassLibrary1.csproj">
       <Project>{a0f87d70-edb4-4b1f-9b0d-5611f99a6969}</Project>
       <Name>ClassLibrary1</Name>

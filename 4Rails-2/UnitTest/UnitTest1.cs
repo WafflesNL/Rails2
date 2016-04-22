@@ -24,14 +24,17 @@ namespace _4Rails_2
             Assert.AreEqual("1", temp3[0], "rip");
             Assert.AreEqual("1", temp3[1], "rip");
             */
-
-            string[] columns = new string[2] { "password", "function_id" };
-            string[] columns2 = new string[1] { "password" };
-            //string[] temp = DataCom.Read("password, functie_id", "user_", "username = " + "'" + "Bart" + "'", columns2);
+            
             string username = "Bart";
-            List<string[]> temp = DataCom.ReadAll("password, function_id", "user", "username = " + "'" + username + "'", columns);
+            List<string[]> temp = DataCom.ReadAll("password, function_id", "user", "username = " + "'" + username + "'");
             Assert.AreEqual("123", temp[0][0]);
             Assert.AreEqual("1", temp[0][1]);
+
+            /*List<string[]> temp = DataCom.ReadAll("r.Tram_ID, t.Rail_ID", "Regulation r,Tram t", "r.tram_id = t.tram_id", null);
+            string iets;
+            if (temp != null || temp[0] != null)
+                iets = temp[0][0];
+            Assert.AreEqual("2001", temp);*/
         }
     }
 }
