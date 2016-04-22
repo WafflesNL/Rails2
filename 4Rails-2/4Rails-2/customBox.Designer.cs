@@ -47,7 +47,7 @@
             this.TramNRbox.FormattingEnabled = true;
             this.TramNRbox.Location = new System.Drawing.Point(12, 31);
             this.TramNRbox.Name = "TramNRbox";
-            this.TramNRbox.Size = new System.Drawing.Size(33, 446);
+            this.TramNRbox.Size = new System.Drawing.Size(32, 446);
             this.TramNRbox.TabIndex = 0;
             // 
             // Datumbox
