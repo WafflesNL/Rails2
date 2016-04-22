@@ -352,9 +352,6 @@ namespace _4Rails_2
                 else if (i == temp.Length - 1)
                     columnNames[counter] = temp;
             }
-
-            columnNames.
-
             return columnNames;
         }
     }
