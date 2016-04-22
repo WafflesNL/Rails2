@@ -32,7 +32,7 @@ namespace _4Rails_2
         public void AddCleaning()
         {
             //Insert a row to table
-            string newCleaning = "INSERT INTO CLEANING_SCHEDULE(tram_id, user_id, date_, time, duration) VALUES (" + this.tramNR + ", " + this.cleaner + ", " + this.Date + ", " + this.duration + ");";
+            string newCleaning = "INSERT INTO CLEANING_SCHEDULE(tram_id, user_id, time, duration) VALUES (" + this.tramNR + ", " + this.cleaner + ", " + this.Date + ", " + this.duration + ");";
             DataCom.nonQuery(newCleaning);
         }
 
