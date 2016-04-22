@@ -160,14 +160,7 @@ namespace _4Rails_2
 
             tempvalue = new string[columnNames.Count()];
 
-            for (int j = 0; j < amount; j++)
-            {
-                for (int i = 0; i < columnNames.Count(); i++)
-                {
-                    tempvalue[i] = Read(sql, columnNames[i]);
-                }
-                returnvalue.Add(tempvalue);
-            }
+            returnvalue = ReadAll(sql, columnNames);
 
             return returnvalue;
         }
@@ -195,14 +188,7 @@ namespace _4Rails_2
 
             tempvalue = new string[columnNames.Count()];
 
-            for (int j = 0; j < amount; j++)
-            {
-                for (int i = 0; i < columnNames.Count(); i++)
-                {
-                    tempvalue[i] = Read(sql, columnNames[i]);
-                }
-                returnvalue.Add(tempvalue);
-            }
+            returnvalue = ReadAll(sql, columnNames);
 
             return returnvalue;
         }
@@ -231,14 +217,7 @@ namespace _4Rails_2
 
             tempvalue = new string[columnNames.Count()];
 
-            for (int j = 0; j < amount; j++)
-            {
-                for (int i = 0; i < columnNames.Count(); i++)
-                {
-                    tempvalue[i] = Read(sql, columnNames[i]);
-                }
-                returnvalue.Add(tempvalue);
-            }
+            returnvalue = ReadAll(sql, columnNames);
 
             return returnvalue;
         }
@@ -268,16 +247,55 @@ namespace _4Rails_2
 
             tempvalue = new string[columnNames.Count()];
 
-            for (int j = 0; j < amount; j++)
-            {
-                for (int i = 0; i < columnNames.Count(); i++)
-                {
-                    tempvalue[i] = Read(sql, columnNames[i]);
-                }
-                returnvalue.Add(tempvalue);
-            }
+            returnvalue = ReadAll(sql, columnNames);
 
             return returnvalue;
+        }
+
+        private static List<string[]> ReadAll(string sql, string[] columnNames)
+        {
+            ConnectToDB();
+            if (connection.State != System.Data.ConnectionState.Open)
+                return null;
+
+            command = new OracleCommand(sql, connection);
+            try
+            {
+                reader = command.ExecuteReader();
+            }
+            catch (Exception) { Close(); return null; }
+
+            string[] returnstring = new string[columnNames.Count()];
+            List<string[]> returnlist = new List<string[]>();
+            while (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    returnstring = new string[columnNames.Count()];
+                    for (int i = 0; i < columnNames.Count(); i++)
+                    {
+                        string temp;
+                        if (columnNames[i].Contains("."))
+                        {
+                            temp = columnNames[i].Split('.')[1];
+                            returnstring[i] = Convert.ToString(reader[temp]);
+                        }
+                        else
+                        {
+                            temp = columnNames[i];
+                            returnstring[i] = Convert.ToString(reader[temp]);
+                        }
+                    }
+
+                    returnlist.Add(returnstring);
+                }
+                reader.NextResult();
+            }
+
+            Close();
+            if (returnlist != null)
+                return returnlist;
+            return null;
         }
 
         private static string Read(string sql, string columnName)
@@ -297,14 +315,19 @@ namespace _4Rails_2
             while (reader.Read())
             {
                 if (columnName == null)
+                {
                     returnstring = Convert.ToString(reader[0]);
+                }
                 else if (columnName.Contains("."))
                 {
                     columnName = columnName.Split('.')[1];
                     returnstring = Convert.ToString(reader[columnName]);
                 }
                 else
+                {
                     returnstring = Convert.ToString(reader[columnName]);
+                }
+                reader.NextResult();
             }
 
             Close();
