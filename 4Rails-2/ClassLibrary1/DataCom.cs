@@ -185,7 +185,7 @@ namespace _4Rails_2
             string sql = "SELECT COUNT(*) FROM " + from + " WHERE " + where;
             int amount = Convert.ToInt16(Read(sql, null));
 
-            sql = "SELECT " + select + " FROM " + from + " Where " + where;
+            sql = "SELECT " + select + " FROM " + from + " WHERE " + where;
 
             if (columnNames == null)
                 columnNames = SetColumnNames(select, from);
