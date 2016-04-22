@@ -23,9 +23,6 @@ namespace _4Rails_2
                 if (t[0] == Password)
                     return t[1];
             }
-
-            //if (temp[0][0] == Password)
-            //    return temp[0][1];
             return null;
         }
     }
