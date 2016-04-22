@@ -26,6 +26,7 @@ namespace _4Rails_2
             Sector = 2,
             Tram = 4,
             User_ = 8,
+            Multitable = 20
         };
 
         private static TableColumnCount tcc;
@@ -337,7 +338,7 @@ namespace _4Rails_2
                     tcc = TableColumnCount.User_;
                     break;
                 default:
-                    tcc = TableColumnCount.User_;
+                    tcc = TableColumnCount.Multitable;
                     break;
             }
             
