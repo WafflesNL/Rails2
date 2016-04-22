@@ -26,6 +26,7 @@ namespace _4Rails_2
             Sector = 2,
             Tram = 4,
             User_ = 8,
+            Multitable = 20
         };
 
         private static TableColumnCount tcc;
@@ -37,7 +38,7 @@ namespace _4Rails_2
         {
             try
             {
-                string connectionString = "Data Source=(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=192.168.15.50)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=fhictora))); User Id=dbi317853; Password=qJKLqFc7Sh";
+                string connectionString = "Data Source=(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=192.168.15.50)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=fhictora))); User Id=dbi317853; Password=";
                 connection = new OracleConnection(connectionString);
                 connection.Open();
             }
@@ -337,7 +338,7 @@ namespace _4Rails_2
                     tcc = TableColumnCount.User_;
                     break;
                 default:
-                    tcc = TableColumnCount.User_;
+                    tcc = TableColumnCount.Multitable;
                     break;
             }
             
