@@ -26,6 +26,7 @@ namespace _4Rails_2
             Sector = 2,
             Tram = 4,
             User_ = 8,
+            Multitable = 20
         };
 
         private static TableColumnCount tcc;
@@ -294,6 +295,11 @@ namespace _4Rails_2
             {
                 if (columnName == null)
                     returnstring = Convert.ToString(reader[0]);
+                else if (columnName.Contains("."))
+                {
+                    columnName = columnName.Split('.')[1];
+                    returnstring = Convert.ToString(reader[columnName]);
+                }
                 else
                     returnstring = Convert.ToString(reader[columnName]);
             }
@@ -332,7 +338,7 @@ namespace _4Rails_2
                     tcc = TableColumnCount.User_;
                     break;
                 default:
-                    tcc = TableColumnCount.User_;
+                    tcc = TableColumnCount.Multitable;
                     break;
             }
             
@@ -352,6 +358,9 @@ namespace _4Rails_2
                 else if (i == temp.Length - 1)
                     columnNames[counter] = temp;
             }
+
+            columnNames = columnNames.Where(c => c != null).ToArray();
+
             return columnNames;
         }
     }

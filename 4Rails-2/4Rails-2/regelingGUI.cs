@@ -29,8 +29,8 @@ namespace _4Rails_2
         {
             foreach(string[] items in regelinglist)
             {
-                lbTramnr.Items.Add(regelinglist[0]);
-                lbSpoor.Items.Add(regelinglist[1]);
+                lbTramnr.Items.Add(items[0]);
+                lbSpoor.Items.Add(items[1]);
             }
         }
     }
