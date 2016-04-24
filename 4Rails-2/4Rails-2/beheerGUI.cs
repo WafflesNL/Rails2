@@ -13,16 +13,24 @@ namespace _4Rails_2
     public partial class beheerGUI : Form
     {
         CleaningPlanning schoonmaakplanning;
+        techniekPlanning techniekplanning;
         public beheerGUI()
         {
             InitializeComponent();
             schoonmaakplanning = new CleaningPlanning();
+            techniekplanning = new techniekPlanning();
         }
 
         private void btnOpenSchoonmaak_Click(object sender, EventArgs e)
         {
             schoonmaakplanning.CheckSchoonmaak();
             customBox.Show("Schoonmaakplanning", schoonmaakplanning.data);
+        }
+
+        private void btnOpenTechniek_Click(object sender, EventArgs e)
+        {
+            techniekplanning.CheckTechniek();
+            customBox.Show("Techniekplanning", techniekplanning.data);
         }
     }
 }
