@@ -306,7 +306,7 @@ namespace _4Rails_2
         private static string Read(string sql)
         {
             ConnectToDB();
-            if (connection.State != System.Data.ConnectionState.Open)
+            if (connection.State != ConnectionState.Open)
                 return null;
 
             string returnstring = null;
