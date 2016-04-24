@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lbTramNr = new System.Windows.Forms.ListBox();
             this.btnOpenSchoonmaak = new System.Windows.Forms.Button();
             this.btnOpenTechniek = new System.Windows.Forms.Button();
@@ -35,6 +36,8 @@
             this.lbTram = new System.Windows.Forms.Label();
             this.lbStatus = new System.Windows.Forms.Label();
             this.btnTram = new System.Windows.Forms.Button();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.Back = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lbTramNr
@@ -107,11 +110,27 @@
             this.btnTram.UseVisualStyleBackColor = true;
             this.btnTram.Click += new System.EventHandler(this.btnTram_Click);
             // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Tick += new System.EventHandler(this.Timer1_Tick);
+            // 
+            // Back
+            // 
+            this.Back.Location = new System.Drawing.Point(388, 417);
+            this.Back.Name = "Back";
+            this.Back.Size = new System.Drawing.Size(75, 23);
+            this.Back.TabIndex = 10;
+            this.Back.Text = "Back";
+            this.Back.UseVisualStyleBackColor = true;
+            this.Back.Click += new System.EventHandler(this.Back_Click);
+            // 
             // beheerGUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(479, 461);
+            this.Controls.Add(this.Back);
             this.Controls.Add(this.btnTram);
             this.Controls.Add(this.lbStatus);
             this.Controls.Add(this.lbTram);
@@ -136,5 +155,7 @@
         private System.Windows.Forms.Label lbTram;
         private System.Windows.Forms.Label lbStatus;
         private System.Windows.Forms.Button btnTram;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Button Back;
     }
 }

@@ -28,6 +28,11 @@ namespace _4Rails_2
             }
         }
 
+        private void Timer1_Tick(object sender, EventArgs e)
+        {
+            lbTramNr.Refresh();
+        }
+
         private void btnOpenSchoonmaak_Click(object sender, EventArgs e)
         {
             schoonmaakplanning.CheckSchoonmaak();
@@ -44,6 +49,14 @@ namespace _4Rails_2
         {
             Tramspecificaties tram = new Tramspecificaties(cbTramnr.Text);
             tram.ShowDialog();
+        }
+
+        private void Back_Click(object sender, EventArgs e)
+        {
+            mainWindow window = new mainWindow();
+            this.Close();
+            this.Hide();
+            window.ShowDialog();
         }
     }
 }
