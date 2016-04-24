@@ -102,6 +102,13 @@
     <Compile Include="Spoor.cs" />
     <Compile Include="techniekPlanning.cs" />
     <Compile Include="Tram.cs" />
+    <Compile Include="Tramspecclass.cs" />
+    <Compile Include="Tramspecificaties.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tramspecificaties.Designer.cs">
+      <DependentUpon>Tramspecificaties.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="beheerGUI.resx">
       <DependentUpon>beheerGUI.cs</DependentUpon>
     </EmbeddedResource>
@@ -125,6 +132,9 @@
     </Compile>
     <EmbeddedResource Include="regelingGUI.resx">
       <DependentUpon>regelingGUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tramspecificaties.resx">
+      <DependentUpon>Tramspecificaties.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

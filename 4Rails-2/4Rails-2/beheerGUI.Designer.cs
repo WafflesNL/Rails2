@@ -34,6 +34,7 @@
             this.cbTramnr = new System.Windows.Forms.ComboBox();
             this.lbTram = new System.Windows.Forms.Label();
             this.lbStatus = new System.Windows.Forms.Label();
+            this.btnTram = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lbTramNr
@@ -96,11 +97,22 @@
             this.lbStatus.TabIndex = 8;
             this.lbStatus.Text = "Status";
             // 
+            // btnTram
+            // 
+            this.btnTram.Location = new System.Drawing.Point(193, 8);
+            this.btnTram.Name = "btnTram";
+            this.btnTram.Size = new System.Drawing.Size(75, 23);
+            this.btnTram.TabIndex = 9;
+            this.btnTram.Text = "Kies Tram";
+            this.btnTram.UseVisualStyleBackColor = true;
+            this.btnTram.Click += new System.EventHandler(this.btnTram_Click);
+            // 
             // beheerGUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(479, 461);
+            this.Controls.Add(this.btnTram);
             this.Controls.Add(this.lbStatus);
             this.Controls.Add(this.lbTram);
             this.Controls.Add(this.cbTramnr);
@@ -123,5 +135,6 @@
         private System.Windows.Forms.ComboBox cbTramnr;
         private System.Windows.Forms.Label lbTram;
         private System.Windows.Forms.Label lbStatus;
+        private System.Windows.Forms.Button btnTram;
     }
 }

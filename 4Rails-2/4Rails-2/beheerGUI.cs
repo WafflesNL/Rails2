@@ -25,8 +25,9 @@ namespace _4Rails_2
             {
                 cbTramnr.Items.Add(items[0]);
                 lbTramNr.Items.Add(items[0] + "                      " + items[1]);
-            }           
-            
+            }
+            lbTramNr.Refresh();
+            cbTramnr.Refresh();
         }
 
         private void btnOpenSchoonmaak_Click(object sender, EventArgs e)
@@ -39,6 +40,12 @@ namespace _4Rails_2
         {
             techniekplanning.CheckTechniek();
             customBox.Show("Techniekplanning", techniekplanning.data);
-        }        
+        }
+
+        private void btnTram_Click(object sender, EventArgs e)
+        {
+            Tramspecificaties tram = new Tramspecificaties(cbTramnr.Text);
+            tram.ShowDialog();
+        }
     }
 }
