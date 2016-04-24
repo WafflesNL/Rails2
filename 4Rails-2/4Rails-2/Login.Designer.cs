@@ -43,7 +43,7 @@
             // 
             this.lblGebruikersnaam.AutoSize = true;
             this.lblGebruikersnaam.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGebruikersnaam.Location = new System.Drawing.Point(44, 119);
+            this.lblGebruikersnaam.Location = new System.Drawing.Point(14, 119);
             this.lblGebruikersnaam.Name = "lblGebruikersnaam";
             this.lblGebruikersnaam.Size = new System.Drawing.Size(97, 24);
             this.lblGebruikersnaam.TabIndex = 0;
@@ -53,7 +53,7 @@
             // 
             this.lblWachtwoord.AutoSize = true;
             this.lblWachtwoord.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblWachtwoord.Location = new System.Drawing.Point(44, 171);
+            this.lblWachtwoord.Location = new System.Drawing.Point(14, 171);
             this.lblWachtwoord.Name = "lblWachtwoord";
             this.lblWachtwoord.Size = new System.Drawing.Size(92, 24);
             this.lblWachtwoord.TabIndex = 1;
@@ -61,24 +61,26 @@
             // 
             // tbUsername
             // 
-            this.tbUsername.Location = new System.Drawing.Point(48, 146);
+            this.tbUsername.Location = new System.Drawing.Point(12, 146);
             this.tbUsername.Name = "tbUsername";
-            this.tbUsername.Size = new System.Drawing.Size(152, 22);
+            this.tbUsername.Size = new System.Drawing.Size(252, 22);
             this.tbUsername.TabIndex = 2;
+            this.tbUsername.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbUsername_KeyDown);
             // 
             // tbPassword
             // 
-            this.tbPassword.Location = new System.Drawing.Point(48, 201);
+            this.tbPassword.Location = new System.Drawing.Point(12, 198);
             this.tbPassword.Name = "tbPassword";
-            this.tbPassword.PasswordChar = '*';
-            this.tbPassword.Size = new System.Drawing.Size(153, 22);
+            this.tbPassword.PasswordChar = '•';
+            this.tbPassword.Size = new System.Drawing.Size(252, 22);
             this.tbPassword.TabIndex = 3;
+            this.tbPassword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbPassword_KeyDown);
             // 
             // btnLogin
             // 
-            this.btnLogin.Location = new System.Drawing.Point(48, 229);
+            this.btnLogin.Location = new System.Drawing.Point(12, 229);
             this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(155, 38);
+            this.btnLogin.Size = new System.Drawing.Size(255, 38);
             this.btnLogin.TabIndex = 4;
             this.btnLogin.Text = "Login";
             this.btnLogin.UseVisualStyleBackColor = true;
@@ -97,7 +99,7 @@
             // chbRemember
             // 
             this.chbRemember.AutoSize = true;
-            this.chbRemember.Location = new System.Drawing.Point(69, 273);
+            this.chbRemember.Location = new System.Drawing.Point(12, 273);
             this.chbRemember.Name = "chbRemember";
             this.chbRemember.Size = new System.Drawing.Size(99, 21);
             this.chbRemember.TabIndex = 6;
@@ -106,8 +108,7 @@
             // 
             // Login
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(276, 310);
             this.Controls.Add(this.chbRemember);
             this.Controls.Add(this.pbLogo);

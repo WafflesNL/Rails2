@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Oracle.ManagedDataAccess.Client;
+using System.Collections.Generic;
 
 namespace _4Rails_2
 {
@@ -11,10 +12,13 @@ namespace _4Rails_2
         public void DataComTest()
         {
             DataCom.ConnectToDB();
-            Assert.IsNotNull(DataCom.Connection, "rip");
-            //DataCom.nonQuery("INSERT INTO spoor (spoornr, blocked, aantalsectoren) VALUES (2, 0, 1)");
-            string temp = DataCom.Read("spoornr", "spoor", "spoornr = 1", "spoornr");
-            Assert.AreEqual("1", temp, "rip");
+            
+            string username = "Bart";
+            List<string[]> temp = DataCom.ReadAll("password, function_id", "user_", "username = " + "'" + username + "'");
+            Assert.AreEqual("123", temp[0][0]);
+            Assert.AreEqual("1", temp[0][1]);
+
+            DataCom.Close();
         }
     }
 }

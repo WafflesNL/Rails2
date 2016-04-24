@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -19,6 +20,8 @@ namespace _4Rails_2
 
         public Login()
         {
+            CleaningPlanning c = new CleaningPlanning();
+            c.CheckSchoonmaak();
             InitializeComponent();
             LC = new LoginClass();
         }
@@ -35,16 +38,36 @@ namespace _4Rails_2
                 Username = tbUsername.Text;
             Password = tbPassword.Text;
 
-            string temp = LC.Check(Username, Password);
+            int temp = Convert.ToInt16(LC.Check(Username, Password));
 
-            if (temp != null)
+            if (temp != 0)
             {
-                //change screen based on functie
-                tbUsername.Text = "ok";
+                mainWindow window = new mainWindow(temp);
+                this.Hide();
+                window.ShowDialog();
+                this.Close();
             }
             else
             {
-                tbUsername.Text = "rip";
+                MessageBox.Show("Gebruikersnaam en/of wachtwoord komen niet overeen.");
+            }
+        }
+
+        private void tbPassword_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnLogin.PerformClick();
+                e.Handled = true;
+            }
+        }
+
+        private void tbUsername_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnLogin.PerformClick();
+                e.Handled = true;
             }
         }
     }

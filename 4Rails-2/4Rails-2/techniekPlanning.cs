@@ -8,39 +8,44 @@ namespace _4Rails_2
 {
     class techniekPlanning
     {
+        //Fields
         private DateTime Date;
-        private int TramNr;
-        private int Technician;
-        private string Type;
-        private int Duration;
+        private int tramNR;
+        private int technician;
+        private String type;
+        private int duration;
 
-        public techniekPlanning(DateTime Date, int TramNr, int Technician, string Type, int Duration)
+        //Constructor
+        public techniekPlanning(DateTime time, int tramNR, int cleaner, string type, int duration)
         {
-            this.Date = Date;
-            this.TramNr = TramNr;
-            this.Technician = Technician;
-            this.Type = Type;
-            this.Duration = Duration;
-            
+            this.Date = time;
+            this.tramNR = tramNR;
+            this.technician = cleaner;
+            this.type = type;
+            this.duration = duration;
         }
 
-        public void AddReparation()
+        public techniekPlanning() { }
+
+        //Methods
+        public void AddCleaning()
         {
-            string a = Convert.ToString(this.Date);
-            string dates = a.Substring(' ');
-            string newReparation = "INSERT INTO MECHANIC_SCHEDULE (TRAM_ID, USER_ID, DATE, Duration) VALUES (" + this.TramNr + "," + this.Technician + "," + dates[0] + "," + dates[1] + "," + this.Duration + ")";
-            DataCom.nonQuery(newReparation);
+            //Insert a row to table
+            string newCleaning = "INSERT INTO MECHANIC_SCHEDULE(tram_id, user_id, time, duration) VALUES (" + this.tramNR + ", " + this.technician + ", " + this.Date + ", " + this.duration + ");";
+            DataCom.nonQuery(newCleaning);
         }
 
-        public void RemoveReparatie()
+        public void RemoveCleaning()
         {
-            string deleteReparation = "DELETE FROM MECHANIC_SCHEDULE (TRAM_ID)";
-            DataCom.nonQuery(deleteReparation);
+            //Delete a row from table
+            string removeCleaning = "DELETE FROM MECHANIC_SCHEDULE WHERE tram_id =" + this.tramNR + ";";
+            DataCom.nonQuery(removeCleaning);
         }
 
-        public void CheckReparatie()
+        public void CheckSchoonmaak()
         {
-
+            //Search for all the trams that need to be cleaned
+            List<string[]> data = DataCom.ReadAll("Tram_id,User_ID,Date_,Time,Duration", "Mechaninic_Schedule", null);
         }
     }
 }
