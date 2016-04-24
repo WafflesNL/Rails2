@@ -26,8 +26,6 @@ namespace _4Rails_2
                 cbTramnr.Items.Add(items[0]);
                 lbTramNr.Items.Add(items[0] + "                      " + items[1]);
             }
-            lbTramNr.Refresh();
-            cbTramnr.Refresh();
         }
 
         private void btnOpenSchoonmaak_Click(object sender, EventArgs e)
