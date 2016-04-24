@@ -31,5 +31,11 @@ namespace _4Rails_2
             tramspec.modify(status, tramnrs);
             this.Close();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            tramspec.delete(tramnrs);
+            this.Close();
+        }
     }
 }
