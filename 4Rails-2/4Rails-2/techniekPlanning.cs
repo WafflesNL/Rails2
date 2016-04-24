@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace _4Rails_2
 {
-    class techniekPlanning
+    public class techniekPlanning
     {
         //Fields
         private DateTime Date;
@@ -43,10 +43,10 @@ namespace _4Rails_2
             DataCom.nonQuery(removeRepair);
         }
 
-        public void CheckTechniek()
+        public List<string[]> CheckTechniek()
         {
             //Search for all the trams that need to be cleaned
-            data = DataCom.ReadAll("Tram_id,User_ID,Date_,Time,Duration", "Mechaninic_Schedule", null);
+            return data = DataCom.ReadAll("Tram_id,User_ID,Time,Duration", "Mechanic_Schedule");
         }
     }
 }
