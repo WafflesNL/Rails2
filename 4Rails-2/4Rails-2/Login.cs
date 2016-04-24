@@ -32,7 +32,7 @@ namespace _4Rails_2
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            Username = tbUsername.Text;
+                Username = tbUsername.Text;
             Password = tbPassword.Text;
 
             string temp = LC.Check(Username, Password);
