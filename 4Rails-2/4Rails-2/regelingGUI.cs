@@ -31,6 +31,8 @@ namespace _4Rails_2
             {
                 lbTramnr.Items.Add(items[0]);
                 lbSpoor.Items.Add(items[1]);
+                lbUser.Items.Add(items[2]);
+                lbStatus.Items.Add(items[3]);
             }
         }
 
