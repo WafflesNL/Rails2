@@ -34,17 +34,17 @@
             this.lbStatus = new System.Windows.Forms.ListBox();
             this.lbDatum = new System.Windows.Forms.ListBox();
             this.lbTijd = new System.Windows.Forms.ListBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.tbTramnr = new System.Windows.Forms.TextBox();
+            this.tbDatum = new System.Windows.Forms.TextBox();
+            this.tbTijd = new System.Windows.Forms.TextBox();
             this.lblTramnr = new System.Windows.Forms.Label();
             this.lblSpoor = new System.Windows.Forms.Label();
             this.lblStatus = new System.Windows.Forms.Label();
             this.lblDatum = new System.Windows.Forms.Label();
             this.lblTijd = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.tbStatus = new System.Windows.Forms.ComboBox();
+            this.tbSpoor = new System.Windows.Forms.TextBox();
             this.btnverwijder = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -56,6 +56,7 @@
             this.btnback.TabIndex = 0;
             this.btnback.Text = "back";
             this.btnback.UseVisualStyleBackColor = true;
+            this.btnback.Click += new System.EventHandler(this.btnback_Click);
             // 
             // lbTramnr
             // 
@@ -102,29 +103,29 @@
             this.lbTijd.Size = new System.Drawing.Size(82, 372);
             this.lbTijd.TabIndex = 5;
             // 
-            // textBox1
+            // tbTramnr
             // 
-            this.textBox1.Location = new System.Drawing.Point(105, 59);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(66, 24);
-            this.textBox1.TabIndex = 6;
+            this.tbTramnr.Location = new System.Drawing.Point(105, 59);
+            this.tbTramnr.Multiline = true;
+            this.tbTramnr.Name = "tbTramnr";
+            this.tbTramnr.Size = new System.Drawing.Size(66, 24);
+            this.tbTramnr.TabIndex = 6;
             // 
-            // textBox4
+            // tbDatum
             // 
-            this.textBox4.Location = new System.Drawing.Point(371, 59);
-            this.textBox4.Multiline = true;
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(84, 24);
-            this.textBox4.TabIndex = 9;
+            this.tbDatum.Location = new System.Drawing.Point(371, 59);
+            this.tbDatum.Multiline = true;
+            this.tbDatum.Name = "tbDatum";
+            this.tbDatum.Size = new System.Drawing.Size(84, 24);
+            this.tbDatum.TabIndex = 9;
             // 
-            // textBox5
+            // tbTijd
             // 
-            this.textBox5.Location = new System.Drawing.Point(461, 59);
-            this.textBox5.Multiline = true;
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(82, 24);
-            this.textBox5.TabIndex = 10;
+            this.tbTijd.Location = new System.Drawing.Point(461, 59);
+            this.tbTijd.Multiline = true;
+            this.tbTijd.Name = "tbTijd";
+            this.tbTijd.Size = new System.Drawing.Size(82, 24);
+            this.tbTijd.TabIndex = 10;
             // 
             // lblTramnr
             // 
@@ -147,7 +148,7 @@
             // lblStatus
             // 
             this.lblStatus.AutoSize = true;
-            this.lblStatus.Location = new System.Drawing.Point(239, 39);
+            this.lblStatus.Location = new System.Drawing.Point(239, 36);
             this.lblStatus.Name = "lblStatus";
             this.lblStatus.Size = new System.Drawing.Size(48, 17);
             this.lblStatus.TabIndex = 13;
@@ -165,7 +166,7 @@
             // lblTijd
             // 
             this.lblTijd.AutoSize = true;
-            this.lblTijd.Location = new System.Drawing.Point(458, 39);
+            this.lblTijd.Location = new System.Drawing.Point(458, 36);
             this.lblTijd.Name = "lblTijd";
             this.lblTijd.Size = new System.Drawing.Size(31, 17);
             this.lblTijd.TabIndex = 15;
@@ -179,27 +180,28 @@
             this.button2.TabIndex = 16;
             this.button2.Text = "bijwerken ";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // comboBox1
+            // tbStatus
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.tbStatus.FormattingEnabled = true;
+            this.tbStatus.Items.AddRange(new object[] {
             "Remise ",
             "Dienst ",
             "Defect ",
             "Schoonmaak "});
-            this.comboBox1.Location = new System.Drawing.Point(242, 59);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(123, 24);
-            this.comboBox1.TabIndex = 17;
+            this.tbStatus.Location = new System.Drawing.Point(242, 59);
+            this.tbStatus.Name = "tbStatus";
+            this.tbStatus.Size = new System.Drawing.Size(123, 24);
+            this.tbStatus.TabIndex = 17;
             // 
-            // textBox2
+            // tbSpoor
             // 
-            this.textBox2.Location = new System.Drawing.Point(177, 59);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(59, 24);
-            this.textBox2.TabIndex = 7;
+            this.tbSpoor.Location = new System.Drawing.Point(177, 59);
+            this.tbSpoor.Multiline = true;
+            this.tbSpoor.Name = "tbSpoor";
+            this.tbSpoor.Size = new System.Drawing.Size(59, 24);
+            this.tbSpoor.TabIndex = 7;
             // 
             // btnverwijder
             // 
@@ -209,6 +211,7 @@
             this.btnverwijder.TabIndex = 18;
             this.btnverwijder.Text = "verwijderd";
             this.btnverwijder.UseVisualStyleBackColor = true;
+            this.btnverwijder.Click += new System.EventHandler(this.btnverwijder_Click);
             // 
             // regelingGUI
             // 
@@ -216,17 +219,17 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(656, 492);
             this.Controls.Add(this.btnverwijder);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.tbStatus);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.lblTijd);
             this.Controls.Add(this.lblDatum);
             this.Controls.Add(this.lblStatus);
             this.Controls.Add(this.lblSpoor);
             this.Controls.Add(this.lblTramnr);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.tbTijd);
+            this.Controls.Add(this.tbDatum);
+            this.Controls.Add(this.tbSpoor);
+            this.Controls.Add(this.tbTramnr);
             this.Controls.Add(this.lbTijd);
             this.Controls.Add(this.lbDatum);
             this.Controls.Add(this.lbStatus);
@@ -248,17 +251,17 @@
         private System.Windows.Forms.ListBox lbStatus;
         private System.Windows.Forms.ListBox lbDatum;
         private System.Windows.Forms.ListBox lbTijd;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox tbTramnr;
+        private System.Windows.Forms.TextBox tbDatum;
+        private System.Windows.Forms.TextBox tbTijd;
         private System.Windows.Forms.Label lblTramnr;
         private System.Windows.Forms.Label lblSpoor;
         private System.Windows.Forms.Label lblStatus;
         private System.Windows.Forms.Label lblDatum;
         private System.Windows.Forms.Label lblTijd;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.ComboBox tbStatus;
+        private System.Windows.Forms.TextBox tbSpoor;
         private System.Windows.Forms.Button btnverwijder;
     }
 }

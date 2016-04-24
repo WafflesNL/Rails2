@@ -33,5 +33,27 @@ namespace _4Rails_2
                 lbSpoor.Items.Add(items[1]);
             }
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            string sql = "UPDATE regeling SET ?? WHERE ??";
+
+            //DataCom.nonQuery(sql);
+        }
+
+        private void btnverwijder_Click(object sender, EventArgs e)
+        {
+            string sql = "DELETE FROM regeling WHERE ??";
+
+            //DataCom.nonQuery(sql);
+        }
+
+        private void btnback_Click(object sender, EventArgs e)
+        {
+            mainWindow mw = new mainWindow();
+            this.Hide();
+            mw.ShowDialog();
+            this.Close();
+        }
     }
 }
