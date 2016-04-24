@@ -24,7 +24,9 @@ namespace _4Rails_2
             foreach (var items in beheerclass.tramnrlist)
             {
                 cbTramnr.Items.Add(items[0]);
+                lbTramNr.Items.Add(items[0] + "                      " + items[1]);
             }           
+            
         }
 
         private void btnOpenSchoonmaak_Click(object sender, EventArgs e)
@@ -37,6 +39,6 @@ namespace _4Rails_2
         {
             techniekplanning.CheckTechniek();
             customBox.Show("Techniekplanning", techniekplanning.data);
-        }
+        }        
     }
 }
