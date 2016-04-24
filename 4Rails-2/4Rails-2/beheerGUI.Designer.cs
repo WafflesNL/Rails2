@@ -115,6 +115,12 @@
             // cbType
             // 
             this.cbType.FormattingEnabled = true;
+            this.cbType.Items.AddRange(new object[] {
+            "Combino",
+            "G11",
+            "Dubbelkop_Combino",
+            "G12",
+            "OpleidingsTrams"});
             this.cbType.Location = new System.Drawing.Point(362, 11);
             this.cbType.Margin = new System.Windows.Forms.Padding(2);
             this.cbType.Name = "cbType";

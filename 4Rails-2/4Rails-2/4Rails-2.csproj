@@ -62,6 +62,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Beheerclass.cs" />
     <Compile Include="beheerGUI.cs">
       <SubType>Form</SubType>
     </Compile>

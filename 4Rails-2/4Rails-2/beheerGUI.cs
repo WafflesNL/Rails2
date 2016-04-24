@@ -14,11 +14,17 @@ namespace _4Rails_2
     {
         CleaningPlanning schoonmaakplanning;
         techniekPlanning techniekplanning;
+        Beheerclass beheerclass;
         public beheerGUI()
         {
             InitializeComponent();
             schoonmaakplanning = new CleaningPlanning();
             techniekplanning = new techniekPlanning();
+            beheerclass = new Beheerclass();
+            foreach (var items in beheerclass.tramnrlist)
+            {
+                cbTramnr.Items.Add(items[0]);
+            }           
         }
 
         private void btnOpenSchoonmaak_Click(object sender, EventArgs e)

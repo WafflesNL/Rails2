@@ -46,7 +46,7 @@ namespace _4Rails_2
         public List<string[]> CheckSchoonmaak()
         {
             //Search for all the trams that need to be cleaned
-            return data = DataCom.ReadAll("Tram_id,User_ID,Time,Duration", "Cleaning_Schedule"); 
+            return data = DataCom.ReadAll("c.Tram_id, c.User_ID, c.Time, c.Duration, t.Tramstatus", "Cleaning_Schedule c, Tram t", "c.Tram_ID = t.Tram_ID"); 
         }
     }
 }
