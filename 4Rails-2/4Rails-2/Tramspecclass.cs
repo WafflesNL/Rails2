@@ -15,7 +15,7 @@ namespace _4Rails_2
         }
         public void modify(string status, string tramnr)
         {
-            DataCom.nonQuery("UPDATE Tram SET Tramstatus = "+ status +" WHERE Tram_ID = "+ tramnr);
+            DataCom.nonQuery("UPDATE Tram SET Tramstatus = "+ "'" + status + "'" +" WHERE Tram_ID = "+ tramnr);
         }
     }
 }

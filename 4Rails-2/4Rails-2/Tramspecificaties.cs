@@ -23,11 +23,11 @@ namespace _4Rails_2
             tramspec = new Tramspecclass();
             tramspec.onload(tramnrs);
             Cbstatus.Text = tramspec.tramclass;
-            status = Cbstatus.Text;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+            status = Cbstatus.Text;
             tramspec.modify(status, tramnrs);
             this.Close();
         }

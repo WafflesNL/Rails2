@@ -56,7 +56,10 @@ namespace _4Rails_2
 
             command = new OracleCommand(sql, connection);
             try { command.ExecuteNonQuery(); }
-            catch(Exception) { }
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
 
             Close();
         }
