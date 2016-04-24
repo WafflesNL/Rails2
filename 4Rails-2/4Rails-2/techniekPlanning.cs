@@ -46,7 +46,7 @@ namespace _4Rails_2
         public List<string[]> CheckTechniek()
         {
             //Search for all the trams that need to be repaired
-            return data = DataCom.ReadAll("Tram_id,User_ID,Time,Duration", "Mechanic_Schedule");
+            return data = DataCom.ReadAll("m.Tram_ID, m.User_ID, m.Time, m.Duration, t.Status", "Mechanic_Schedule m, Tram t", "t.Tram_ID = m.Tram_ID");
         }
     }
 }
