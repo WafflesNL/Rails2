@@ -56,7 +56,10 @@ namespace _4Rails_2
 
             command = new OracleCommand(sql, connection);
             try { command.ExecuteNonQuery(); }
-            catch(Exception) { }
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
 
             Close();
         }
@@ -306,7 +309,7 @@ namespace _4Rails_2
         private static string Read(string sql)
         {
             ConnectToDB();
-            if (connection.State != System.Data.ConnectionState.Open)
+            if (connection.State != ConnectionState.Open)
                 return null;
 
             string returnstring = null;

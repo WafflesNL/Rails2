@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace _4Rails_2
 {
-    class techniekPlanning
+    public class techniekPlanning
     {
         //Fields
         private DateTime Date;
@@ -14,6 +14,7 @@ namespace _4Rails_2
         private int technician;
         private String type;
         private int duration;
+        public List<string[]> data = new List<string[]>();
 
         //Constructor
         public techniekPlanning(DateTime time, int tramNR, int cleaner, string type, int duration)
@@ -28,24 +29,24 @@ namespace _4Rails_2
         public techniekPlanning() { }
 
         //Methods
-        public void AddCleaning()
+        public void AddRepair()
         {
             //Insert a row to table
-            string newCleaning = "INSERT INTO MECHANIC_SCHEDULE(tram_id, user_id, time, duration) VALUES (" + this.tramNR + ", " + this.technician + ", " + this.Date + ", " + this.duration + ");";
-            DataCom.nonQuery(newCleaning);
+            string newRepair = "INSERT INTO MECHANIC_SCHEDULE(tram_id, user_id, time, duration) VALUES (" + this.tramNR + ", " + this.technician + ", " + this.Date + ", " + this.duration + ");";
+            DataCom.nonQuery(newRepair);
         }
 
-        public void RemoveCleaning()
+        public void RemoveRepair()
         {
             //Delete a row from table
-            string removeCleaning = "DELETE FROM MECHANIC_SCHEDULE WHERE tram_id =" + this.tramNR + ";";
-            DataCom.nonQuery(removeCleaning);
+            string removeRepair = "DELETE FROM MECHANIC_SCHEDULE WHERE tram_id =" + this.tramNR + ";";
+            DataCom.nonQuery(removeRepair);
         }
 
-        public void CheckSchoonmaak()
+        public List<string[]> CheckTechniek()
         {
-            //Search for all the trams that need to be cleaned
-            List<string[]> data = DataCom.ReadAll("Tram_id,User_ID,Date_,Time,Duration", "Mechaninic_Schedule", null);
+            //Search for all the trams that need to be repaired
+            return data = DataCom.ReadAll("m.Tram_ID, m.User_ID, m.Time, m.Duration, t.Tramstatus", "Mechanic_Schedule m, Tram t", "t.Tram_ID = m.Tram_ID");
         }
     }
 }

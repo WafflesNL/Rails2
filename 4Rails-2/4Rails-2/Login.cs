@@ -17,11 +17,14 @@ namespace _4Rails_2
         private string Password;
         private bool Remember;
         LoginClass LC;
+        
 
         public Login()
         {
             CleaningPlanning c = new CleaningPlanning();
+            techniekPlanning t = new techniekPlanning();
             c.CheckSchoonmaak();
+            t.CheckTechniek();
             InitializeComponent();
             LC = new LoginClass();
         }
@@ -42,7 +45,7 @@ namespace _4Rails_2
 
             if (temp != 0)
             {
-                mainWindow window = new mainWindow(temp);
+                mainWindow window = new mainWindow(temp, Username);
                 this.Hide();
                 window.ShowDialog();
                 this.Close();
@@ -51,6 +54,7 @@ namespace _4Rails_2
             {
                 MessageBox.Show("Gebruikersnaam en/of wachtwoord komen niet overeen.");
             }
+
         }
 
         private void tbPassword_KeyDown(object sender, KeyEventArgs e)
@@ -70,5 +74,6 @@ namespace _4Rails_2
                 e.Handled = true;
             }
         }
+        
     }
 }

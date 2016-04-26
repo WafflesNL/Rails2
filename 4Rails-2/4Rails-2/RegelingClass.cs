@@ -14,7 +14,7 @@ namespace _4Rails_2
         {
             List<string[]> returnvalue;
 
-            returnvalue = DataCom.ReadAll("r.Tram_ID, t.Rail_ID", "Regulation r,Tram t", "r.tram_id = t.tram_id");
+            returnvalue = DataCom.ReadAll("r.Tram_ID, Rail_ID, User_ID, TramStatus", "Regulation r, Tram t", "r.Tram_ID = t.Tram_ID");
 
             return returnvalue;
         }

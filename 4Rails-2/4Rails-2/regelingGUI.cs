@@ -31,7 +31,31 @@ namespace _4Rails_2
             {
                 lbTramnr.Items.Add(items[0]);
                 lbSpoor.Items.Add(items[1]);
+                lbUser.Items.Add(items[2]);
+                lbStatus.Items.Add(items[3]);
             }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            string sql = "UPDATE regeling SET ?? WHERE ??";
+
+            //DataCom.nonQuery(sql);
+        }
+
+        private void btnverwijder_Click(object sender, EventArgs e)
+        {
+            string sql = "DELETE FROM regeling WHERE ??";
+
+            //DataCom.nonQuery(sql);
+        }
+
+        private void btnback_Click(object sender, EventArgs e)
+        {
+            mainWindow mw = new mainWindow();
+            this.Hide();
+            mw.ShowDialog();
+            this.Close();
         }
     }
 }

@@ -12,9 +12,15 @@ namespace _4Rails_2
 {
     public partial class mainWindow : Form
     {
-        public mainWindow(int id)
+        public mainWindow()
         {
             InitializeComponent();
+        }
+
+        public mainWindow(int id, string name)
+        {
+            InitializeComponent();
+            Username.Text = name;
         }
 
         private void ToBeheerGUI_Click(object sender, EventArgs e)
