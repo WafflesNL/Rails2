@@ -97,7 +97,7 @@ namespace _4Rails_2
         public void newRegulation(int tramNr, int spoorNr, string User, string tramStatus)
         {
             Regulation regulation = new Regulation(tramNr, spoorNr, User, tramStatus);
-            string addRegulation = "INSERT INTO Regulation(Tram_ID, Rail_ID, User) VALUES ('" + tramNr + "', '" + spoorNr + "', " + User +")";
+            string addRegulation = "INSERT INTO Regulation(Tram_ID, Rail_ID, User) VALUES ('" + tramNr + "', '" + spoorNr + "', " + "'" + User + "'" + ")";
             DataCom.nonQuery(addRegulation);
             string update = "UPDATE Tram SET TramStatus= '" + tramStatus + "' WHERE Tram_ID =" + tramNr + ")";
             DataCom.nonQuery(update);
