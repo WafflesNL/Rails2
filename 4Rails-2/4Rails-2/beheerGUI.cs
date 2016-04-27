@@ -58,5 +58,10 @@ namespace _4Rails_2
             this.Hide();
             window.ShowDialog();
         }
+
+        private void btnNieuweTram_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
