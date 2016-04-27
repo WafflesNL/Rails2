@@ -8,7 +8,7 @@ namespace _4Rails_2
 {
     public class Spoor
     {
-        private int Spoornummer { get; set; }
+        public int Spoornummer { get; private set; }
         private int SectorNummer { get; set; }
         private bool Blocked { get; set; }
 

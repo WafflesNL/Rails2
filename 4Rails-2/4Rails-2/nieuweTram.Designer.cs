@@ -33,10 +33,9 @@
             this.lblTramStatus = new System.Windows.Forms.Label();
             this.tbTramNR = new System.Windows.Forms.TextBox();
             this.cbTramStatus = new System.Windows.Forms.ComboBox();
-            this.lblTramType = new System.Windows.Forms.Label();
-            this.cbTramType = new System.Windows.Forms.ComboBox();
             this.btnBevestig = new System.Windows.Forms.Button();
             this.cbRailID = new System.Windows.Forms.ComboBox();
+            this.btnVoegToe = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblTramNR
@@ -80,9 +79,9 @@
             // 
             this.cbTramStatus.FormattingEnabled = true;
             this.cbTramStatus.Items.AddRange(new object[] {
-            "Defect,",
-            "Schoonmaak,",
-            "Dienst,",
+            "Defect",
+            "Schoonmaak",
+            "Dienst",
             "Remise"});
             this.cbTramStatus.Location = new System.Drawing.Point(160, 61);
             this.cbTramStatus.Name = "cbTramStatus";
@@ -90,25 +89,6 @@
             this.cbTramStatus.TabIndex = 5;
             this.cbTramStatus.Visible = false;
             this.cbTramStatus.SelectedIndexChanged += new System.EventHandler(this.cbTramStatus_SelectedIndexChanged);
-            // 
-            // lblTramType
-            // 
-            this.lblTramType.AutoSize = true;
-            this.lblTramType.Location = new System.Drawing.Point(38, 148);
-            this.lblTramType.Name = "lblTramType";
-            this.lblTramType.Size = new System.Drawing.Size(77, 17);
-            this.lblTramType.TabIndex = 6;
-            this.lblTramType.Text = "TramType:";
-            this.lblTramType.Visible = false;
-            // 
-            // cbTramType
-            // 
-            this.cbTramType.FormattingEnabled = true;
-            this.cbTramType.Location = new System.Drawing.Point(160, 145);
-            this.cbTramType.Name = "cbTramType";
-            this.cbTramType.Size = new System.Drawing.Size(208, 24);
-            this.cbTramType.TabIndex = 7;
-            this.cbTramType.Visible = false;
             // 
             // btnBevestig
             // 
@@ -128,16 +108,27 @@
             this.cbRailID.Size = new System.Drawing.Size(208, 24);
             this.cbRailID.TabIndex = 9;
             this.cbRailID.Visible = false;
+            this.cbRailID.SelectedIndexChanged += new System.EventHandler(this.cbRailID_SelectedIndexChanged);
+            // 
+            // btnVoegToe
+            // 
+            this.btnVoegToe.Location = new System.Drawing.Point(181, 243);
+            this.btnVoegToe.Name = "btnVoegToe";
+            this.btnVoegToe.Size = new System.Drawing.Size(145, 33);
+            this.btnVoegToe.TabIndex = 10;
+            this.btnVoegToe.Text = "Voeg Toe";
+            this.btnVoegToe.UseVisualStyleBackColor = true;
+            this.btnVoegToe.Visible = false;
+            this.btnVoegToe.Click += new System.EventHandler(this.btnVoegToe_Click);
             // 
             // nieuweTram
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(531, 288);
+            this.Controls.Add(this.btnVoegToe);
             this.Controls.Add(this.cbRailID);
             this.Controls.Add(this.btnBevestig);
-            this.Controls.Add(this.cbTramType);
-            this.Controls.Add(this.lblTramType);
             this.Controls.Add(this.cbTramStatus);
             this.Controls.Add(this.tbTramNR);
             this.Controls.Add(this.lblTramStatus);
@@ -157,9 +148,8 @@
         private System.Windows.Forms.Label lblTramStatus;
         private System.Windows.Forms.TextBox tbTramNR;
         private System.Windows.Forms.ComboBox cbTramStatus;
-        private System.Windows.Forms.Label lblTramType;
-        private System.Windows.Forms.ComboBox cbTramType;
         private System.Windows.Forms.Button btnBevestig;
         private System.Windows.Forms.ComboBox cbRailID;
+        private System.Windows.Forms.Button btnVoegToe;
     }
 }

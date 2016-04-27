@@ -109,7 +109,6 @@
     <Compile Include="Spoor.cs" />
     <Compile Include="techniekPlanning.cs" />
     <Compile Include="Tram.cs" />
-    <Compile Include="Trambeheer.cs" />
     <Compile Include="Tramspecclass.cs" />
     <Compile Include="Tramspecificaties.cs">
       <SubType>Form</SubType>

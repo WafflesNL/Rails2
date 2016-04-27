@@ -8,17 +8,18 @@ namespace _4Rails_2
 {
     public class Tram
     {
-        
-        private tramType TramType;
-        private tramStatus TramStatus;
-
         public int TramNR { get; private set; } 
-        private int Bestemming;
-        private int HuidigSpoorNR;
+        private int Bestemming { get; set; }
+        public int HuidigSpoorNR { get; set; }
+        public string tramstatus { get; set; }
+        
 
-        public Tram(int tramnr)
+        public Tram(int tramnr, int huidigSpoorNR, string tramstatus, int bestemming)
         {
             this.TramNR = tramnr;
+            this.HuidigSpoorNR = huidigSpoorNR;
+            this.tramstatus = tramstatus;
+            this.Bestemming = bestemming;
         }
     }
 }

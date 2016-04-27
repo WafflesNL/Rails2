@@ -8,7 +8,7 @@ namespace _4Rails_2
 {
     public class Overview
     {
-        
+
         //Sector
         private List<string[]> sectorList;
         private List<Sector> sectors;
@@ -21,17 +21,26 @@ namespace _4Rails_2
         private List<string[]> railList;
         public List<Spoor> rails;
 
-        
+        //Trams
+        private List<string[]> tramlist;
+        public List<Tram> trams;
+
+
         public Overview()
         {
-            regulationList = new List<string[]>();
-            regulations = new List<Regulation>();
+            trams = new List<Tram>();
+            tramlist = new List<string[]>();
+            rails = new List<Spoor>();
+            railList = new List<string[]>();
+            refreshDatabase();
         }
 
         public void refreshDatabase()
         {
             //refreshSectors();
-            refreshRegulations();
+            //refreshRegulations();
+            refreshTram();
+            refreshRails();
         }
 
         //Sectors
@@ -41,7 +50,7 @@ namespace _4Rails_2
             {
                 int sectorNumber = Convert.ToInt32(items[0]);
                 int railID = Convert.ToInt32(items[1]);
-       
+
                 Sector sector = new Sector(sectorNumber, railID);
                 sectors.Add(sector);
             }
@@ -73,7 +82,6 @@ namespace _4Rails_2
         //Regulations
         public void getRegulation()
         {
-            
             foreach (string[] items in regulationList)
             {
                 int tramNr = Convert.ToInt32(items[0]);
@@ -102,7 +110,6 @@ namespace _4Rails_2
             string update = "UPDATE Tram SET TramStatus= '" + tramStatus + "," + "Rail_ID='" + spoorNr + "'" + "' WHERE Tram_ID =" + tramNr + ")";
             DataCom.nonQuery(update);
             refreshRegulations();
-            
         }
 
         public void refreshRegulations()
@@ -116,7 +123,14 @@ namespace _4Rails_2
         //Rails
         public void getRails()
         {
+            foreach (string[] items in railList)
+            {
+                int spoorNummer = Convert.ToInt32(items[0]);
+                int sectorNummer = Convert.ToInt32(items[2]);
 
+                Spoor spoor = new Spoor(spoorNummer, sectorNummer);
+                rails.Add(spoor);
+            }
         }
 
         public List<string[]> obtainRails()
@@ -128,7 +142,56 @@ namespace _4Rails_2
             return returnvalue;
         }
 
-    }
+        public void newRail()
+        {
 
-    
+        }
+
+        public void refreshRails()
+        {
+            railList.Clear();
+            rails.Clear();
+            railList = obtainRails();
+            getRails();
+        }
+
+
+        //Trams
+
+        public void getTrams()
+        {
+            foreach (string[] items in tramlist)
+            {
+                int tramNR = Convert.ToInt32(items[0]);
+                int spoorNr = Convert.ToInt32(items[1]);
+                string tramStatus = Convert.ToString(items[2]);
+                int destination = Convert.ToInt32(items[3]);
+                Tram tram = new Tram(tramNR, spoorNr, tramStatus, destination);
+                trams.Add(tram);
+            }
+        }
+
+        public List<string[]> obtainTrams()
+        {
+            List<string[]> returnvalue;
+            returnvalue = DataCom.ReadAll("Tram_ID, Rail_ID, Tramstatus, Destination", "Tram");
+            return returnvalue;
+        }
+
+        public void newTram(int tramNr, int spoorNr, string tramStatus, int bestemming)
+        {
+            Tram tram = new Tram(tramNr, spoorNr, tramStatus, bestemming);
+            string addTram = "INSERT INTO Tram(Tram_ID, Rail_ID, Tramstatus, Destination) VALUES ('" + tramNr + "','" + spoorNr + "','" + tramStatus + "', '" + bestemming + "')";
+            DataCom.nonQuery(addTram);
+            refreshTram();
+        }
+
+        public void refreshTram()
+        {
+            tramlist.Clear();
+            trams.Clear();
+            tramlist = obtainTrams();
+            getTrams();
+        }
+    }
 }

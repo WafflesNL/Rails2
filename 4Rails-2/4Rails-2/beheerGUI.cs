@@ -15,12 +15,17 @@ namespace _4Rails_2
         CleaningPlanning schoonmaakplanning;
         techniekPlanning techniekplanning;
         Beheerclass beheerclass;
+        nieuweTram nieuweTram;
+        Overview overview;
         public beheerGUI()
         {
             InitializeComponent();
             schoonmaakplanning = new CleaningPlanning();
             techniekplanning = new techniekPlanning();
             beheerclass = new Beheerclass();
+            nieuweTram = new nieuweTram();
+            overview = new Overview();
+
             foreach (var items in beheerclass.tramnrlist)
             {
                 cbTramnr.Items.Add(items[0]);
@@ -61,7 +66,7 @@ namespace _4Rails_2
 
         private void btnNieuweTram_Click(object sender, EventArgs e)
         {
-
+            nieuweTram.ShowDialog();
         }
     }
 }
