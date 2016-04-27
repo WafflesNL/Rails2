@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace _4Rails_2
 {
-    public class Trams
+    public class Trambeheer
     {
         public List<Tram> trams;
 
-        public Trams()
+        public Trambeheer()
         {
             trams = new List<Tram>();
         }

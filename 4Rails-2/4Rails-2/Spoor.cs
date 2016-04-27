@@ -8,28 +8,15 @@ namespace _4Rails_2
 {
     public class Spoor
     {
-        private int AantalSectoren;
-        private int SpoorNummer;
-        private bool Blocked;
+        private int Spoornummer { get; set; }
+        private int SectorNummer { get; set; }
+        private bool Blocked { get; set; }
 
-        public Spoor()
+        public Spoor(int spoornummer, int sectorNummer)
         {
-
-        }
-
-        public int getSector()
-        {
-            return 0;
-        }
-
-        public int getSpoorNummer()
-        {
-            return 0;
-        }
-
-        public void CreateLineList()
-        {
-
+            this.Spoornummer = spoornummer;
+            this.SectorNummer = sectorNummer;
+            Blocked = false;
         }
     }
 }

@@ -12,7 +12,7 @@ namespace _4Rails_2
 {
     public partial class nieuweTram: Form
     {
-        Trams trams;
+        Trambeheer trambeheer;
         public nieuweTram()
         {
             InitializeComponent();
@@ -28,7 +28,7 @@ namespace _4Rails_2
         {
 
             int tramnr = Convert.ToInt32(tbTramNR.Text);
-            foreach (Tram tram in trams.trams)
+            foreach (Tram tram in trambeheer.trams)
             {
                 if(tramnr == tram.TramNR)
                 {
@@ -39,6 +39,14 @@ namespace _4Rails_2
             btnBevestig.Visible = false;
             lblTramStatus.Visible = true;
             cbTramStatus.Visible = true;
+        }
+
+        private void cbTramStatus_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            lblRailID.Visible = true;
+            cbRailID.Visible = true;
+            //foreach (Sector sector in )
+            //cbRailID.Items.Add();
         }
     }
 }

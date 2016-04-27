@@ -12,16 +12,16 @@ namespace _4Rails_2
 {
     public partial class regelingGUI : Form
     {
-        private RegelingClass rc;
-        private List<string[]> regelinglist;
+
+        public Overview overview;
 
         public regelingGUI()
         {
+
             InitializeComponent();
-
-            rc = new RegelingClass();
-            regelinglist = rc.GetData();
-
+            overview = new Overview();
+            overview.refreshRegulations();
+            
             refreshForm();
         }
 
@@ -31,13 +31,12 @@ namespace _4Rails_2
             lbSpoor.Items.Clear();
             lbUser.Items.Clear();
             lbStatus.Items.Clear();
-            foreach(string[] items in regelinglist)
+            foreach(Regulation regulation in overview.regulations)
             {
-                lbTramnr.Items.Add(items[0]);
-                lbSpoor.Items.Add(items[1]);
-                lbUser.Items.Add(items[2]);
-                lbStatus.Items.Add(items[3]);
-                
+                lbTramnr.Items.Add(regulation.tramNr);
+                lbSpoor.Items.Add(regulation.spoorNr);
+                lbUser.Items.Add(regulation.User);
+                lbStatus.Items.Add(regulation.tramstatus);
             }
         }
 
@@ -108,11 +107,11 @@ namespace _4Rails_2
 
         private void btnVoegtoe_Click(object sender, EventArgs e)
         {
-            string tram = tbTramnr.Text;
-            string spoor = tbSpoor.Text;
+            int tram = Convert.ToInt32(tbTramnr.Text);
+            int spoor = Convert.ToInt32(tbSpoor.Text);
             string user = tbUser.Text;
             string status = cbStatus.Text;
-            
+            overview.newRegulation(tram, spoor, user, status);
         }
 
         private void lbTramnr_SelectedIndexChanged(object sender, EventArgs e)

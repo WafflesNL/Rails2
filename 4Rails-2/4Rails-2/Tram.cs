@@ -20,6 +20,5 @@ namespace _4Rails_2
         {
             this.TramNR = tramnr;
         }
-
     }
 }

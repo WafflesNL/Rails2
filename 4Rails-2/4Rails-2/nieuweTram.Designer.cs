@@ -79,11 +79,17 @@
             // cbTramStatus
             // 
             this.cbTramStatus.FormattingEnabled = true;
+            this.cbTramStatus.Items.AddRange(new object[] {
+            "Defect,",
+            "Schoonmaak,",
+            "Dienst,",
+            "Remise"});
             this.cbTramStatus.Location = new System.Drawing.Point(160, 61);
             this.cbTramStatus.Name = "cbTramStatus";
             this.cbTramStatus.Size = new System.Drawing.Size(208, 24);
             this.cbTramStatus.TabIndex = 5;
             this.cbTramStatus.Visible = false;
+            this.cbTramStatus.SelectedIndexChanged += new System.EventHandler(this.cbTramStatus_SelectedIndexChanged);
             // 
             // lblTramType
             // 
