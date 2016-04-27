@@ -64,6 +64,12 @@ namespace _4Rails_2
             Close();
         }
 
+        public static string getCount()
+        {
+            string sql = "Select Count(*) from Regulation";
+            
+            return Read(sql);
+        }
         /// <summary>
         /// Used to read 1 value
         /// </summary>

@@ -32,13 +32,18 @@ namespace _4Rails_2
             tramlist = new List<string[]>();
             rails = new List<Spoor>();
             railList = new List<string[]>();
+            sectorList = new List<string[]>();
+            sectors = new List<Sector>();
+            regulationList = new List<string[]>();
+            regulations = new List<Regulation>();
             refreshDatabase();
+
         }
 
         public void refreshDatabase()
         {
-            //refreshSectors();
-            //refreshRegulations();
+            refreshSectors();
+            refreshRegulations();
             refreshTram();
             refreshRails();
         }
@@ -104,11 +109,15 @@ namespace _4Rails_2
 
         public void newRegulation(int tramNr, int spoorNr, string User, string tramStatus)
         {
-            Regulation regulation = new Regulation(tramNr, spoorNr, User, tramStatus);
-            string addRegulation = "INSERT INTO Regulation(Tram_ID, User) VALUES ('" + tramNr + "', '" + User + "'" + ")";
+            int userID;
+
+            string Number = DataCom.getCount();
+            int count = Convert.ToInt32(Number);
+
+            string addRegulation = "INSERT INTO Regulation(Regulation_ID, Tram_ID) VALUES ('" + count + "', '" +  tramNr + "')";
             DataCom.nonQuery(addRegulation);
-            string update = "UPDATE Tram SET TramStatus= '" + tramStatus + "," + "Rail_ID='" + spoorNr + "'" + "' WHERE Tram_ID =" + tramNr + ")";
-            DataCom.nonQuery(update);
+            //string update = "UPDATE Tram SET TramStatus= '" + tramStatus + "'," + "Rail_ID='" + spoorNr + "'" + " WHERE Tram_ID ='" + tramNr + "')";
+            //DataCom.nonQuery(update);
             refreshRegulations();
         }
 
@@ -119,6 +128,8 @@ namespace _4Rails_2
             regulationList = obtainRegulation();
             getRegulation();
         }
+
+        
 
         //Rails
         public void getRails()
