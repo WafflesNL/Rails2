@@ -43,11 +43,11 @@ namespace _4Rails_2
         private void button2_Click(object sender, EventArgs e)
         {
             
-            string tramID = Convert.ToString(lbTramnr.SelectedItem);
+            int tramID = Convert.ToInt32(lbTramnr.SelectedItem);
             string where = Convert.ToString(lbTramnr.SelectedIndex);
             string status;
             string user;
-            string spoor; 
+            int spoor; 
             if (cbStatus.Text != "")
             {
                 status = Convert.ToString(cbStatus.Text);
@@ -58,11 +58,11 @@ namespace _4Rails_2
             }  
             if (tbSpoor.Text != "")
             {
-                spoor = Convert.ToString(tbSpoor.Text);
+                spoor = Convert.ToInt32(tbSpoor.Text);
             }
             else
             {
-                spoor = Convert.ToString(lbSpoor.SelectedItem);
+                spoor = Convert.ToInt32(lbSpoor.SelectedItem);
             }
             if (tbUser.Text != "")
             {
@@ -74,16 +74,13 @@ namespace _4Rails_2
             }
             if (tbTramnr.Text != "")
             {
-                tramID = Convert.ToString(tbTramnr.Text);
+                tramID = Convert.ToInt32(tbTramnr.Text);
             }
 
             string sql = "UPDATE Tram SET Tramstatus =" + status + "WHERE Tram_ID =" + tramID;
-            tbTramnr.Text = "";
-            tbUser.Text = "";
-            tbSpoor.Text = "";
-            cbStatus.Text = "";
+            
 
-            //DataCom.nonQuery(sql);
+            overview.newRegulation(tramID,spoor, user, status);
         }
 
         private void btnverwijder_Click(object sender, EventArgs e)
@@ -105,14 +102,7 @@ namespace _4Rails_2
             this.Close();
         }
 
-        private void btnVoegtoe_Click(object sender, EventArgs e)
-        {
-            int tram = Convert.ToInt32(tbTramnr.Text);
-            int spoor = Convert.ToInt32(tbSpoor.Text);
-            string user = tbUser.Text;
-            string status = cbStatus.Text;
-            overview.newRegulation(tram, spoor, user, status);
-        }
+        
 
         private void lbTramnr_SelectedIndexChanged(object sender, EventArgs e)
         {

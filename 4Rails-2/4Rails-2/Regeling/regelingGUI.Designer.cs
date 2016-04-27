@@ -43,7 +43,6 @@
             this.lbSpoor = new System.Windows.Forms.ListBox();
             this.lbStatus = new System.Windows.Forms.ListBox();
             this.lbUser = new System.Windows.Forms.ListBox();
-            this.btnVoegtoe = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnback
@@ -167,7 +166,6 @@
             this.lbSpoor.Name = "lbSpoor";
             this.lbSpoor.Size = new System.Drawing.Size(60, 372);
             this.lbSpoor.TabIndex = 2;
-            
             // 
             // lbStatus
             // 
@@ -177,7 +175,6 @@
             this.lbStatus.Name = "lbStatus";
             this.lbStatus.Size = new System.Drawing.Size(100, 372);
             this.lbStatus.TabIndex = 3;
-            
             // 
             // lbUser
             // 
@@ -187,24 +184,12 @@
             this.lbUser.Name = "lbUser";
             this.lbUser.Size = new System.Drawing.Size(60, 372);
             this.lbUser.TabIndex = 19;
-            
-            // 
-            // btnVoegtoe
-            // 
-            this.btnVoegtoe.Location = new System.Drawing.Point(391, 60);
-            this.btnVoegtoe.Name = "btnVoegtoe";
-            this.btnVoegtoe.Size = new System.Drawing.Size(75, 24);
-            this.btnVoegtoe.TabIndex = 22;
-            this.btnVoegtoe.Text = "Voeg toe";
-            this.btnVoegtoe.UseVisualStyleBackColor = true;
-            this.btnVoegtoe.Click += new System.EventHandler(this.btnVoegtoe_Click);
             // 
             // regelingGUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(656, 492);
-            this.Controls.Add(this.btnVoegtoe);
             this.Controls.Add(this.lblUser);
             this.Controls.Add(this.tbUser);
             this.Controls.Add(this.lbUser);
@@ -244,6 +229,5 @@
         private System.Windows.Forms.ListBox lbSpoor;
         private System.Windows.Forms.ListBox lbStatus;
         private System.Windows.Forms.ListBox lbUser;
-        private System.Windows.Forms.Button btnVoegtoe;
     }
 }

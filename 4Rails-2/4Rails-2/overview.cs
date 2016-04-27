@@ -109,15 +109,22 @@ namespace _4Rails_2
 
         public void newRegulation(int tramNr, int spoorNr, string User, string tramStatus)
         {
-            int userID;
+            regulations.Clear();
+            foreach (Tram tram in trams)
+            {
+                int tramID = tram.TramNR;
+                string Number = DataCom.getCount();
+                int count = Convert.ToInt32(Number) + 1;
 
-            string Number = DataCom.getCount();
-            int count = Convert.ToInt32(Number);
+                string addRegulation = "INSERT INTO Regulation(Regulation_ID, Tram_ID) VALUES ('" + count + "', '" + tramID + "')";
+                DataCom.nonQuery(addRegulation);
 
-            string addRegulation = "INSERT INTO Regulation(Regulation_ID, Tram_ID) VALUES ('" + count + "', '" +  tramNr + "')";
-            DataCom.nonQuery(addRegulation);
-            //string update = "UPDATE Tram SET TramStatus= '" + tramStatus + "'," + "Rail_ID='" + spoorNr + "'" + " WHERE Tram_ID ='" + tramNr + "')";
-            //DataCom.nonQuery(update);
+                string update = "UPDATE Tram SET TramStatus= '" + tramStatus + "'," + "Rail_ID='" + spoorNr + "'" + " WHERE Tram_ID ='" + tramNr + "')";
+                DataCom.nonQuery(update);
+            }
+
+
+
             refreshRegulations();
         }
 
