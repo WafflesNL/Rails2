@@ -29,10 +29,10 @@ namespace _4Rails_2
         public CleaningPlanning() { }
 
         //Methods
-        public void AddCleaning()
+        public void AddCleaning(string tramNR, string persooneel, string datum, string duration)
         {
             //Insert a row to table
-            string newCleaning = "INSERT INTO CLEANING_SCHEDULE(tram_id, user_id, time, duration) VALUES (" + this.tramNR + ", " + this.cleaner + ", " + this.Date + ", " + this.duration + ");";
+            string newCleaning = "INSERT INTO CLEANING_SCHEDULE(tram_id, user_id, time, duration) VALUES (" + tramNR + ", " + persooneel + ", " + datum + ", " + duration + ");";
             DataCom.nonQuery(newCleaning);
         }
 
@@ -46,7 +46,7 @@ namespace _4Rails_2
         public List<string[]> CheckSchoonmaak()
         {
             //Search for all the trams that need to be cleaned
-            return data = DataCom.ReadAll("c.Tram_id, c.User_ID, c.Time, c.Duration, t.Tramstatus", "Cleaning_Schedule c, Tram t", "c.Tram_ID = t.Tram_ID"); 
+            return data = DataCom.ReadAll("c.Tram_id, c.User_ID, c.Time, c.Duration, t.Tramstatus", "Cleaning_Schedule c, Tram t", "c.Tram_ID = t.Tram_ID AND t.Tramstatus = 'Schoonmaak'");
         }
     }
 }
