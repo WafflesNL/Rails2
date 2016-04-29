@@ -40,14 +40,14 @@ namespace _4Rails_2
 
         private void btnOpenSchoonmaak_Click(object sender, EventArgs e)
         {
-            schoonmaakplanning.CheckSchoonmaak();
-            customBox.Show("Schoonmaakplanning", schoonmaakplanning.data);
+            overview.CheckSchoonmaak();
+            customBox.Show("Schoonmaakplanning", overview.data1);
         }
 
         private void btnOpenTechniek_Click(object sender, EventArgs e)
         {
             techniekplanning.CheckTechniek();
-            customBox.Show("Techniekplanning", techniekplanning.data);
+            customBox.Show("Techniekplanning", overview.data2);
         }
 
         private void btnTram_Click(object sender, EventArgs e)

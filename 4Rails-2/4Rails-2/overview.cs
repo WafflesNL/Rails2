@@ -25,6 +25,11 @@ namespace _4Rails_2
         private List<string[]> tramlist;
         public List<Tram> trams;
 
+        //Schoonmaak
+        public List<string[]> data1 = new List<string[]>();
+
+        //Techniek
+        public List<string[]> data2 = new List<string[]>();
 
         public Overview()
         {
@@ -210,6 +215,50 @@ namespace _4Rails_2
             trams.Clear();
             tramlist = obtainTrams();
             getTrams();
+        }
+
+        //Schoonmaakplanning
+
+        public void AddCleaning(string tramNR, string personeel, string datum, string duration)
+        {
+            //Insert a row to table
+            string newCleaning = "INSERT INTO CLEANING_SCHEDULE(tram_id, user_id, time, duration) VALUES (" + tramNR + ", " + personeel + ", " + datum + ", " + duration + ");";
+            DataCom.nonQuery(newCleaning);
+        }
+
+        public void RemoveCleaning(string tramNR)
+        {
+            //Delete a row from table
+            string removeCleaning = "DELETE FROM CLEANING_SCHEDULE WHERE tram_id =" + tramNR + ";";
+            DataCom.nonQuery(removeCleaning);
+        }
+
+        public List<string[]> CheckSchoonmaak()
+        {
+            //Search for all the trams that need to be cleaned
+            return data1 = DataCom.ReadAll("c.Tram_id, c.User_ID, c.Time, c.Duration, t.Tramstatus", "Cleaning_Schedule c, Tram t", "c.Tram_ID = t.Tram_ID AND t.Tramstatus = 'Schoonmaak'");
+        }
+
+        //Techniekplanning
+
+        public void AddRepair(string tramNR, string personeel, string datum, string duration)
+        {
+            //Insert a row to table
+            string newRepair = "INSERT INTO MECHANIC_SCHEDULE(tram_id, user_id, time, duration) VALUES (" + tramNR + ", " + personeel + ", " + datum + ", " + duration + ");";
+            DataCom.nonQuery(newRepair);
+        }
+
+        public void RemoveRepair(string tramNR)
+        {
+            //Delete a row from table
+            string removeRepair = "DELETE FROM MECHANIC_SCHEDULE WHERE tram_id =" + tramNR + ";";
+            DataCom.nonQuery(removeRepair);
+        }
+
+        public List<string[]> CheckTechniek()
+        {
+            //Search for all the trams that need to be repaired
+            return data2 = DataCom.ReadAll("m.Tram_ID, m.User_ID, m.Time, m.Duration, t.Tramstatus", "Mechanic_Schedule m, Tram t", "t.Tram_ID = m.Tram_ID");
         }
     }
 }
