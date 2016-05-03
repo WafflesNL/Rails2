@@ -110,7 +110,7 @@ namespace _4Rails_2
         {
             List<string[]> returnvalue;
 
-            returnvalue = DataCom.ReadAll("r.Tram_ID, Rail_ID, User_ID, TramStatus", "Regeling r, Tram t", "r.Tram_ID = t.Tram_ID");
+            returnvalue = DataCom.ReadAll("r.TramID, Rail_ID, UserID, TramStatus", "Regeling r, Tram t", "r.TramID = t.TramID");
 
             return returnvalue;
         }
@@ -124,10 +124,10 @@ namespace _4Rails_2
                 string Number = DataCom.getCount();
                 int count = Convert.ToInt32(Number) + 1;
 
-                string addRegulation = "INSERT INTO Regulation(Regulation_ID, Tram_ID) VALUES ('" + count + "', '" + tramID + "')";
+                string addRegulation = "INSERT INTO Regulation(Regulation_ID, TramID) VALUES ('" + count + "', '" + tramID + "')";
                 DataCom.nonQuery(addRegulation);
 
-                string update = "UPDATE Tram SET TramStatus= '" + tramStatus + "'," + "Rail_ID='" + spoorNr + "'" + " WHERE Tram_ID ='" + tramNr + "')";
+                string update = "UPDATE Tram SET TramStatus= '" + tramStatus + "'," + "Rail_ID='" + spoorNr + "'" + " WHERE TramID ='" + tramNr + "')";
                 DataCom.nonQuery(update);
             }
 
@@ -200,14 +200,14 @@ namespace _4Rails_2
         public List<string[]> obtainTrams()
         {
             List<string[]> returnvalue;
-            returnvalue = DataCom.ReadAll("Tram_ID, Rail_ID, Tramstatus, Destination", "Tram");
+            returnvalue = DataCom.ReadAll("TramID, Rail_ID, Tramstatus, Destination", "Tram");
             return returnvalue;
         }
 
         public void newTram(int tramNr, int spoorNr, string tramStatus, int bestemming)
         {
             Tram tram = new Tram(tramNr, spoorNr, tramStatus, bestemming);
-            string addTram = "INSERT INTO Tram(Tram_ID, Rail_ID, Tramstatus, Destination) VALUES ('" + tramNr + "','" + spoorNr + "','" + tramStatus + "', '" + bestemming + "')";
+            string addTram = "INSERT INTO Tram(TramID, Rail_ID, Tramstatus, Destination) VALUES ('" + tramNr + "','" + spoorNr + "','" + tramStatus + "', '" + bestemming + "')";
             DataCom.nonQuery(addTram);
             refreshTram();
         }
@@ -225,21 +225,21 @@ namespace _4Rails_2
         public void AddCleaning(string tramNR, string personeel, string datum, string duration)
         {
             //Insert a row to table
-            string newCleaning = "INSERT INTO CLEANING_SCHEDULE(tram_id, user_id, time, duration) VALUES (" + tramNR + ", " + personeel + ", " + datum + ", " + duration + ");";
+            string newCleaning = "INSERT INTO Clean(tramid, userid, time, duration) VALUES (" + tramNR + ", " + personeel + ", " + datum + ", " + duration + ");";
             DataCom.nonQuery(newCleaning);
         }
 
         public void RemoveCleaning(string tramNR)
         {
             //Delete a row from table
-            string removeCleaning = "DELETE FROM CLEANING_SCHEDULE WHERE tram_id =" + tramNR + ";";
+            string removeCleaning = "DELETE FROM Clean WHERE tramid =" + tramNR + ";";
             DataCom.nonQuery(removeCleaning);
         }
 
         public List<string[]> CheckSchoonmaak()
         {
             //Search for all the trams that need to be cleaned
-            return data1 = DataCom.ReadAll("c.Tram_id, c.User_ID, c.Time, c.Duration, t.Tramstatus", "Cleaning_Schedule c, Tram t", "c.Tram_ID = t.Tram_ID AND t.Tramstatus = 'Schoonmaak'");
+            return data1 = DataCom.ReadAll("c.Tramid, c.UserID, c.Time, c.Duration, t.Tramstatus", "Clean c, Tram t", "c.TramID = t.TramID AND t.Tramstatus = 'Schoonmaak'");
         }
 
         //Techniekplanning
@@ -247,31 +247,31 @@ namespace _4Rails_2
         public void AddRepair(string tramNR, string personeel, string datum, string duration)
         {
             //Insert a row to table
-            string newRepair = "INSERT INTO MECHANIC_SCHEDULE(tram_id, user_id, time, duration) VALUES (" + tramNR + ", " + personeel + ", " + datum + ", " + duration + ");";
+            string newRepair = "INSERT INTO Repair(tramid, userid, time, duration) VALUES (" + tramNR + ", " + personeel + ", " + datum + ", " + duration + ");";
             DataCom.nonQuery(newRepair);
         }
 
         public void RemoveRepair(string tramNR)
         {
             //Delete a row from table
-            string removeRepair = "DELETE FROM MECHANIC_SCHEDULE WHERE tram_id =" + tramNR + ";";
+            string removeRepair = "DELETE FROM Repair WHERE tramid =" + tramNR + ";";
             DataCom.nonQuery(removeRepair);
         }
 
         public List<string[]> CheckTechniek()
         {
             //Search for all the trams that need to be repaired
-            return data2 = DataCom.ReadAll("m.Tram_ID, m.User_ID, m.Time, m.Duration, t.Tramstatus", "Mechanic_Schedule m, Tram t", "t.Tram_ID = m.Tram_ID");
+            return data2 = DataCom.ReadAll("m.TramID, m.UserID, m.Time, m.Duration, t.Tramstatus", "Repair m, Tram t", "t.TramID = m.TramID");
         }
 
         //TramSpecificaties
         public void onload(string tramnr)
         {
-            tramclass = DataCom.Read("Tramstatus", "Tram", "Tram_ID = " + tramnr, "Tramstatus");
+            tramclass = DataCom.Read("Tramstatus", "Tram", "TramID = " + tramnr, "Tramstatus");
         }
         public void modify(string status, string tramnr)
         {
-            DataCom.nonQuery("UPDATE Tram SET Tramstatus = " + "'" + status + "'" + " WHERE Tram_ID = " + tramnr);
+            DataCom.nonQuery("UPDATE Tram SET Tramstatus = " + "'" + status + "'" + " WHERE TramID = " + tramnr);
         }
     }
 }
