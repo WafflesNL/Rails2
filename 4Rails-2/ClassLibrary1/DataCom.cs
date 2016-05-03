@@ -66,7 +66,7 @@ namespace _4Rails_2
 
         public static string getCount()
         {
-            string sql = "Select Count(*) from Regulation";
+            string sql = "Select Count(*) from Regeling";
             
             return Read(sql);
         }

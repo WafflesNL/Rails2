@@ -31,6 +31,9 @@ namespace _4Rails_2
         //Techniek
         public List<string[]> data2 = new List<string[]>();
 
+        //Trampspec
+        public string tramclass;
+
         public Overview()
         {
             trams = new List<Tram>();
@@ -107,7 +110,7 @@ namespace _4Rails_2
         {
             List<string[]> returnvalue;
 
-            returnvalue = DataCom.ReadAll("r.Tram_ID, Rail_ID, User_ID, TramStatus", "Regulation r, Tram t", "r.Tram_ID = t.Tram_ID");
+            returnvalue = DataCom.ReadAll("r.Tram_ID, Rail_ID, User_ID, TramStatus", "Regeling r, Tram t", "r.Tram_ID = t.Tram_ID");
 
             return returnvalue;
         }
@@ -259,6 +262,16 @@ namespace _4Rails_2
         {
             //Search for all the trams that need to be repaired
             return data2 = DataCom.ReadAll("m.Tram_ID, m.User_ID, m.Time, m.Duration, t.Tramstatus", "Mechanic_Schedule m, Tram t", "t.Tram_ID = m.Tram_ID");
+        }
+
+        //TramSpecificaties
+        public void onload(string tramnr)
+        {
+            tramclass = DataCom.Read("Tramstatus", "Tram", "Tram_ID = " + tramnr, "Tramstatus");
+        }
+        public void modify(string status, string tramnr)
+        {
+            DataCom.nonQuery("UPDATE Tram SET Tramstatus = " + "'" + status + "'" + " WHERE Tram_ID = " + tramnr);
         }
     }
 }

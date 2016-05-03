@@ -15,7 +15,7 @@ namespace _4Rails_2
 
         public string Check(string Username, string Password)
         {
-            List<string[]> temp = DataCom.ReadAll("password, function_id", "user_", "username = " + "'" + Username + "'");
+            List<string[]> temp = DataCom.ReadAll("Password, Functionid", "Gebruiker", "Username = " + "'" + Username + "'");
 
             foreach(string[] t in temp)
             {
