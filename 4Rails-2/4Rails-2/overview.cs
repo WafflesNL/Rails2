@@ -97,11 +97,12 @@ namespace _4Rails_2
         {
             foreach (string[] items in regulationList)
             {
-                int tramNr = Convert.ToInt32(items[0]);
-                int spoorNr = Convert.ToInt32(items[1]);
-                string user = Convert.ToString(items[2]);
-                string tramstatus = Convert.ToString(items[3]);
-                Regulation regulation = new Regulation(tramNr, spoorNr, user, tramstatus);
+                int regulationNr = Convert.ToInt32(items[0]);
+                int tramNr = Convert.ToInt32(items[1]);
+                int spoorNr = Convert.ToInt32(items[2]); 
+                string user = Convert.ToString(items[3]);
+                string tramstatus = Convert.ToString(items[4]);
+                Regulation regulation = new Regulation(regulationNr, tramNr, spoorNr, user, tramstatus);
                 regulations.Add(regulation);
             }
         }
@@ -109,31 +110,27 @@ namespace _4Rails_2
         public List<string[]> obtainRegulation()
         {
             List<string[]> returnvalue;
-
-            returnvalue = DataCom.ReadAll("r.TramID, Rail_ID, UserID, TramStatus", "Regeling r, Tram t", "r.TramID = t.TramID");
-
+            returnvalue = DataCom.ReadAll("regelingID, TramtramID, RailID, User, Tramstatus", "Regeling");
             return returnvalue;
         }
 
         public void newRegulation(int tramNr, int spoorNr, string User, string tramStatus)
         {
             regulations.Clear();
-            foreach (Tram tram in trams)
-            {
-                int tramID = tram.TramNR;
-                string Number = DataCom.getCount();
-                int count = Convert.ToInt32(Number) + 1;
+            string Number = DataCom.getCount();
 
-                string addRegulation = "INSERT INTO Regulation(Regulation_ID, TramID) VALUES ('" + count + "', '" + tramID + "')";
-                DataCom.nonQuery(addRegulation);
+                // Aantal regelingen tellen en dan +1 voor het nieuwe regelingID
+                // nog vervangen naar een max en dan +1
+             int count = Convert.ToInt32(Number) + 1;
 
-                string update = "UPDATE Tram SET TramStatus= '" + tramStatus + "'," + "Rail_ID='" + spoorNr + "'" + " WHERE TramID ='" + tramNr + "')";
-                DataCom.nonQuery(update);
-            }
+             string addRegulation = "INSERT INTO Regulation(RegelingID, TramtramID, RailID, User, Tramstatus) VALUES ('" + count + "', '" + tramNr + "', '" + spoorNr + "', '" + User + "', '" + tramStatus + "')";
 
+             DataCom.nonQuery(addRegulation);
 
-
-            refreshRegulations();
+                //string update = "UPDATE Tram SET TramStatus= '" + tramStatus + "'," + "Rail_ID='" + spoorNr + "'" + " WHERE TramID ='" + tramNr + "')";
+                //DataCom.nonQuery(update);
+            
+              refreshRegulations();
         }
 
         public void refreshRegulations()
@@ -143,8 +140,6 @@ namespace _4Rails_2
             regulationList = obtainRegulation();
             getRegulation();
         }
-
-        
 
         //Rails
         public void getRails()
