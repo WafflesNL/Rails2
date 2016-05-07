@@ -114,7 +114,7 @@ namespace _4Rails_2
         {
             List<string[]> returnvalue;
 
-            returnvalue = DataCom.ReadAll("r.TramID, Rail_ID, UserID, TramStatus", "Regeling r, Tram t", "r.TramID = t.TramID");
+            returnvalue = DataCom.ReadAll("RegelingID, TramID, RailID, UserID, Tramstatus", "Regeling");
 
             return returnvalue;
         }
@@ -128,12 +128,12 @@ namespace _4Rails_2
                 // nog vervangen naar een max en dan +1
                 int count = Convert.ToInt32(Number) + 1;
 
-             string addRegulation = "INSERT INTO Regulation(RegelingID, TramtramID, RailID, User, Tramstatus) VALUES ('" + count + "', '" + tramNr + "', '" + spoorNr + "', '" + User + "', '" + tramStatus + "')";
+                string addRegulation = "INSERT INTO Regulation(RegelingID, TramID, RailID, UserID, Tramstatus) VALUES ('" + count + "', '" + tramNr + "', '" + spoorNr + "', '" + User + "', '" + tramStatus + "')";
 
                 DataCom.nonQuery(addRegulation);
 
-                string update = "UPDATE Tram SET TramStatus= '" + tramStatus + "'," + "Rail_ID='" + spoorNr + "'" + " WHERE TramID ='" + tramNr + "')";
-                DataCom.nonQuery(update);
+                //string update = "UPDATE Tram SET TramStatus= '" + tramStatus + "'," + "Rail_ID='" + spoorNr + "'" + " WHERE TramID ='" + tramNr + "')";
+                //DataCom.nonQuery(update);
       
 
 
