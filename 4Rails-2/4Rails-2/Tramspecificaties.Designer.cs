@@ -35,6 +35,8 @@
             this.Status = new System.Windows.Forms.Label();
             this.RailNr = new System.Windows.Forms.Label();
             this.RailNRTxt = new System.Windows.Forms.Label();
+            this.RailIDNew = new System.Windows.Forms.Label();
+            this.RailIDTextbox = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // button1
@@ -105,11 +107,29 @@
             this.RailNRTxt.TabIndex = 7;
             this.RailNRTxt.Text = "RailNr";
             // 
+            // RailIDNew
+            // 
+            this.RailIDNew.AutoSize = true;
+            this.RailIDNew.Location = new System.Drawing.Point(158, 72);
+            this.RailIDNew.Name = "RailIDNew";
+            this.RailIDNew.Size = new System.Drawing.Size(58, 13);
+            this.RailIDNew.TabIndex = 8;
+            this.RailIDNew.Text = "NewRailID";
+            // 
+            // RailIDTextbox
+            // 
+            this.RailIDTextbox.Location = new System.Drawing.Point(158, 94);
+            this.RailIDTextbox.Name = "RailIDTextbox";
+            this.RailIDTextbox.Size = new System.Drawing.Size(121, 20);
+            this.RailIDTextbox.TabIndex = 9;
+            // 
             // Tramspecificaties
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(298, 166);
+            this.Controls.Add(this.RailIDTextbox);
+            this.Controls.Add(this.RailIDNew);
             this.Controls.Add(this.RailNRTxt);
             this.Controls.Add(this.RailNr);
             this.Controls.Add(this.Status);
@@ -133,5 +153,7 @@
         private System.Windows.Forms.Label Status;
         private System.Windows.Forms.Label RailNr;
         private System.Windows.Forms.Label RailNRTxt;
+        private System.Windows.Forms.Label RailIDNew;
+        private System.Windows.Forms.TextBox RailIDTextbox;
     }
 }

@@ -14,12 +14,16 @@ namespace _4Rails_2
     {
         public string status;
         public string tramnrs;
+        public string RailNR;
+        public string RailNewNR;
         Overview overview;
-        public Tramspecificaties(string tramnr)
+        public Tramspecificaties(string tramnr, string RailID)
         {
             InitializeComponent();
             tramnrs = tramnr;
             BeheerTramNR.Text = tramnr;
+            RailNR = RailID;
+            RailNr.Text = RailNR;
             overview = new Overview();
             overview.onload(tramnrs);
             Cbstatus.Text = overview.tramclass;
@@ -28,7 +32,7 @@ namespace _4Rails_2
         private void button1_Click(object sender, EventArgs e)
         {
             status = Cbstatus.Text;
-            overview.modify(status, tramnrs);
+            overview.modify(status, tramnrs, RailNR, RailNewNR);
             this.Close();
         }
 

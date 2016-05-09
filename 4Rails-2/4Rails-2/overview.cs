@@ -32,6 +32,7 @@ namespace _4Rails_2
 
         //Trampspec
         public string tramclass;
+        public string TramRails;
 
         //BeheerClass
         public List<string[]> tramnrlist;
@@ -292,9 +293,16 @@ namespace _4Rails_2
         {
             tramclass = DataCom.Read("Tramstatus", "Tram", "TramID = " + tramnr, "Tramstatus");
         }
-        public void modify(string status, string tramnr)
+        public void modify(string status, string tramnr, string railid, string railidnew)
         {
             DataCom.nonQuery("UPDATE Tram SET Tramstatus = " + "'" + status + "'" + " WHERE TramID = " + tramnr);
+            DataCom.nonQuery("UPDATE Tram SET RailID = " + "'" + railidnew + "'" + " WHERE RailID = " + railid);
+        }
+
+        public string GetBeheerRails(string tramnr)
+        {
+            TramRails = DataCom.Read("RailID", "Tram", "TramID = " + tramnr, "RailID");
+            return TramRails;
         }
     }
 }
