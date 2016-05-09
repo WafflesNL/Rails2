@@ -57,7 +57,7 @@ namespace _4Rails_2
                 }
             TramnrStringa = (string)lbTramNr.SelectedItem;
             TramnrStringb = TramnrStringa.Split(' ')[0];
-            cbTramnr.Text = TramnrStringb;
+            Tramnrlb.Text = TramnrStringb;
             lbTramNr.Refresh();
         }
 
@@ -75,7 +75,7 @@ namespace _4Rails_2
 
         private void btnTram_Click(object sender, EventArgs e)
         {
-            Tramspecificaties tram = new Tramspecificaties(cbTramnr.Text, overview.GetBeheerRails(cbTramnr.Text));
+            Tramspecificaties tram = new Tramspecificaties(Tramnrlb.Text, overview.GetBeheerRails(Tramnrlb.Text));
             tram.ShowDialog();
         }
 
