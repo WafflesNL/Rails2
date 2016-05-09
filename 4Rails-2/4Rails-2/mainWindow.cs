@@ -67,7 +67,7 @@ namespace _4Rails_2
 
         private void ToRegelingGUI_Click(object sender, EventArgs e)
         {
-            regelingGUI myForm = new regelingGUI();
+            regelingGUI myForm = new regelingGUI(ID, name);
             this.Visible = false;
             myForm.ShowDialog();
             this.Close();

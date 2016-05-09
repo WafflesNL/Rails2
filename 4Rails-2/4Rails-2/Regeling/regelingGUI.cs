@@ -16,13 +16,19 @@ namespace _4Rails_2
         public Overview overview;
         Nieuwe_Regeling nieuweRegeling;
 
-        public regelingGUI()
+        private string name;
+        private int ID;
+
+        public regelingGUI(int id, string name)
         {
 
             InitializeComponent();
             overview = new Overview();
             overview.refreshRegulations();
             nieuweRegeling = new Nieuwe_Regeling();
+
+            this.ID = id;
+            this.name = name;
             
             refreshForm();
         }
@@ -98,7 +104,7 @@ namespace _4Rails_2
 
         private void btnback_Click(object sender, EventArgs e)
         {
-            mainWindow mw = new mainWindow();
+            mainWindow mw = new mainWindow(ID, name);
             this.Hide();
             mw.ShowDialog();
             this.Close();
