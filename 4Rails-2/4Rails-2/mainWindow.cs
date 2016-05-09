@@ -12,14 +12,11 @@ namespace _4Rails_2
 {
     public partial class mainWindow : Form
     {
-        
-        
+        private int ID;
 
         public mainWindow()
         {
             InitializeComponent();
-            
-            
             
         }
 
@@ -27,6 +24,35 @@ namespace _4Rails_2
         {
             InitializeComponent();
             Username.Text = name;
+            this.ID = id;
+
+            switch (ID)
+            {
+                case 1:
+                    ToBeheerGUI.Enabled = true;
+                    ToRegelingGUI.Enabled = true;
+                    break;
+
+                case 2:
+                    ToBeheerGUI.Enabled = true;
+                    ToRegelingGUI.Enabled = false;
+                    break;
+
+                case 3:
+                    ToBeheerGUI.Enabled = true;
+                    ToRegelingGUI.Enabled = false;
+                    break;
+
+                case 4:
+                    ToBeheerGUI.Enabled = true;
+                    ToRegelingGUI.Enabled = false;
+                    break;
+
+                case 5:
+                    ToBeheerGUI.Enabled = false;
+                    ToRegelingGUI.Enabled = true;
+                    break;
+            }
         }
 
         private void ToBeheerGUI_Click(object sender, EventArgs e)
