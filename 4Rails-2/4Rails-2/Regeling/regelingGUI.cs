@@ -14,6 +14,7 @@ namespace _4Rails_2
     {
 
         public Overview overview;
+        Nieuwe_Regeling nieuweRegeling;
 
         public regelingGUI()
         {
@@ -21,6 +22,7 @@ namespace _4Rails_2
             InitializeComponent();
             overview = new Overview();
             overview.refreshRegulations();
+            nieuweRegeling = new Nieuwe_Regeling();
             
             refreshForm();
         }
@@ -42,45 +44,45 @@ namespace _4Rails_2
 
         private void button2_Click(object sender, EventArgs e)
         {
-            
-            int tramID = Convert.ToInt32(lbTramnr.SelectedItem);
-            string where = Convert.ToString(lbTramnr.SelectedIndex);
-            string status;
-            string user;
-            int spoor; 
-            if (cbStatus.Text != "")
-            {
-                status = Convert.ToString(cbStatus.Text);
-            }
-            else
-            {
-                status = Convert.ToString(lbStatus.SelectedItem);
-            }  
-            if (tbSpoor.Text != "")
-            {
-                spoor = Convert.ToInt32(tbSpoor.Text);
-            }
-            else
-            {
-                spoor = Convert.ToInt32(lbSpoor.SelectedItem);
-            }
-            if (tbUser.Text != "")
-            {
-                user = Convert.ToString(tbUser.Text);
-            }
-            else
-            {
-                user = Convert.ToString(lbUser.SelectedItem);
-            }
-            if (tbTramnr.Text != "")
-            {
-                tramID = Convert.ToInt32(tbTramnr.Text);
-            }
+            nieuweRegeling.ShowDialog();
+            //int tramID = Convert.ToInt32(lbTramnr.SelectedItem);
+            //string where = Convert.ToString(lbTramnr.SelectedIndex);
+            //string status;
+            //string user;
+            //int spoor;
+            //if (cbStatus.Text != "")
+            //{
+            //    status = Convert.ToString(cbStatus.Text);
+            //}
+            //else
+            //{
+            //    status = Convert.ToString(lbStatus.SelectedItem);
+            //}  
+            //if (tbSpoor.Text != "")
+            //{
+            //    spoor = Convert.ToInt32(tbSpoor.Text);
+            //}
+            //else
+            //{
+            //    spoor = Convert.ToInt32(lbSpoor.SelectedItem);
+            //}
+            //if (tbUser.Text != "")
+            //{
+            //    user = Convert.ToString(tbUser.Text);
+            //}
+            //else
+            //{
+            //    user = Convert.ToString(lbUser.SelectedItem);
+            //}
+            //if (tbTramnr.Text != "")
+            //{
+            //    tramID = Convert.ToInt32(tbTramnr.Text);
+            //}
 
-            string sql = "UPDATE Tram SET Tramstatus =" + status + "WHERE Tram_ID =" + tramID;
-            
 
-            overview.newRegulation(tramID,spoor, user, status);
+
+
+            //overview.newRegulation(tramID,spoor, user, status);
         }
 
         private void btnverwijder_Click(object sender, EventArgs e)

@@ -92,11 +92,11 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(563, 59);
+            this.button2.Location = new System.Drawing.Point(459, 59);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 24);
+            this.button2.Size = new System.Drawing.Size(179, 43);
             this.button2.TabIndex = 16;
-            this.button2.Text = "bijwerken ";
+            this.button2.Text = "Nieuwe Regeling";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
@@ -123,11 +123,11 @@
             // 
             // btnverwijder
             // 
-            this.btnverwijder.Location = new System.Drawing.Point(563, 108);
+            this.btnverwijder.Location = new System.Drawing.Point(459, 108);
             this.btnverwijder.Name = "btnverwijder";
-            this.btnverwijder.Size = new System.Drawing.Size(75, 26);
+            this.btnverwijder.Size = new System.Drawing.Size(179, 41);
             this.btnverwijder.TabIndex = 18;
-            this.btnverwijder.Text = "verwijderd";
+            this.btnverwijder.Text = "Verwijder Regeling";
             this.btnverwijder.UseVisualStyleBackColor = true;
             this.btnverwijder.Click += new System.EventHandler(this.btnverwijder_Click);
             // 
