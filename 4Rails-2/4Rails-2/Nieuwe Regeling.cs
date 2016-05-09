@@ -29,7 +29,7 @@ namespace _4Rails_2
 
         private void cbSoort_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int functieID;
+            int functieID = 0;
             cbSpoorNr.Items.Clear();
             cbSpoorNr.Text = "";
             cbUser.Items.Clear();
@@ -65,7 +65,10 @@ namespace _4Rails_2
             }
             foreach(Gebruikers gebruiker in overview.gebruikers)
             {
-                if()
+                if(gebruiker.FunctieID == functieID)
+                {
+                    cbUser.Items.Add(gebruiker.Naam);
+                }
             }
         }
 
@@ -84,12 +87,12 @@ namespace _4Rails_2
 
         private void btnBevestig_Click(object sender, EventArgs e)
         {
-            int tramNr = Convert.ToInt32(cbTramNR.Text);
-            string soort = cbSoort.Text;
-            int railNr = Convert.ToInt32(cbSpoorNr.Text);
-            string user = ()
-            //int sectorNr = Convert.ToInt32(cbSectorNummer.Text);
-            overview.newRegulation(tramNr, railNr, )
+            //int tramNr = Convert.ToInt32(cbTramNR.Text);
+            //string soort = cbSoort.Text;
+            //int railNr = Convert.ToInt32(cbSpoorNr.Text);
+            //string user = ()
+            ////int sectorNr = Convert.ToInt32(cbSectorNummer.Text);
+            //overview.newRegulation(tramNr, railNr, )
         }
     }
 }

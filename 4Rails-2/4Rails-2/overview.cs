@@ -52,6 +52,8 @@ namespace _4Rails_2
             sectors = new List<Sector>();
             regulationList = new List<string[]>();
             regulations = new List<Regulation>();
+            gebruikers = new List<Gebruikers>();
+            gebruikersList = new List<string[]>();
             refreshDatabase();
 
         }
@@ -61,6 +63,7 @@ namespace _4Rails_2
             refreshSectors();
             refreshRegulations();
             refreshTram();
+            refreshGebruikers();
             //refreshRails();
         }
 
@@ -296,7 +299,14 @@ namespace _4Rails_2
         //Gebruikers
         public void getGebruikers()
         {
+            foreach (string[] items in gebruikersList)
+            {
+                string PersNaam = Convert.ToString(items[0]);
+                int FunctieID = Convert.ToInt32(items[1]);
 
+                Gebruikers gebruiker = new Gebruikers(FunctieID, PersNaam);
+                gebruikers.Add(gebruiker);
+            }
         }
 
         public List<string[]> obtainGebruikers()
@@ -306,6 +316,14 @@ namespace _4Rails_2
             returnvalue = DataCom.ReadAll("PersName, FunctionID", "Gebruiker");
 
             return returnvalue;
+        }
+
+        public void refreshGebruikers()
+        {
+            gebruikersList.Clear();
+            gebruikers.Clear();
+            gebruikersList = obtainGebruikers();
+            getGebruikers();
         }
 
         //TramSpecificaties
