@@ -14,21 +14,21 @@ namespace _4Rails_2
     {
         public string status;
         public string tramnrs;
-        Tramspecclass tramspec;
+        Overview overview;
         public Tramspecificaties(string tramnr)
         {
             InitializeComponent();
             tramnrs = tramnr;
             BeheerTramNR.Text = tramnr;
-            tramspec = new Tramspecclass();
-            tramspec.onload(tramnrs);
-            Cbstatus.Text = tramspec.tramclass;
+            overview = new Overview();
+            overview.onload(tramnrs);
+            Cbstatus.Text = overview.tramclass;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             status = Cbstatus.Text;
-            tramspec.modify(status, tramnrs);
+            overview.modify(status, tramnrs);
             this.Close();
         }
 

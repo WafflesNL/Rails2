@@ -36,6 +36,8 @@
             this.btnBevestig = new System.Windows.Forms.Button();
             this.cbRailID = new System.Windows.Forms.ComboBox();
             this.btnVoegToe = new System.Windows.Forms.Button();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.lblTramType = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblTramNR
@@ -50,7 +52,7 @@
             // lblRailID
             // 
             this.lblRailID.AutoSize = true;
-            this.lblRailID.Location = new System.Drawing.Point(38, 104);
+            this.lblRailID.Location = new System.Drawing.Point(41, 104);
             this.lblRailID.Name = "lblRailID";
             this.lblRailID.Size = new System.Drawing.Size(49, 17);
             this.lblRailID.TabIndex = 1;
@@ -121,11 +123,32 @@
             this.btnVoegToe.Visible = false;
             this.btnVoegToe.Click += new System.EventHandler(this.btnVoegToe_Click);
             // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(160, 132);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(208, 24);
+            this.comboBox1.TabIndex = 11;
+            this.comboBox1.Visible = false;
+            // 
+            // lblTramType
+            // 
+            this.lblTramType.AutoSize = true;
+            this.lblTramType.Location = new System.Drawing.Point(44, 135);
+            this.lblTramType.Name = "lblTramType";
+            this.lblTramType.Size = new System.Drawing.Size(77, 17);
+            this.lblTramType.TabIndex = 12;
+            this.lblTramType.Text = "TramType:";
+            this.lblTramType.Visible = false;
+            // 
             // nieuweTram
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(531, 288);
+            this.Controls.Add(this.lblTramType);
+            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.btnVoegToe);
             this.Controls.Add(this.cbRailID);
             this.Controls.Add(this.btnBevestig);
@@ -151,5 +174,7 @@
         private System.Windows.Forms.Button btnBevestig;
         private System.Windows.Forms.ComboBox cbRailID;
         private System.Windows.Forms.Button btnVoegToe;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label lblTramType;
     }
 }

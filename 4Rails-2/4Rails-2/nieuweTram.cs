@@ -65,11 +65,7 @@ namespace _4Rails_2
 
         private void btnVoegToe_Click(object sender, EventArgs e)
         {
-            int tramNr = Convert.ToInt32(tbTramNR.Text);
-            int railNr = Convert.ToInt32(cbRailID.Text);
-            string tramstatus = cbTramStatus.Text;
-            int bestemming = railNr;
-            overview.newTram(tramNr, railNr, tramstatus, bestemming);
+            
         }
 
         private void cbRailID_SelectedIndexChanged(object sender, EventArgs e)

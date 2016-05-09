@@ -8,7 +8,6 @@ namespace _4Rails_2
 {
     public class Overview
     {
-
         //Sector
         private List<string[]> sectorList;
         private List<Sector> sectors;
@@ -31,6 +30,12 @@ namespace _4Rails_2
         //Techniek
         public List<string[]> data2 = new List<string[]>();
 
+        //Trampspec
+        public string tramclass;
+
+        //BeheerClass
+        public List<string[]> tramnrlist;
+        
         public Overview()
         {
             trams = new List<Tram>();
@@ -50,7 +55,7 @@ namespace _4Rails_2
             refreshSectors();
             refreshRegulations();
             refreshTram();
-            refreshRails();
+            //refreshRails();
         }
 
         //Sectors
@@ -70,7 +75,7 @@ namespace _4Rails_2
         {
             List<string[]> returnvalue;
 
-            returnvalue = DataCom.ReadAll("Sector_ID, Rail_ID", "Sector");
+            returnvalue = DataCom.ReadAll("SectorID, RailID", "Sector");
 
             return returnvalue;
         }
@@ -83,9 +88,13 @@ namespace _4Rails_2
 
         public void refreshSectors()
         {
+
+            //leegmaken lijsten sectoren
             sectorList.Clear();
-            sectorList = obtainSector();
             sectors.Clear();
+
+            sectorList = obtainSector();
+            
             getSector();
         }
 
@@ -94,11 +103,12 @@ namespace _4Rails_2
         {
             foreach (string[] items in regulationList)
             {
-                int tramNr = Convert.ToInt32(items[0]);
-                int spoorNr = Convert.ToInt32(items[1]);
-                string user = Convert.ToString(items[2]);
-                string tramstatus = Convert.ToString(items[3]);
-                Regulation regulation = new Regulation(tramNr, spoorNr, user, tramstatus);
+                int regulationNr = Convert.ToInt32(items[0]);
+                int tramNr = Convert.ToInt32(items[1]);
+                int spoorNr = Convert.ToInt32(items[2]); 
+                string user = Convert.ToString(items[3]);
+                string tramstatus = Convert.ToString(items[4]);
+                Regulation regulation = new Regulation(regulationNr, tramNr, spoorNr, user, tramstatus);
                 regulations.Add(regulation);
             }
         }
@@ -107,7 +117,7 @@ namespace _4Rails_2
         {
             List<string[]> returnvalue;
 
-            returnvalue = DataCom.ReadAll("r.Tram_ID, Rail_ID, User_ID, TramStatus", "Regulation r, Tram t", "r.Tram_ID = t.Tram_ID");
+            returnvalue = DataCom.ReadAll("RegelingID, TramID, RailID, userName, Tramstatus", "Regeling");
 
             return returnvalue;
         }
@@ -115,19 +125,19 @@ namespace _4Rails_2
         public void newRegulation(int tramNr, int spoorNr, string User, string tramStatus)
         {
             regulations.Clear();
-            foreach (Tram tram in trams)
-            {
-                int tramID = tram.TramNR;
                 string Number = DataCom.getCount();
+
+                // Aantal regelingen tellen en dan +1 voor het nieuwe regelingID
+                // nog vervangen naar een max en dan +1
                 int count = Convert.ToInt32(Number) + 1;
 
-                string addRegulation = "INSERT INTO Regulation(Regulation_ID, Tram_ID) VALUES ('" + count + "', '" + tramID + "')";
+                string addRegulation = "INSERT INTO Regulation(RegelingID, TramID, RailID, userName, Tramstatus) VALUES ('" + count + "', '" + tramNr + "', '" + spoorNr + "', '" + User + "', '" + tramStatus + "')";
+
                 DataCom.nonQuery(addRegulation);
 
-                string update = "UPDATE Tram SET TramStatus= '" + tramStatus + "'," + "Rail_ID='" + spoorNr + "'" + " WHERE Tram_ID ='" + tramNr + "')";
-                DataCom.nonQuery(update);
-            }
-
+                //string update = "UPDATE Tram SET TramStatus= '" + tramStatus + "'," + "Rail_ID='" + spoorNr + "'" + " WHERE TramID ='" + tramNr + "')";
+                //DataCom.nonQuery(update);
+      
 
 
             refreshRegulations();
@@ -140,8 +150,6 @@ namespace _4Rails_2
             regulationList = obtainRegulation();
             getRegulation();
         }
-
-        
 
         //Rails
         public void getRails()
@@ -160,7 +168,7 @@ namespace _4Rails_2
         {
             List<string[]> returnvalue;
 
-            returnvalue = DataCom.ReadAll("Rail_ID, Blocked, Sectors", "Rail");
+            returnvalue = DataCom.ReadAll("RailID, Blocked, Sectors", "Rail");
 
             return returnvalue;
         }
@@ -188,8 +196,19 @@ namespace _4Rails_2
                 int tramNR = Convert.ToInt32(items[0]);
                 int spoorNr = Convert.ToInt32(items[1]);
                 string tramStatus = Convert.ToString(items[2]);
-                int destination = Convert.ToInt32(items[3]);
-                Tram tram = new Tram(tramNR, spoorNr, tramStatus, destination);
+                int destination;
+                if (items[3] == "")
+                {
+                    destination = spoorNr;
+                }
+                else
+                {
+                    destination = Convert.ToInt32(items[3]);
+                }
+                
+                string tramType = Convert.ToString(items[4]);
+                int sectorNr = Convert.ToInt32(items[5]);
+                Tram tram = new Tram(tramNR, spoorNr, tramStatus, destination, tramType, sectorNr);
                 trams.Add(tram);
             }
         }
@@ -197,14 +216,14 @@ namespace _4Rails_2
         public List<string[]> obtainTrams()
         {
             List<string[]> returnvalue;
-            returnvalue = DataCom.ReadAll("Tram_ID, Rail_ID, Tramstatus, Destination", "Tram");
+            returnvalue = DataCom.ReadAll("TramID, RailID, Tramstatus, Bestemming, Tramtype, SectorID", "Tram");
             return returnvalue;
         }
 
-        public void newTram(int tramNr, int spoorNr, string tramStatus, int bestemming)
+        public void newTram(int tramNr, int spoorNr, string tramStatus, int bestemming, string trampType, int sectorNR)
         {
-            Tram tram = new Tram(tramNr, spoorNr, tramStatus, bestemming);
-            string addTram = "INSERT INTO Tram(Tram_ID, Rail_ID, Tramstatus, Destination) VALUES ('" + tramNr + "','" + spoorNr + "','" + tramStatus + "', '" + bestemming + "')";
+            Tram tram = new Tram(tramNr, spoorNr, tramStatus, bestemming, trampType, sectorNR);
+            string addTram = "INSERT INTO Tram(TramID, RailID, Tramstatus, Destination, Tramptype, sectorID) VALUES ('" + tramNr + "','" + spoorNr + "','" + tramStatus + "', '" + bestemming + "'," + trampType + "', '" + sectorNR + "')";
             DataCom.nonQuery(addTram);
             refreshTram();
         }
@@ -217,26 +236,33 @@ namespace _4Rails_2
             getTrams();
         }
 
+        //BeheerClass
+        
+        public void Beheerlist()
+        {
+            tramnrlist = DataCom.ReadAll("TramID, Tramstatus", "Tram");
+        }
+     
         //Schoonmaakplanning
 
         public void AddCleaning(string tramNR, string personeel, string datum, string duration)
         {
             //Insert a row to table
-            string newCleaning = "INSERT INTO CLEANING_SCHEDULE(tram_id, user_id, time, duration) VALUES (" + tramNR + ", " + personeel + ", " + datum + ", " + duration + ");";
+            string newCleaning = "INSERT INTO Clean(tramid, userid, time, duration) VALUES (" + tramNR + ", " + personeel + ", " + datum + ", " + duration + ");";
             DataCom.nonQuery(newCleaning);
         }
 
         public void RemoveCleaning(string tramNR)
         {
             //Delete a row from table
-            string removeCleaning = "DELETE FROM CLEANING_SCHEDULE WHERE tram_id =" + tramNR + ";";
+            string removeCleaning = "DELETE FROM Clean WHERE tramid =" + tramNR + ";";
             DataCom.nonQuery(removeCleaning);
         }
 
         public List<string[]> CheckSchoonmaak()
         {
             //Search for all the trams that need to be cleaned
-            return data1 = DataCom.ReadAll("c.Tram_id, c.User_ID, c.Time, c.Duration, t.Tramstatus", "Cleaning_Schedule c, Tram t", "c.Tram_ID = t.Tram_ID AND t.Tramstatus = 'Schoonmaak'");
+            return data1 = DataCom.ReadAll("c.Tramid, c.UserID, c.Time, c.Duration, t.Tramstatus", "Clean c, Tram t", "c.TramID = t.TramID AND t.Tramstatus = 'Schoonmaak'");
         }
 
         //Techniekplanning
@@ -244,21 +270,31 @@ namespace _4Rails_2
         public void AddRepair(string tramNR, string personeel, string datum, string duration)
         {
             //Insert a row to table
-            string newRepair = "INSERT INTO MECHANIC_SCHEDULE(tram_id, user_id, time, duration) VALUES (" + tramNR + ", " + personeel + ", " + datum + ", " + duration + ");";
+            string newRepair = "INSERT INTO Repair(tramid, userid, time, duration) VALUES (" + tramNR + ", " + personeel + ", " + datum + ", " + duration + ");";
             DataCom.nonQuery(newRepair);
-        }
+        } 
 
         public void RemoveRepair(string tramNR)
         {
             //Delete a row from table
-            string removeRepair = "DELETE FROM MECHANIC_SCHEDULE WHERE tram_id =" + tramNR + ";";
+            string removeRepair = "DELETE FROM Repair WHERE tramid =" + tramNR + ";";
             DataCom.nonQuery(removeRepair);
         }
 
         public List<string[]> CheckTechniek()
         {
             //Search for all the trams that need to be repaired
-            return data2 = DataCom.ReadAll("m.Tram_ID, m.User_ID, m.Time, m.Duration, t.Tramstatus", "Mechanic_Schedule m, Tram t", "t.Tram_ID = m.Tram_ID");
+            return data2 = DataCom.ReadAll("m.TramID, m.UserID, m.Time, m.Duration, t.Tramstatus", "Repair m, Tram t", "t.TramID = m.TramID");
+        }
+
+        //TramSpecificaties
+        public void onload(string tramnr)
+        {
+            tramclass = DataCom.Read("Tramstatus", "Tram", "TramID = " + tramnr, "Tramstatus");
+        }
+        public void modify(string status, string tramnr)
+        {
+            DataCom.nonQuery("UPDATE Tram SET Tramstatus = " + "'" + status + "'" + " WHERE TramID = " + tramnr);
         }
     }
 }

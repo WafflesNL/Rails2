@@ -33,11 +33,13 @@
             this.BeheerTramNR = new System.Windows.Forms.Label();
             this.lblTramNR = new System.Windows.Forms.Label();
             this.Status = new System.Windows.Forms.Label();
+            this.RailNr = new System.Windows.Forms.Label();
+            this.RailNRTxt = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(204, 67);
+            this.button1.Location = new System.Drawing.Point(204, 131);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 0;
@@ -85,11 +87,31 @@
             this.Status.TabIndex = 5;
             this.Status.Text = "Status";
             // 
+            // RailNr
+            // 
+            this.RailNr.AutoSize = true;
+            this.RailNr.Location = new System.Drawing.Point(16, 97);
+            this.RailNr.Name = "RailNr";
+            this.RailNr.Size = new System.Drawing.Size(35, 13);
+            this.RailNr.TabIndex = 6;
+            this.RailNr.Text = "label1";
+            // 
+            // RailNRTxt
+            // 
+            this.RailNRTxt.AutoSize = true;
+            this.RailNRTxt.Location = new System.Drawing.Point(16, 72);
+            this.RailNRTxt.Name = "RailNRTxt";
+            this.RailNRTxt.Size = new System.Drawing.Size(36, 13);
+            this.RailNRTxt.TabIndex = 7;
+            this.RailNRTxt.Text = "RailNr";
+            // 
             // Tramspecificaties
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(298, 106);
+            this.ClientSize = new System.Drawing.Size(298, 166);
+            this.Controls.Add(this.RailNRTxt);
+            this.Controls.Add(this.RailNr);
             this.Controls.Add(this.Status);
             this.Controls.Add(this.lblTramNR);
             this.Controls.Add(this.BeheerTramNR);
@@ -109,5 +131,7 @@
         private System.Windows.Forms.Label BeheerTramNR;
         private System.Windows.Forms.Label lblTramNR;
         private System.Windows.Forms.Label Status;
+        private System.Windows.Forms.Label RailNr;
+        private System.Windows.Forms.Label RailNRTxt;
     }
 }

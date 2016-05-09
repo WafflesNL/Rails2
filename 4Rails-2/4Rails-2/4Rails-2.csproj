@@ -75,6 +75,12 @@
     <Compile Include="customBox.Designer.cs">
       <DependentUpon>customBox.cs</DependentUpon>
     </Compile>
+    <Compile Include="Nieuwe Regeling.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Nieuwe Regeling.Designer.cs">
+      <DependentUpon>Nieuwe Regeling.cs</DependentUpon>
+    </Compile>
     <Compile Include="overview.cs" />
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
@@ -127,6 +133,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="mainWindow.resx">
       <DependentUpon>mainWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Nieuwe Regeling.resx">
+      <DependentUpon>Nieuwe Regeling.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="nieuweTram.resx">
       <DependentUpon>nieuweTram.cs</DependentUpon>
