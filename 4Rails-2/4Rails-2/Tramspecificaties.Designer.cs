@@ -36,7 +36,8 @@
             this.RailNr = new System.Windows.Forms.Label();
             this.RailNRTxt = new System.Windows.Forms.Label();
             this.RailIDNew = new System.Windows.Forms.Label();
-            this.RailIDTextbox = new System.Windows.Forms.TextBox();
+            this.RailIDNum = new System.Windows.Forms.NumericUpDown();
+            ((System.ComponentModel.ISupportInitialize)(this.RailIDNum)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -116,19 +117,34 @@
             this.RailIDNew.TabIndex = 8;
             this.RailIDNew.Text = "NewRailID";
             // 
-            // RailIDTextbox
+            // RailIDNum
             // 
-            this.RailIDTextbox.Location = new System.Drawing.Point(158, 94);
-            this.RailIDTextbox.Name = "RailIDTextbox";
-            this.RailIDTextbox.Size = new System.Drawing.Size(121, 20);
-            this.RailIDTextbox.TabIndex = 9;
+            this.RailIDNum.Location = new System.Drawing.Point(158, 95);
+            this.RailIDNum.Maximum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.RailIDNum.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.RailIDNum.Name = "RailIDNum";
+            this.RailIDNum.Size = new System.Drawing.Size(120, 20);
+            this.RailIDNum.TabIndex = 9;
+            this.RailIDNum.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // Tramspecificaties
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(298, 166);
-            this.Controls.Add(this.RailIDTextbox);
+            this.ClientSize = new System.Drawing.Size(298, 167);
+            this.Controls.Add(this.RailIDNum);
             this.Controls.Add(this.RailIDNew);
             this.Controls.Add(this.RailNRTxt);
             this.Controls.Add(this.RailNr);
@@ -139,6 +155,7 @@
             this.Controls.Add(this.button1);
             this.Name = "Tramspecificaties";
             this.Text = "Tramspecificaties";
+            ((System.ComponentModel.ISupportInitialize)(this.RailIDNum)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -154,6 +171,6 @@
         private System.Windows.Forms.Label RailNr;
         private System.Windows.Forms.Label RailNRTxt;
         private System.Windows.Forms.Label RailIDNew;
-        private System.Windows.Forms.TextBox RailIDTextbox;
+        private System.Windows.Forms.NumericUpDown RailIDNum;
     }
 }

@@ -10,7 +10,7 @@ namespace _4Rails_2
     {
         //Sector
         private List<string[]> sectorList;
-        private List<Sector> sectors;
+        public List<Sector> sectors;
 
         //Regulations
         private List<string[]> regulationList;
