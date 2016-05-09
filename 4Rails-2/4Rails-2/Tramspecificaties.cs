@@ -32,6 +32,7 @@ namespace _4Rails_2
         private void button1_Click(object sender, EventArgs e)
         {
             status = Cbstatus.Text;
+            RailNewNR = Convert.ToString(RailIDNum.Value);
             overview.modify(status, tramnrs, RailNR, RailNewNR);
             this.Close();
         }

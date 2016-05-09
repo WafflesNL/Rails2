@@ -40,6 +40,7 @@ namespace _4Rails_2
 
         private void Timer1_Tick(object sender, EventArgs e)
         {
+            cbTramnr.Text = (string)lbTramNr.SelectedItem;
             lbTramNr.Refresh();
         }
 
@@ -57,6 +58,7 @@ namespace _4Rails_2
 
         private void btnTram_Click(object sender, EventArgs e)
         {
+            cbTramnr.Text = (string)lbTramNr.SelectedItem;
             Tramspecificaties tram = new Tramspecificaties(cbTramnr.Text, overview.GetBeheerRails(cbTramnr.Text));
             tram.ShowDialog();
         }
