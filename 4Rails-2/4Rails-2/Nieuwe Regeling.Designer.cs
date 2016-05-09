@@ -34,6 +34,9 @@
             this.lblSoort = new System.Windows.Forms.Label();
             this.cbSpoorNr = new System.Windows.Forms.ComboBox();
             this.lblSpoorNr = new System.Windows.Forms.Label();
+            this.btnBevestig = new System.Windows.Forms.Button();
+            this.cbUser = new System.Windows.Forms.ComboBox();
+            this.lblUser = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // cbTramNR
@@ -89,6 +92,7 @@
             this.cbSpoorNr.Name = "cbSpoorNr";
             this.cbSpoorNr.Size = new System.Drawing.Size(188, 24);
             this.cbSpoorNr.TabIndex = 4;
+            this.cbSpoorNr.SelectedIndexChanged += new System.EventHandler(this.cbSpoorNr_SelectedIndexChanged);
             // 
             // lblSpoorNr
             // 
@@ -99,11 +103,41 @@
             this.lblSpoorNr.TabIndex = 5;
             this.lblSpoorNr.Text = "SpoorNr:";
             // 
+            // btnBevestig
+            // 
+            this.btnBevestig.Location = new System.Drawing.Point(222, 142);
+            this.btnBevestig.Name = "btnBevestig";
+            this.btnBevestig.Size = new System.Drawing.Size(86, 44);
+            this.btnBevestig.TabIndex = 9;
+            this.btnBevestig.Text = "Bevestig";
+            this.btnBevestig.UseVisualStyleBackColor = true;
+            this.btnBevestig.Click += new System.EventHandler(this.btnBevestig_Click);
+            // 
+            // cbUser
+            // 
+            this.cbUser.FormattingEnabled = true;
+            this.cbUser.Location = new System.Drawing.Point(120, 112);
+            this.cbUser.Name = "cbUser";
+            this.cbUser.Size = new System.Drawing.Size(188, 24);
+            this.cbUser.TabIndex = 10;
+            // 
+            // lblUser
+            // 
+            this.lblUser.AutoSize = true;
+            this.lblUser.Location = new System.Drawing.Point(15, 115);
+            this.lblUser.Name = "lblUser";
+            this.lblUser.Size = new System.Drawing.Size(42, 17);
+            this.lblUser.TabIndex = 11;
+            this.lblUser.Text = "User:";
+            // 
             // Nieuwe_Regeling
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(395, 282);
+            this.ClientSize = new System.Drawing.Size(330, 199);
+            this.Controls.Add(this.lblUser);
+            this.Controls.Add(this.cbUser);
+            this.Controls.Add(this.btnBevestig);
             this.Controls.Add(this.lblSpoorNr);
             this.Controls.Add(this.cbSpoorNr);
             this.Controls.Add(this.lblSoort);
@@ -125,5 +159,8 @@
         private System.Windows.Forms.Label lblSoort;
         private System.Windows.Forms.ComboBox cbSpoorNr;
         private System.Windows.Forms.Label lblSpoorNr;
+        private System.Windows.Forms.Button btnBevestig;
+        private System.Windows.Forms.ComboBox cbUser;
+        private System.Windows.Forms.Label lblUser;
     }
 }

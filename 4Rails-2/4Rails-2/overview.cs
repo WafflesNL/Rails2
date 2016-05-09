@@ -8,6 +8,11 @@ namespace _4Rails_2
 {
     public class Overview
     {
+
+        // Gebruikers
+        private List<string[]> gebruikersList;
+        public List<Gebruikers> gebruikers;
+
         //Sector
         private List<string[]> sectorList;
         public List<Sector> sectors;
@@ -47,6 +52,8 @@ namespace _4Rails_2
             sectors = new List<Sector>();
             regulationList = new List<string[]>();
             regulations = new List<Regulation>();
+            gebruikers = new List<Gebruikers>();
+            gebruikersList = new List<string[]>();
             refreshDatabase();
 
         }
@@ -56,6 +63,7 @@ namespace _4Rails_2
             refreshSectors();
             refreshRegulations();
             refreshTram();
+            refreshGebruikers();
             //refreshRails();
         }
 
@@ -286,6 +294,36 @@ namespace _4Rails_2
         {
             //Search for all the trams that need to be repaired
             return data2 = DataCom.ReadAll("m.TramID, m.UserID, m.Time, m.Duration, t.Tramstatus", "Repair m, Tram t", "t.TramID = m.TramID");
+        }
+
+        //Gebruikers
+        public void getGebruikers()
+        {
+            foreach (string[] items in gebruikersList)
+            {
+                string PersNaam = Convert.ToString(items[0]);
+                int FunctieID = Convert.ToInt32(items[1]);
+
+                Gebruikers gebruiker = new Gebruikers(FunctieID, PersNaam);
+                gebruikers.Add(gebruiker);
+            }
+        }
+
+        public List<string[]> obtainGebruikers()
+        {
+            List<string[]> returnvalue;
+
+            returnvalue = DataCom.ReadAll("PersName, FunctionID", "Gebruiker");
+
+            return returnvalue;
+        }
+
+        public void refreshGebruikers()
+        {
+            gebruikersList.Clear();
+            gebruikers.Clear();
+            gebruikersList = obtainGebruikers();
+            getGebruikers();
         }
 
         //TramSpecificaties
