@@ -27,5 +27,32 @@ namespace _4Rails_2
             }
             
         }
+
+        private void cbSoort_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            cbSpoorNr.Items.Clear();
+            if (cbSoort.Text == "Dienst")
+            {
+                cbSpoorNr.Items.Add(6);
+                cbSpoorNr.Items.Add(7);
+                cbSpoorNr.Items.Add(8);
+                cbSpoorNr.Items.Add(9);
+                cbSpoorNr.Items.Add(10);
+            }
+            if(cbSoort.Text == "Techniek")
+            {
+                cbSpoorNr.Items.Add(5);
+            }
+            if(cbSoort.Text == "Schoonmaak")
+            {
+                cbSpoorNr.Items.Add(4);
+            }
+            if(cbSoort.Text == "Remise")
+            {
+                cbSpoorNr.Items.Add(1);
+                cbSpoorNr.Items.Add(2);
+                cbSpoorNr.Items.Add(3);
+            }
+        }
     }
 }
