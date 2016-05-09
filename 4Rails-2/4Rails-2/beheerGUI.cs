@@ -16,7 +16,10 @@ namespace _4Rails_2
         techniekPlanning techniekplanning;
         nieuweTram nieuweTram;
         Overview overview;
-        public beheerGUI()
+
+        private string name;
+        private int ID;
+        public beheerGUI(int id, string name)
         {
             InitializeComponent();
             schoonmaakplanning = new CleaningPlanning();
@@ -24,6 +27,9 @@ namespace _4Rails_2
             nieuweTram = new nieuweTram();
             overview = new Overview();
             overview.Beheerlist();
+
+            this.ID = id;
+            this.name = name;
 
             foreach (var items in overview.tramnrlist)
             {
@@ -59,7 +65,7 @@ namespace _4Rails_2
 
         private void Back_Click(object sender, EventArgs e)
         {
-            mainWindow window = new mainWindow();
+            mainWindow window = new mainWindow(ID, name);
             this.Close();
             this.Hide();
             window.ShowDialog();

@@ -12,6 +12,7 @@ namespace _4Rails_2
 {
     public partial class mainWindow : Form
     {
+        private string name;
         private int ID;
 
         public mainWindow()
@@ -24,6 +25,7 @@ namespace _4Rails_2
         {
             InitializeComponent();
             Username.Text = name;
+            this.name = name;
             this.ID = id;
 
             switch (ID)
@@ -57,7 +59,7 @@ namespace _4Rails_2
 
         private void ToBeheerGUI_Click(object sender, EventArgs e)
         {
-            beheerGUI myForm = new beheerGUI();
+            beheerGUI myForm = new beheerGUI(ID, name);
             this.Visible = false;
             myForm.ShowDialog();
             this.Close();
