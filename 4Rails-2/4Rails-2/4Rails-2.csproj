@@ -75,6 +75,7 @@
     <Compile Include="customBox.Designer.cs">
       <DependentUpon>customBox.cs</DependentUpon>
     </Compile>
+    <Compile Include="Gebruikers.cs" />
     <Compile Include="Nieuwe Regeling.cs">
       <SubType>Form</SubType>
     </Compile>

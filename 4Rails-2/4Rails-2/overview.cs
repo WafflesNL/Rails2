@@ -8,6 +8,11 @@ namespace _4Rails_2
 {
     public class Overview
     {
+
+        // Gebruikers
+        private List<string[]> gebruikersList;
+        public List<Gebruikers> gebruikers;
+
         //Sector
         private List<string[]> sectorList;
         public List<Sector> sectors;
@@ -286,6 +291,21 @@ namespace _4Rails_2
         {
             //Search for all the trams that need to be repaired
             return data2 = DataCom.ReadAll("m.TramID, m.UserID, m.Time, m.Duration, t.Tramstatus", "Repair m, Tram t", "t.TramID = m.TramID");
+        }
+
+        //Gebruikers
+        public void getGebruikers()
+        {
+
+        }
+
+        public List<string[]> obtainGebruikers()
+        {
+            List<string[]> returnvalue;
+
+            returnvalue = DataCom.ReadAll("PersName, FunctionID", "Gebruiker");
+
+            return returnvalue;
         }
 
         //TramSpecificaties

@@ -106,7 +106,7 @@
             // btnTram
             // 
             this.btnTram.Location = new System.Drawing.Point(257, 10);
-            this.btnTram.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnTram.Margin = new System.Windows.Forms.Padding(4);
             this.btnTram.Name = "btnTram";
             this.btnTram.Size = new System.Drawing.Size(100, 28);
             this.btnTram.TabIndex = 9;
@@ -122,7 +122,7 @@
             // Back
             // 
             this.Back.Location = new System.Drawing.Point(517, 513);
-            this.Back.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Back.Margin = new System.Windows.Forms.Padding(4);
             this.Back.Name = "Back";
             this.Back.Size = new System.Drawing.Size(100, 28);
             this.Back.TabIndex = 10;
@@ -145,7 +145,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(639, 567);
+            this.ClientSize = new System.Drawing.Size(642, 567);
             this.Controls.Add(this.btnNieuweTram);
             this.Controls.Add(this.Back);
             this.Controls.Add(this.btnTram);
