@@ -34,6 +34,7 @@ namespace _4Rails_2
 
         private void Timer1_Tick(object sender, EventArgs e)
         {
+            cbTramnr.Text = (string)lbTramNr.SelectedItem;
             lbTramNr.Refresh();
         }
 
