@@ -18,7 +18,12 @@ namespace _4Rails_2
         Overview overview;
 
         private string name;
+        public string TramnrStringa;
+        public string TramnrStringb;
         private int ID;
+        public int i;
+        public int j;
+        public int Index;
         public beheerGUI(int id, string name)
         {
             InitializeComponent();
@@ -28,19 +33,33 @@ namespace _4Rails_2
             overview = new Overview();
             overview.Beheerlist();
 
-            this.ID = id;
-            this.name = name;
-
             foreach (var items in overview.tramnrlist)
             {
-                cbTramnr.Items.Add(items[0]);
                 lbTramNr.Items.Add(items[0] + "                      " + items[1]);
             }
+            this.ID = id;
+            this.name = name;
+            i = 0;
+            j = 0;
+            Index = 0;
+
         }
 
         private void Timer1_Tick(object sender, EventArgs e)
         {
-            cbTramnr.Text = (string)lbTramNr.SelectedItem;
+            if (this.lbTramNr.Items.Count > 0)
+                {
+                    if (i < 1)
+                    {
+                        lbTramNr.SetSelected(Index, true);
+                        i++; 
+                    }                              
+                    
+                    
+                }
+            TramnrStringa = (string)lbTramNr.SelectedItem;
+            TramnrStringb = TramnrStringa.Split(' ')[0];
+            cbTramnr.Text = TramnrStringb;
             lbTramNr.Refresh();
         }
 
@@ -58,7 +77,6 @@ namespace _4Rails_2
 
         private void btnTram_Click(object sender, EventArgs e)
         {
-            cbTramnr.Text = (string)lbTramNr.SelectedItem;
             Tramspecificaties tram = new Tramspecificaties(cbTramnr.Text, overview.GetBeheerRails(cbTramnr.Text));
             tram.ShowDialog();
         }
@@ -74,6 +92,11 @@ namespace _4Rails_2
         private void btnNieuweTram_Click(object sender, EventArgs e)
         {
             nieuweTram.ShowDialog();
+        }
+
+        private void lbTramNr_MouseClick(object sender, MouseEventArgs e)
+        {
+            Index = (int)lbTramNr.SelectedIndex;
         }
     }
 }
