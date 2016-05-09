@@ -53,9 +53,7 @@ namespace _4Rails_2
                     {
                         lbTramNr.SetSelected(Index, true);
                         i++; 
-                    }                              
-                    
-                    
+                    }   
                 }
             TramnrStringa = (string)lbTramNr.SelectedItem;
             TramnrStringb = TramnrStringa.Split(' ')[0];
