@@ -70,10 +70,14 @@ namespace _4Rails_2
 
         private void lbTramnr_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
-          
-        }
+            string selected = Convert.ToString(lbRegelingen.SelectedItem);
+            string deel = selected.Substring(0, 3);
+            int regelingsNr = Convert.ToInt32(deel);
+            btnverwijder.Visible = true;
 
+
+        }
+         
         private void btnRefresh_Click(object sender, EventArgs e)
         {
             refreshForm();

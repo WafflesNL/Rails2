@@ -25,9 +25,7 @@ namespace _4Rails_2
 
         public override string ToString()
         {
-            return "RegelingsID: " + regelingsID + " TramNR: " + tramNr + " SpoorNr: " + spoorNr + " User: " + User + " Tramstatus: " + tramstatus;
+            return regelingsID + "\t\t\t" + tramNr + "\t\t\t" + spoorNr + "\t\t\t" + User + "\t\t\t" + tramstatus;
         }
-
-
     }
 }
