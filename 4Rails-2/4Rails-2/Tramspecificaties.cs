@@ -16,15 +16,20 @@ namespace _4Rails_2
         public string tramnrs;
         public string RailNR;
         public string RailNewNR;
+        public string SectorNR;
+        public string SectorNewNR;
         Overview overview;
         beheerGUI beheer;
-        public Tramspecificaties(string tramnr, string RailID)
+
+        public Tramspecificaties(string tramnr, string RailID, string SectorID)
         {
             InitializeComponent();
             tramnrs = tramnr;
             BeheerTramNR.Text = tramnr;
             RailNR = RailID;
             RailNr.Text = RailNR;
+            SectorNR = SectorID;
+            SectorIDlb.Text = SectorNR;
             overview = new Overview();
             overview.onload(tramnrs);
             Cbstatus.Text = overview.tramclass;
@@ -34,7 +39,8 @@ namespace _4Rails_2
         {
             status = Cbstatus.Text;
             RailNewNR = Convert.ToString(RailIDNum.Value);
-            overview.modify(status, tramnrs, RailNR, RailNewNR);
+            SectorNewNR = Convert.ToString(SectorNum.Value);
+            overview.modify(status, tramnrs, RailNR, RailNewNR, SectorNR, SectorNewNR);
             this.Close();
         }
 
