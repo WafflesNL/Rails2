@@ -29,24 +29,24 @@ namespace _4Rails_2
         public CleaningPlanning() { }
 
         //Methods
-        public void AddCleaning(string tramNR, string persooneel, string datum, string duration)
+        public void AddCleaning(string tramNR, string personeel, string datum, string duration)
         {
             //Insert a row to table
-            string newCleaning = "INSERT INTO CLEANING_SCHEDULE(tram_id, user_id, time, duration) VALUES (" + tramNR + ", " + persooneel + ", " + datum + ", " + duration + ");";
+            string newCleaning = "INSERT INTO Clean(CleanID, UserID, TramID, timeStart, timeEnd, Description) VALUES (" + tramNR + ", " + personeel + ", " + datum + ");";
             DataCom.nonQuery(newCleaning);
         }
 
         public void RemoveCleaning()
         {
             //Delete a row from table
-            string removeCleaning = "DELETE FROM CLEANING_SCHEDULE WHERE tram_id =" + this.tramNR + ";";
+            string removeCleaning = "DELETE FROM Clean WHERE TramID =" + this.tramNR + ";";
             DataCom.nonQuery(removeCleaning);
         }
 
         public List<string[]> CheckSchoonmaak()
         {
             //Search for all the trams that need to be cleaned
-            return data = DataCom.ReadAll("c.Tram_id, c.User_ID, c.Time, c.Duration, t.Tramstatus", "Cleaning_Schedule c, Tram t", "c.Tram_ID = t.Tram_ID AND t.Tramstatus = 'Schoonmaak'");
+            return data = DataCom.ReadAll("c.TramID, c.UserID, c.Time, c.Duration, t.Tramstatus", "Clean c, Tram t", "c.TramID = t.TramID AND t.Tramstatus = 'Schoonmaak'");
         }
     }
 }

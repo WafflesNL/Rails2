@@ -32,7 +32,7 @@ namespace _4Rails_2
         public void AddRepair()
         {
             //Insert a row to table
-            string newRepair = "INSERT INTO MECHANIC_SCHEDULE(tram_id, user_id, time, duration) VALUES (" + this.tramNR + ", " + this.technician + ", " + this.Date + ", " + this.duration + ");";
+            string newRepair = "INSERT INTO Repair(TramID, UserID, time, duration) VALUES (" + this.tramNR + ", " + this.technician + ", " + this.Date + ", " + this.duration + ");";
             DataCom.nonQuery(newRepair);
         }
 
