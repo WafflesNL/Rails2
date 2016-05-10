@@ -289,7 +289,7 @@ namespace _4Rails_2
         public void RemoveCleaning(string tramNR)
         {
             //Delete a row from table
-            string removeCleaning = "DELETE FROM Clean WHERE tramid =" + tramNR + ";";
+            string removeCleaning = "DELETE FROM Clean WHERE tramid =" + tramNR;
             DataCom.nonQuery(removeCleaning);
         }
 
