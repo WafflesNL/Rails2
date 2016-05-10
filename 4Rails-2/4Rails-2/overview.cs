@@ -134,7 +134,7 @@ namespace _4Rails_2
         public void newRegulation(int tramNr, int spoorNr, string User, string tramStatus)
         {
             regulations.Clear();
-                string Number = DataCom.getCount();
+            string Number = DataCom.getCount();
 
                 // Aantal regelingen tellen en dan +1 voor het nieuwe regelingID
                 // nog vervangen naar een max en dan +1

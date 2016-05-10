@@ -39,10 +39,7 @@
             this.btnverwijder = new System.Windows.Forms.Button();
             this.tbUser = new System.Windows.Forms.TextBox();
             this.lblUser = new System.Windows.Forms.Label();
-            this.lbTramnr = new System.Windows.Forms.ListBox();
-            this.lbSpoor = new System.Windows.Forms.ListBox();
-            this.lbStatus = new System.Windows.Forms.ListBox();
-            this.lbUser = new System.Windows.Forms.ListBox();
+            this.lbRegelingen = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
             // btnback
@@ -148,42 +145,15 @@
             this.lblUser.TabIndex = 21;
             this.lblUser.Text = "User";
             // 
-            // lbTramnr
+            // lbRegelingen
             // 
-            this.lbTramnr.FormattingEnabled = true;
-            this.lbTramnr.ItemHeight = 16;
-            this.lbTramnr.Location = new System.Drawing.Point(105, 108);
-            this.lbTramnr.Name = "lbTramnr";
-            this.lbTramnr.Size = new System.Drawing.Size(60, 372);
-            this.lbTramnr.TabIndex = 1;
-            this.lbTramnr.SelectedIndexChanged += new System.EventHandler(this.lbTramnr_SelectedIndexChanged);
-            // 
-            // lbSpoor
-            // 
-            this.lbSpoor.FormattingEnabled = true;
-            this.lbSpoor.ItemHeight = 16;
-            this.lbSpoor.Location = new System.Drawing.Point(165, 108);
-            this.lbSpoor.Name = "lbSpoor";
-            this.lbSpoor.Size = new System.Drawing.Size(60, 372);
-            this.lbSpoor.TabIndex = 2;
-            // 
-            // lbStatus
-            // 
-            this.lbStatus.FormattingEnabled = true;
-            this.lbStatus.ItemHeight = 16;
-            this.lbStatus.Location = new System.Drawing.Point(291, 108);
-            this.lbStatus.Name = "lbStatus";
-            this.lbStatus.Size = new System.Drawing.Size(100, 372);
-            this.lbStatus.TabIndex = 3;
-            // 
-            // lbUser
-            // 
-            this.lbUser.FormattingEnabled = true;
-            this.lbUser.ItemHeight = 16;
-            this.lbUser.Location = new System.Drawing.Point(225, 108);
-            this.lbUser.Name = "lbUser";
-            this.lbUser.Size = new System.Drawing.Size(60, 372);
-            this.lbUser.TabIndex = 19;
+            this.lbRegelingen.FormattingEnabled = true;
+            this.lbRegelingen.ItemHeight = 16;
+            this.lbRegelingen.Location = new System.Drawing.Point(105, 108);
+            this.lbRegelingen.Name = "lbRegelingen";
+            this.lbRegelingen.Size = new System.Drawing.Size(286, 372);
+            this.lbRegelingen.TabIndex = 1;
+            this.lbRegelingen.SelectedIndexChanged += new System.EventHandler(this.lbTramnr_SelectedIndexChanged);
             // 
             // regelingGUI
             // 
@@ -192,7 +162,6 @@
             this.ClientSize = new System.Drawing.Size(656, 492);
             this.Controls.Add(this.lblUser);
             this.Controls.Add(this.tbUser);
-            this.Controls.Add(this.lbUser);
             this.Controls.Add(this.btnverwijder);
             this.Controls.Add(this.cbStatus);
             this.Controls.Add(this.button2);
@@ -201,9 +170,7 @@
             this.Controls.Add(this.lblTramnr);
             this.Controls.Add(this.tbSpoor);
             this.Controls.Add(this.tbTramnr);
-            this.Controls.Add(this.lbStatus);
-            this.Controls.Add(this.lbSpoor);
-            this.Controls.Add(this.lbTramnr);
+            this.Controls.Add(this.lbRegelingen);
             this.Controls.Add(this.btnback);
             this.Name = "regelingGUI";
             this.Text = "regelingGUI";
@@ -225,9 +192,6 @@
         private System.Windows.Forms.Button btnverwijder;
         private System.Windows.Forms.TextBox tbUser;
         private System.Windows.Forms.Label lblUser;
-        private System.Windows.Forms.ListBox lbTramnr;
-        private System.Windows.Forms.ListBox lbSpoor;
-        private System.Windows.Forms.ListBox lbStatus;
-        private System.Windows.Forms.ListBox lbUser;
+        private System.Windows.Forms.ListBox lbRegelingen;
     }
 }
