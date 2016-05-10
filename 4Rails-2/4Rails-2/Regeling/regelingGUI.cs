@@ -35,8 +35,9 @@ namespace _4Rails_2
 
         private void refreshForm()
         {
+
             lbRegelingen.Items.Clear();
-            
+            overview.refreshDatabase();
             foreach(Regulation regulation in overview.regulations)
             {
                 
@@ -79,7 +80,7 @@ namespace _4Rails_2
 
         private void btnRefresh_Click(object sender, EventArgs e)
         {
-            this.refreshForm();
+            refreshForm();
         }
     }
 }

@@ -12,11 +12,15 @@ namespace _4Rails_2
 {
     public partial class Nieuwe_Regeling : Form
     {
-        Overview overview;
+        
+
+        
         public Nieuwe_Regeling()
         {
             InitializeComponent();
-            overview = new Overview();
+            
+            
+            
         }
 
         private void comboBox1_Click(object sender, EventArgs e)
@@ -102,7 +106,7 @@ namespace _4Rails_2
             cbSoort.Text = "";
             cbUser.Items.Clear();
             cbUser.Text = "";
-
+            refreshform()
             this.Hide();
             this.Close();
         }
