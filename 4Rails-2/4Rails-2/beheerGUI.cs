@@ -12,8 +12,6 @@ namespace _4Rails_2
 {
     public partial class beheerGUI : Form
     {
-        CleaningPlanning schoonmaakplanning;
-        techniekPlanning techniekplanning;
         nieuweTram nieuweTram;
         Overview overview;
 
@@ -27,8 +25,6 @@ namespace _4Rails_2
         public beheerGUI(int id, string name)
         {
             InitializeComponent();
-            schoonmaakplanning = new CleaningPlanning();
-            techniekplanning = new techniekPlanning();
             nieuweTram = new nieuweTram();
             overview = new Overview();
             overview.Beheerlist();
@@ -69,7 +65,7 @@ namespace _4Rails_2
 
         private void btnOpenTechniek_Click(object sender, EventArgs e)
         {
-            techniekplanning.CheckTechniek();
+            overview.CheckTechniek();
             customBox.Show("Techniekplanning", overview.data2);
         }
 
