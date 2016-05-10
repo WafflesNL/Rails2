@@ -21,7 +21,7 @@ namespace _4Rails_2
             InitializeComponent();
         }
 
-        static customBox planningBox; static DialogResult result = DialogResult.No;
+        public static customBox planningBox; static DialogResult result = DialogResult.No;
         public static DialogResult Show(string Title, List<string[]> data)
         {
             planningBox = new customBox();
@@ -47,23 +47,27 @@ namespace _4Rails_2
             {
                 AddCleaning form = new AddCleaning();
                 form.ShowDialog();
-                planningBox.Refresh();
             }
             else
             {
-                
+                AddRepair form = new AddRepair();
+                form.ShowDialog();
             }
         }
 
         private void Modify_Click(object sender, EventArgs e)
         {
+            Tramnrstringa = (string)customlstBox.SelectedItem;
+            Tramnrstringb = Tramnrstringa.Split('\t')[0];
             if (planningBox.Text == "Schoonmaakplanning")
             {
-
+                Modifycleaning form = new Modifycleaning(Tramnrstringb);
+                form.ShowDialog();
             }
             else
             {
-
+                ModifyRepair form = new ModifyRepair(Tramnrstringb);
+                form.ShowDialog();
             }
         }
 
@@ -79,7 +83,7 @@ namespace _4Rails_2
             }
             else
             {
-
+                overview.RemoveRepair(Tramnrstringb);
             }
 
         }

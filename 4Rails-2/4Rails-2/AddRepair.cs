@@ -10,32 +10,33 @@ using System.Windows.Forms;
 
 namespace _4Rails_2
 {
-    public partial class AddCleaning : Form
+    public partial class AddRepair : Form
     {
         Overview overview;
         public string tramnr;
         public string staffID;
         public string tijdstart;
         public string tijdeind;
+        public string candrive;
         public string beschrijving;
-        public int cleanid;
-        public AddCleaning()
+        public int repairid;
+        public AddRepair()
         {
             InitializeComponent();
             Date1.Format = DateTimePickerFormat.Custom;
             Date1.CustomFormat = "dd" + "-" + "MM" + "-" + "yyyy" + " " + "hh" + ":" + "mm" + ":" + "ss";
             Date2.Format = DateTimePickerFormat.Custom;
-            Date2.CustomFormat = "dd" + "-" + "MM" + "-" + "yyyy" + " " + "hh" + ":" +  "mm" + ":" + "ss";
+            Date2.CustomFormat = "dd" + "-" + "MM" + "-" + "yyyy" + " " + "hh" + ":" + "mm" + ":" + "ss";
             overview = new Overview();
             overview.Beheerlist();
-            overview.CheckSchoonmaak();
-            overview.CheckClean();
-            cleanid = Convert.ToInt32(overview.cleanidstring) + 1;
-            Cleanlbnew.Text = Convert.ToString(cleanid);
+            overview.CheckTechniek();
+            overview.CheckRepair();
+            repairid = Convert.ToInt32(overview.repairidstring) + 1;
+            Cleanlbnew.Text = Convert.ToString(repairid);           
             foreach (var s in overview.tramnrlist)
             {
-               comboBox1.Items.Add(s[0]);
-            }           
+                comboBox1.Items.Add(s[0]);
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -49,7 +50,15 @@ namespace _4Rails_2
                     tijdstart = Date1.Text;
                     tijdeind = Date2.Text;
                     beschrijving = textBox1.Text;
-                    overview.AddCleaning(cleanid, tramnr, staffID, tijdstart, tijdeind, beschrijving);
+                    if (checkBox1.Checked == true)
+                    {
+                        candrive = "Y";
+                    }
+                    else
+                    {
+                        candrive = "N";
+                    }
+                    overview.AddRepair(repairid, tramnr, staffID, tijdstart, tijdeind, candrive, beschrijving);
                     this.Close();
                 }
                 else

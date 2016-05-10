@@ -35,6 +35,7 @@ namespace _4Rails_2
 
         //Techniek
         public List<string[]> data2 = new List<string[]>();
+        public string repairidstring;
 
         //Trampspec
         public string tramclass;
@@ -282,8 +283,14 @@ namespace _4Rails_2
         public void AddCleaning(int cleanid, string tramNR, string personeel, string Tijdstart, string Tijdeind, string Beschrijving)
         {
             //Insert a row to table
-            string newCleaning = "INSERT INTO Clean(cleanID, tramid, userid, TijdStart, TijdEind, Beschrijving) VALUES (" + cleanid + ", "+ tramNR + ", " + personeel + ", " + Tijdstart + ", " + Tijdeind + ", " + Beschrijving + ");";
+            string newCleaning = "INSERT INTO Clean(cleanID, tramid, userid, TimeStart, TimeEnd, Description) VALUES (" + cleanid + ", '"+ tramNR + "', '" + personeel + "', '" + Tijdstart + "', '" + Tijdeind + "', '" + Beschrijving + "')";
             DataCom.nonQuery(newCleaning);
+        }
+
+        public void modifyCleaning(string tramNR, string personeel, string Tijdstart, string Tijdeind, string Beschrijving)
+        {
+            string modifyCleaning = "UPDATE Clean SET UserID = " + "'" + personeel + "'" + ", " + "TimeStart = " + "'" + Tijdstart + "'" + ", " + "TimeEnd = " + "'" + Tijdeind + "'" + ", " + "Description = " + "'" + Beschrijving + "'" + " WHERE TramID = " + tramNR;
+            DataCom.nonQuery(modifyCleaning);
         }
 
         public void RemoveCleaning(string tramNR)
@@ -306,12 +313,18 @@ namespace _4Rails_2
 
         //Techniekplanning
 
-        public void AddRepair(string tramNR, string personeel, string datum, string duration)
+        public void AddRepair(int repairid, string tramNR, string personeel, string Tijdstart, string Tijdeind, string candrive, string Beschrijving)
         {
             //Insert a row to table
-            string newRepair = "INSERT INTO Repair(tramid, userid, time, duration) VALUES (" + tramNR + ", " + personeel + ", " + datum + ", " + duration + ");";
+            string newRepair = "INSERT INTO Repair(repairid, tramid, userid, TimeStart, TimeEnd, CanDrive, Description) VALUES (" + repairid + ", '" + tramNR + "', '" + personeel + "', '" + Tijdstart + "', '" + Tijdeind + "', '" + candrive + "', '" + Beschrijving + "')";
             DataCom.nonQuery(newRepair);
-        } 
+        }
+
+        public void modifyRepair(string tramNR, string personeel, string Tijdstart, string Tijdeind, string Beschrijving)
+        {
+            string modifyRepair = "UPDATE Repair SET UserID = " + "'" + personeel + "'" + ", " + "TimeStart = " + "'" + Tijdstart + "'" + ", " + "TimeEnd = " + "'" + Tijdeind + "'" + ", " + "Description = " + "'" + Beschrijving + "'" + " WHERE TramID = " + tramNR;
+            DataCom.nonQuery(modifyRepair);
+        }
 
         public void RemoveRepair(string tramNR)
         {
@@ -324,6 +337,11 @@ namespace _4Rails_2
         {
             //Search for all the trams that need to be repaired
             return data2 = DataCom.ReadAll("m.TramID, m.UserID, m.TimeStart, m.TimeEnd, t.Tramstatus, m.CanDrive", "Repair m, Tram t", "t.TramID = m.TramID");
+        }
+
+        public string CheckRepair()
+        {
+            return repairidstring = DataCom.Read("MAX(RepairID)", "Repair", "RepairID");
         }
 
         //Gebruikers

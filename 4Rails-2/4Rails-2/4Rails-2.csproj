@@ -68,6 +68,12 @@
     <Compile Include="AddCleaning.Designer.cs">
       <DependentUpon>AddCleaning.cs</DependentUpon>
     </Compile>
+    <Compile Include="AddRepair.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddRepair.Designer.cs">
+      <DependentUpon>AddRepair.cs</DependentUpon>
+    </Compile>
     <Compile Include="Beheerclass.cs" />
     <Compile Include="beheerGUI.cs">
       <SubType>Form</SubType>
@@ -82,6 +88,18 @@
       <DependentUpon>customBox.cs</DependentUpon>
     </Compile>
     <Compile Include="Gebruikers.cs" />
+    <Compile Include="Modifycleaning.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modifycleaning.Designer.cs">
+      <DependentUpon>Modifycleaning.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ModifyRepair.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModifyRepair.Designer.cs">
+      <DependentUpon>ModifyRepair.cs</DependentUpon>
+    </Compile>
     <Compile Include="Regeling\Nieuwe Regeling.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -132,6 +150,9 @@
     <EmbeddedResource Include="AddCleaning.resx">
       <DependentUpon>AddCleaning.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AddRepair.resx">
+      <DependentUpon>AddRepair.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="beheerGUI.resx">
       <DependentUpon>beheerGUI.cs</DependentUpon>
     </EmbeddedResource>
@@ -143,6 +164,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="mainWindow.resx">
       <DependentUpon>mainWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modifycleaning.resx">
+      <DependentUpon>Modifycleaning.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModifyRepair.resx">
+      <DependentUpon>ModifyRepair.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Regeling\Nieuwe Regeling.resx">
       <DependentUpon>Nieuwe Regeling.cs</DependentUpon>
