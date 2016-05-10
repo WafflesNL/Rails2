@@ -19,7 +19,6 @@ namespace _4Rails_2
         public string SectorNR;
         public string SectorNewNR;
         Overview overview;
-        beheerGUI beheer;
         Login login;
 
         public Tramspecificaties(string tramnr, string RailID, string SectorID)
@@ -32,8 +31,7 @@ namespace _4Rails_2
             SectorNR = SectorID;
             SectorIDlb.Text = SectorNR;
             overview = new Overview();
-            login = new Login();
-            beheer = new beheerGUI(1,login.Username);
+            login = new Login();  
             overview.onload(tramnrs);
             Cbstatus.Text = overview.tramclass;
         }
@@ -43,8 +41,7 @@ namespace _4Rails_2
             status = Cbstatus.Text;
             RailNewNR = Convert.ToString(RailIDNum.Value);
             SectorNewNR = Convert.ToString(SectorNum.Value);
-            overview.modify(status, tramnrs, RailNR, RailNewNR, SectorNR, SectorNewNR);
-            beheer.Beheerrefresh();
+            overview.modify(status, tramnrs, RailNR, RailNewNR, SectorNR, SectorNewNR);           
             this.Close();
         }
 
