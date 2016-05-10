@@ -65,7 +65,7 @@ namespace _4Rails_2
             refreshRegulations();
             refreshTram();
             refreshGebruikers();
-            //refreshRails();
+            refreshRails();
         }
 
         //Sectors
@@ -173,9 +173,13 @@ namespace _4Rails_2
             foreach (string[] items in railList)
             {
                 int spoorNummer = Convert.ToInt32(items[0]);
-                int sectorNummer = Convert.ToInt32(items[2]);
-
-                Spoor spoor = new Spoor(spoorNummer, sectorNummer);
+                string control = Convert.ToString(items[1]);
+                bool blocked = false;
+                if (control == "Y")
+                {
+                    blocked = true;
+                }
+                Spoor spoor = new Spoor(spoorNummer, blocked);
                 rails.Add(spoor);
             }
         }
@@ -184,7 +188,7 @@ namespace _4Rails_2
         {
             List<string[]> returnvalue;
 
-            returnvalue = DataCom.ReadAll("RailID, Blocked, Sectors", "Rail");
+            returnvalue = DataCom.ReadAll("RailID, Blocked", "Rail");
 
             return returnvalue;
         }

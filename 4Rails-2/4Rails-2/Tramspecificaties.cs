@@ -39,6 +39,9 @@ namespace _4Rails_2
         private void button1_Click(object sender, EventArgs e)
         {
             bool vrijSpoor = false;
+            status = Cbstatus.Text;
+            RailNewNR = Convert.ToString(RailIDNum.Value);
+            SectorNewNR = Convert.ToString(SectorNum.Value);
             foreach (Tram tram in overview.trams)
             {
                 if (tram.HuidigSpoorNR == Convert.ToInt32(RailNewNR) && tram.HuidigSectorNR == Convert.ToInt32(SectorNewNR))
@@ -52,12 +55,12 @@ namespace _4Rails_2
             }
             if (vrijSpoor == true)
             {
-                //uitvoering
+                overview.modify(status, tramnrs, RailNR, RailNewNR, SectorNR, SectorNewNR);
             }
-            status = Cbstatus.Text;
-            RailNewNR = Convert.ToString(RailIDNum.Value);
-            SectorNewNR = Convert.ToString(SectorNum.Value);
-            overview.modify(status, tramnrs, RailNR, RailNewNR, SectorNR, SectorNewNR);
+            else
+            {
+                MessageBox.Show("  ");
+            }
             this.Close();
         }
 
