@@ -249,6 +249,19 @@ namespace _4Rails_2
             refreshTram();
         }
 
+        public Tram checkLocaties(int railNr, int sectorNR)
+        {
+            Tram Temp = new Tram(0,0,"Dummy", 0, "Dummy", 0);
+            foreach (Tram tram in trams)
+            {
+                if (tram.HuidigSpoorNR == railNr && tram.HuidigSectorNR == sectorNR)
+                {
+                    Temp = tram;
+                }
+            }
+            return Temp;
+        }
+
         public void refreshTram()
         {
             tramlist.Clear();

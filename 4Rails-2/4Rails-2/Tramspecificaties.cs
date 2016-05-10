@@ -42,24 +42,21 @@ namespace _4Rails_2
             status = Cbstatus.Text;
             RailNewNR = Convert.ToString(RailIDNum.Value);
             SectorNewNR = Convert.ToString(SectorNum.Value);
-            foreach (Tram tram in overview.trams)
+            int railnr = Convert.ToInt32(RailNewNR);
+            int sectornr = Convert.ToInt32(SectorNewNR);
+            Tram tram = overview.checkLocaties(railnr, sectornr);
+            if (tram.HuidigSpoorNR == 0)
             {
-                if (tram.HuidigSpoorNR == Convert.ToInt32(RailNewNR) && tram.HuidigSectorNR == Convert.ToInt32(SectorNewNR))
-                {
-                    vrijSpoor = false;
-                }
-                else
-                {
-                    vrijSpoor = true;
-                }
+                vrijSpoor = true;
             }
             if (vrijSpoor == true)
             {
                 overview.modify(status, tramnrs, RailNR, RailNewNR, SectorNR, SectorNewNR);
+                MessageBox.Show("Tram gewijzigd");
             }
             else
             {
-                MessageBox.Show("  ");
+                MessageBox.Show("Is bezet!");
             }
             this.Close();
         }
