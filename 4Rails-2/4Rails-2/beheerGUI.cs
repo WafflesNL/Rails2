@@ -15,7 +15,7 @@ namespace _4Rails_2
         nieuweTram nieuweTram;
         Overview overview;
 
-        public string name;
+        public string Name;
         public string TramnrStringa;
         public string TramnrStringb;
         public int ID;
@@ -31,10 +31,42 @@ namespace _4Rails_2
             Beheerrefresh();
 
             this.ID = id;
-            this.name = name;
+            this.Name = name;
             i = 0;
             j = 0;
             Index = 0;
+
+            //Functions
+            switch (ID)
+            {
+                case 1:
+                    btnNieuweTram.Enabled = true;
+                    btnTram.Enabled = true;
+                    btnOpenSchoonmaak.Enabled = true;
+                    btnOpenTechniek.Enabled = true;
+                    break;
+
+                case 2:
+                    btnNieuweTram.Enabled = false;
+                    btnTram.Enabled = true;
+                    btnOpenSchoonmaak.Enabled = false;
+                    btnOpenTechniek.Enabled = false;
+                    break;
+
+                case 3:
+                    btnNieuweTram.Enabled = false;
+                    btnTram.Enabled = true;
+                    btnOpenSchoonmaak.Enabled = true;
+                    btnOpenTechniek.Enabled = false;
+                    break;
+
+                case 4:
+                    btnNieuweTram.Enabled = false;
+                    btnTram.Enabled = true;
+                    btnOpenSchoonmaak.Enabled = false;
+                    btnOpenTechniek.Enabled = true;
+                    break;
+            }
         }
 
         private void Timer1_Tick(object sender, EventArgs e)
@@ -58,7 +90,7 @@ namespace _4Rails_2
         {
             if (Tramnrlb.Text != "No Tram Selected")
             {
-                Tramspecificaties tram = new Tramspecificaties(Tramnrlb.Text, overview.GetBeheerRails(Tramnrlb.Text), overview.GetBeheerSector(Tramnrlb.Text));
+                Tramspecificaties tram = new Tramspecificaties(Tramnrlb.Text, overview.GetBeheerRails(Tramnrlb.Text), overview.GetBeheerSector(Tramnrlb.Text), ID, Name);
                 tram.ShowDialog();
                 Beheerrefresh();
             }
@@ -71,7 +103,7 @@ namespace _4Rails_2
 
         private void Back_Click(object sender, EventArgs e)
         {
-            mainWindow window = new mainWindow(ID, name);
+            mainWindow window = new mainWindow(ID, Name);
             this.Close();
             this.Hide();
             window.ShowDialog();

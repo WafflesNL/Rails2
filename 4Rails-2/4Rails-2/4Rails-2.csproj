@@ -74,7 +74,6 @@
     <Compile Include="AddRepair.Designer.cs">
       <DependentUpon>AddRepair.cs</DependentUpon>
     </Compile>
-    <Compile Include="Beheerclass.cs" />
     <Compile Include="beheerGUI.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -135,12 +134,9 @@
       <DependentUpon>regelingGUI.cs</DependentUpon>
     </Compile>
     <Compile Include="Regeling\Regulation.cs" />
-    <Compile Include="schoonmaakPlanning.cs" />
     <Compile Include="Sector\Sector.cs" />
     <Compile Include="Spoor.cs" />
-    <Compile Include="techniekPlanning.cs" />
     <Compile Include="Tram.cs" />
-    <Compile Include="Tramspecclass.cs" />
     <Compile Include="Tramspecificaties.cs">
       <SubType>Form</SubType>
     </Compile>

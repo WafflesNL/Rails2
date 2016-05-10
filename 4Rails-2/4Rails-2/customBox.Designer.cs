@@ -38,6 +38,7 @@
             this.Modify = new System.Windows.Forms.Button();
             this.Delete = new System.Windows.Forms.Button();
             this.Add = new System.Windows.Forms.Button();
+            this.Hiddenlabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // customlstBox
@@ -49,6 +50,7 @@
             this.customlstBox.Name = "customlstBox";
             this.customlstBox.Size = new System.Drawing.Size(586, 444);
             this.customlstBox.TabIndex = 0;
+            this.customlstBox.MouseClick += new System.Windows.Forms.MouseEventHandler(this.customlstBox_MouseClick);
             // 
             // TramNRlabel
             // 
@@ -134,11 +136,22 @@
             this.Add.UseVisualStyleBackColor = true;
             this.Add.Click += new System.EventHandler(this.Add_Click);
             // 
+            // Hiddenlabel
+            // 
+            this.Hiddenlabel.AutoSize = true;
+            this.Hiddenlabel.ForeColor = System.Drawing.Color.Transparent;
+            this.Hiddenlabel.Location = new System.Drawing.Point(741, 9);
+            this.Hiddenlabel.Name = "Hiddenlabel";
+            this.Hiddenlabel.Size = new System.Drawing.Size(13, 13);
+            this.Hiddenlabel.TabIndex = 16;
+            this.Hiddenlabel.Text = "1";
+            // 
             // customBox
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(766, 482);
+            this.Controls.Add(this.Hiddenlabel);
             this.Controls.Add(this.Add);
             this.Controls.Add(this.Delete);
             this.Controls.Add(this.Modify);
@@ -168,5 +181,6 @@
         private System.Windows.Forms.Button Modify;
         private System.Windows.Forms.Button Delete;
         private System.Windows.Forms.Button Add;
+        private System.Windows.Forms.Label Hiddenlabel;
     }
 }
