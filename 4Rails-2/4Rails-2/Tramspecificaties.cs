@@ -18,12 +18,16 @@ namespace _4Rails_2
         public string RailNewNR;
         public string SectorNR;
         public string SectorNewNR;
+        public int Id;
+        public string name;
         Overview overview;
         Login login;
 
-        public Tramspecificaties(string tramnr, string RailID, string SectorID)
+        public Tramspecificaties(string tramnr, string RailID, string SectorID, int ID, string Name)
         {
             InitializeComponent();
+            Id = ID;
+            name = Name;
             tramnrs = tramnr;
             BeheerTramNR.Text = tramnr;
             RailNR = RailID;
@@ -34,6 +38,33 @@ namespace _4Rails_2
             login = new Login();
             overview.onload(tramnrs);
             Cbstatus.Text = overview.tramclass;
+
+            switch (ID)
+            {
+                case 1:
+                    Cbstatus.Enabled = true;
+                    cbSectorNr.Enabled = true;
+                    cbRailNr.Enabled = true;
+                    break;
+
+                case 2:
+                    Cbstatus.Enabled = true;
+                    cbSectorNr.Enabled = false;
+                    cbRailNr.Enabled = false;
+                    break;
+
+                case 3:
+                    Cbstatus.Enabled = true;
+                    cbSectorNr.Enabled = false;
+                    cbRailNr.Enabled = false;
+                    break;
+
+                case 4:
+                    Cbstatus.Enabled = true;
+                    cbSectorNr.Enabled = false;
+                    cbRailNr.Enabled = false;
+                    break;
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)

@@ -57,17 +57,24 @@ namespace _4Rails_2
 
         private void Modify_Click(object sender, EventArgs e)
         {
-            Tramnrstringa = (string)customlstBox.SelectedItem;
-            Tramnrstringb = Tramnrstringa.Split('\t')[0];
-            if (planningBox.Text == "Schoonmaakplanning")
+            if (Hiddenlabel.Text == "2")
             {
-                Modifycleaning form = new Modifycleaning(Tramnrstringb);
-                form.ShowDialog();
+                Tramnrstringa = (string)customlstBox.SelectedItem;
+                Tramnrstringb = Tramnrstringa.Split('\t')[0];
+                if (planningBox.Text == "Schoonmaakplanning")
+                {
+                    Modifycleaning form = new Modifycleaning(Tramnrstringb);
+                    form.ShowDialog();
+                }
+                else
+                {
+                    ModifyRepair form = new ModifyRepair(Tramnrstringb);
+                    form.ShowDialog();
+                }
             }
             else
             {
-                ModifyRepair form = new ModifyRepair(Tramnrstringb);
-                form.ShowDialog();
+                MessageBox.Show("Please select a Tram");
             }
         }
 
@@ -86,6 +93,11 @@ namespace _4Rails_2
                 overview.RemoveRepair(Tramnrstringb);
             }
 
+        }
+
+        private void customlstBox_MouseClick(object sender, MouseEventArgs e)
+        {
+            Hiddenlabel.Text = "2";
         }
     }
 }

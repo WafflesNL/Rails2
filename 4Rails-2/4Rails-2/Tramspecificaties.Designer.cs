@@ -45,10 +45,9 @@
             // 
             // btnModify1
             // 
-            this.btnModify1.Location = new System.Drawing.Point(271, 228);
-            this.btnModify1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnModify1.Location = new System.Drawing.Point(203, 185);
             this.btnModify1.Name = "btnModify1";
-            this.btnModify1.Size = new System.Drawing.Size(100, 28);
+            this.btnModify1.Size = new System.Drawing.Size(75, 23);
             this.btnModify1.TabIndex = 0;
             this.btnModify1.Text = "Modify";
             this.btnModify1.UseVisualStyleBackColor = true;
@@ -63,70 +62,63 @@
             "Schoonmaak",
             "Defect",
             "Remise"});
-            this.Cbstatus.Location = new System.Drawing.Point(211, 47);
-            this.Cbstatus.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Cbstatus.Location = new System.Drawing.Point(158, 38);
             this.Cbstatus.Name = "Cbstatus";
-            this.Cbstatus.Size = new System.Drawing.Size(160, 24);
+            this.Cbstatus.Size = new System.Drawing.Size(121, 21);
             this.Cbstatus.TabIndex = 2;
             this.Cbstatus.SelectedIndexChanged += new System.EventHandler(this.Cbstatus_SelectedIndexChanged);
             // 
             // BeheerTramNR
             // 
             this.BeheerTramNR.AutoSize = true;
-            this.BeheerTramNR.Location = new System.Drawing.Point(21, 50);
-            this.BeheerTramNR.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.BeheerTramNR.Location = new System.Drawing.Point(16, 41);
             this.BeheerTramNR.Name = "BeheerTramNR";
-            this.BeheerTramNR.Size = new System.Drawing.Size(46, 17);
+            this.BeheerTramNR.Size = new System.Drawing.Size(35, 13);
             this.BeheerTramNR.TabIndex = 3;
             this.BeheerTramNR.Text = "label1";
             // 
             // lblTramNR
             // 
             this.lblTramNR.AutoSize = true;
-            this.lblTramNR.Location = new System.Drawing.Point(21, 16);
-            this.lblTramNR.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblTramNR.Location = new System.Drawing.Point(16, 13);
             this.lblTramNR.Name = "lblTramNR";
-            this.lblTramNR.Size = new System.Drawing.Size(61, 17);
+            this.lblTramNR.Size = new System.Drawing.Size(47, 13);
             this.lblTramNR.TabIndex = 4;
             this.lblTramNR.Text = "TramNR";
             // 
             // Status
             // 
             this.Status.AutoSize = true;
-            this.Status.Location = new System.Drawing.Point(211, 15);
-            this.Status.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.Status.Location = new System.Drawing.Point(158, 12);
             this.Status.Name = "Status";
-            this.Status.Size = new System.Drawing.Size(48, 17);
+            this.Status.Size = new System.Drawing.Size(37, 13);
             this.Status.TabIndex = 5;
             this.Status.Text = "Status";
             // 
             // RailNr
             // 
             this.RailNr.AutoSize = true;
-            this.RailNr.Location = new System.Drawing.Point(21, 119);
-            this.RailNr.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.RailNr.Location = new System.Drawing.Point(16, 97);
             this.RailNr.Name = "RailNr";
-            this.RailNr.Size = new System.Drawing.Size(46, 17);
+            this.RailNr.Size = new System.Drawing.Size(35, 13);
             this.RailNr.TabIndex = 6;
             this.RailNr.Text = "label1";
             // 
             // RailNRTxt
             // 
             this.RailNRTxt.AutoSize = true;
-            this.RailNRTxt.Location = new System.Drawing.Point(21, 89);
-            this.RailNRTxt.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.RailNRTxt.Location = new System.Drawing.Point(16, 72);
             this.RailNRTxt.Name = "RailNRTxt";
-            this.RailNRTxt.Size = new System.Drawing.Size(47, 17);
+            this.RailNRTxt.Size = new System.Drawing.Size(36, 13);
             this.RailNRTxt.TabIndex = 7;
             this.RailNRTxt.Text = "RailNr";
             // 
             // RailIDNew
             // 
             this.RailIDNew.AutoSize = true;
-            this.RailIDNew.Location = new System.Drawing.Point(211, 89);
-            this.RailIDNew.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.RailIDNew.Location = new System.Drawing.Point(158, 72);
             this.RailIDNew.Name = "RailIDNew";
-            this.RailIDNew.Size = new System.Drawing.Size(72, 17);
+            this.RailIDNew.Size = new System.Drawing.Size(58, 13);
             this.RailIDNew.TabIndex = 8;
             this.RailIDNew.Text = "NewRailID";
             this.RailIDNew.Visible = false;
@@ -134,20 +126,18 @@
             // SectorID
             // 
             this.SectorID.AutoSize = true;
-            this.SectorID.Location = new System.Drawing.Point(19, 155);
-            this.SectorID.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.SectorID.Location = new System.Drawing.Point(14, 126);
             this.SectorID.Name = "SectorID";
-            this.SectorID.Size = new System.Drawing.Size(62, 17);
+            this.SectorID.Size = new System.Drawing.Size(49, 13);
             this.SectorID.TabIndex = 10;
             this.SectorID.Text = "SectorID";
             // 
             // SectorIDlb
             // 
             this.SectorIDlb.AutoSize = true;
-            this.SectorIDlb.Location = new System.Drawing.Point(23, 190);
-            this.SectorIDlb.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.SectorIDlb.Location = new System.Drawing.Point(17, 154);
             this.SectorIDlb.Name = "SectorIDlb";
-            this.SectorIDlb.Size = new System.Drawing.Size(46, 17);
+            this.SectorIDlb.Size = new System.Drawing.Size(35, 13);
             this.SectorIDlb.TabIndex = 11;
             this.SectorIDlb.Text = "label2";
             // 
@@ -159,10 +149,9 @@
             "Schoonmaak",
             "Defect",
             "Remise"});
-            this.cbRailNr.Location = new System.Drawing.Point(211, 119);
-            this.cbRailNr.Margin = new System.Windows.Forms.Padding(4);
+            this.cbRailNr.Location = new System.Drawing.Point(158, 97);
             this.cbRailNr.Name = "cbRailNr";
-            this.cbRailNr.Size = new System.Drawing.Size(160, 24);
+            this.cbRailNr.Size = new System.Drawing.Size(121, 21);
             this.cbRailNr.TabIndex = 12;
             this.cbRailNr.Visible = false;
             this.cbRailNr.SelectedIndexChanged += new System.EventHandler(this.cbRailNr_SelectedIndexChanged);
@@ -175,19 +164,17 @@
             "Schoonmaak",
             "Defect",
             "Remise"});
-            this.cbSectorNr.Location = new System.Drawing.Point(211, 183);
-            this.cbSectorNr.Margin = new System.Windows.Forms.Padding(4);
+            this.cbSectorNr.Location = new System.Drawing.Point(158, 149);
             this.cbSectorNr.Name = "cbSectorNr";
-            this.cbSectorNr.Size = new System.Drawing.Size(160, 24);
+            this.cbSectorNr.Size = new System.Drawing.Size(121, 21);
             this.cbSectorNr.TabIndex = 13;
             this.cbSectorNr.Visible = false;
             // 
             // btnModify2
             // 
-            this.btnModify2.Location = new System.Drawing.Point(271, 228);
-            this.btnModify2.Margin = new System.Windows.Forms.Padding(4);
+            this.btnModify2.Location = new System.Drawing.Point(203, 185);
             this.btnModify2.Name = "btnModify2";
-            this.btnModify2.Size = new System.Drawing.Size(100, 28);
+            this.btnModify2.Size = new System.Drawing.Size(75, 23);
             this.btnModify2.TabIndex = 14;
             this.btnModify2.Text = "Modify";
             this.btnModify2.UseVisualStyleBackColor = true;
@@ -196,9 +183,9 @@
             // 
             // Tramspecificaties
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(397, 271);
+            this.ClientSize = new System.Drawing.Size(298, 220);
             this.Controls.Add(this.btnModify2);
             this.Controls.Add(this.cbSectorNr);
             this.Controls.Add(this.cbRailNr);
@@ -212,7 +199,6 @@
             this.Controls.Add(this.BeheerTramNR);
             this.Controls.Add(this.Cbstatus);
             this.Controls.Add(this.btnModify1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Tramspecificaties";
             this.Text = "Tramspecificaties";
             this.ResumeLayout(false);
