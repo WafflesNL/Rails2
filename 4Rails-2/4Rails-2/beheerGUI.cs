@@ -27,7 +27,7 @@ namespace _4Rails_2
             InitializeComponent();
             nieuweTram = new nieuweTram();
             overview = new Overview();
-            overview.Beheerlist();
+            
             Beheerrefresh();
 
             this.ID = id;
@@ -59,6 +59,7 @@ namespace _4Rails_2
         {
             Tramspecificaties tram = new Tramspecificaties(Tramnrlb.Text, overview.GetBeheerRails(Tramnrlb.Text), overview.GetBeheerSector(Tramnrlb.Text));
             tram.ShowDialog();
+            Beheerrefresh();
         }
 
         private void Back_Click(object sender, EventArgs e)
@@ -84,12 +85,12 @@ namespace _4Rails_2
             TramnrStringa = (string)lbTramNr.SelectedItem;
             TramnrStringb = TramnrStringa.Split('\t')[0];
             Tramnrlb.Text = TramnrStringb;
-            lbTramNr.Refresh();
         }
 
         public void Beheerrefresh()
         {
-            lbTramNr.Items.Clear();           
+            overview.Beheerlist();
+            lbTramNr.Items.Clear();          
             foreach (var items in overview.tramnrlist)
             {
                 lbTramNr.Items.Add(items[0] + "\t\t" + items[1]);
