@@ -39,12 +39,14 @@
             this.Beschrijf = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.Cleanlb = new System.Windows.Forms.Label();
+            this.Cleanlbnew = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // Status
             // 
             this.Status.AutoSize = true;
-            this.Status.Location = new System.Drawing.Point(18, 41);
+            this.Status.Location = new System.Drawing.Point(18, 61);
             this.Status.Name = "Status";
             this.Status.Size = new System.Drawing.Size(40, 13);
             this.Status.TabIndex = 17;
@@ -53,7 +55,7 @@
             // lblTramNR
             // 
             this.lblTramNR.AutoSize = true;
-            this.lblTramNR.Location = new System.Drawing.Point(18, 13);
+            this.lblTramNR.Location = new System.Drawing.Point(18, 33);
             this.lblTramNR.Name = "lblTramNR";
             this.lblTramNR.Size = new System.Drawing.Size(47, 13);
             this.lblTramNR.TabIndex = 16;
@@ -68,14 +70,14 @@
             "3",
             "4",
             "5"});
-            this.Cbstatus.Location = new System.Drawing.Point(229, 38);
+            this.Cbstatus.Location = new System.Drawing.Point(229, 58);
             this.Cbstatus.Name = "Cbstatus";
             this.Cbstatus.Size = new System.Drawing.Size(121, 21);
             this.Cbstatus.TabIndex = 14;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(275, 229);
+            this.button1.Location = new System.Drawing.Point(275, 249);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 13;
@@ -86,7 +88,7 @@
             // TijdStart
             // 
             this.TijdStart.AutoSize = true;
-            this.TijdStart.Location = new System.Drawing.Point(18, 71);
+            this.TijdStart.Location = new System.Drawing.Point(18, 91);
             this.TijdStart.Name = "TijdStart";
             this.TijdStart.Size = new System.Drawing.Size(60, 13);
             this.TijdStart.TabIndex = 19;
@@ -95,7 +97,7 @@
             // TijdEind
             // 
             this.TijdEind.AutoSize = true;
-            this.TijdEind.Location = new System.Drawing.Point(18, 99);
+            this.TijdEind.Location = new System.Drawing.Point(18, 119);
             this.TijdEind.Name = "TijdEind";
             this.TijdEind.Size = new System.Drawing.Size(57, 13);
             this.TijdEind.TabIndex = 20;
@@ -103,14 +105,14 @@
             // 
             // Date1
             // 
-            this.Date1.Location = new System.Drawing.Point(150, 65);
+            this.Date1.Location = new System.Drawing.Point(150, 85);
             this.Date1.Name = "Date1";
             this.Date1.Size = new System.Drawing.Size(200, 20);
             this.Date1.TabIndex = 21;
             // 
             // Date2
             // 
-            this.Date2.Location = new System.Drawing.Point(150, 93);
+            this.Date2.Location = new System.Drawing.Point(150, 113);
             this.Date2.Name = "Date2";
             this.Date2.Size = new System.Drawing.Size(200, 20);
             this.Date2.TabIndex = 22;
@@ -118,7 +120,7 @@
             // Beschrijf
             // 
             this.Beschrijf.AutoSize = true;
-            this.Beschrijf.Location = new System.Drawing.Point(18, 122);
+            this.Beschrijf.Location = new System.Drawing.Point(18, 142);
             this.Beschrijf.Name = "Beschrijf";
             this.Beschrijf.Size = new System.Drawing.Size(64, 13);
             this.Beschrijf.TabIndex = 23;
@@ -126,7 +128,7 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(150, 119);
+            this.textBox1.Location = new System.Drawing.Point(150, 139);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(200, 93);
@@ -135,16 +137,36 @@
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(229, 10);
+            this.comboBox1.Location = new System.Drawing.Point(229, 30);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 21);
             this.comboBox1.TabIndex = 25;
+            // 
+            // Cleanlb
+            // 
+            this.Cleanlb.AutoSize = true;
+            this.Cleanlb.Location = new System.Drawing.Point(18, 9);
+            this.Cleanlb.Name = "Cleanlb";
+            this.Cleanlb.Size = new System.Drawing.Size(45, 13);
+            this.Cleanlb.TabIndex = 26;
+            this.Cleanlb.Text = "CleanID";
+            // 
+            // Cleanlbnew
+            // 
+            this.Cleanlbnew.AutoSize = true;
+            this.Cleanlbnew.Location = new System.Drawing.Point(229, 11);
+            this.Cleanlbnew.Name = "Cleanlbnew";
+            this.Cleanlbnew.Size = new System.Drawing.Size(34, 13);
+            this.Cleanlbnew.TabIndex = 27;
+            this.Cleanlbnew.Text = "Blank";
             // 
             // AddCleaning
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(356, 260);
+            this.ClientSize = new System.Drawing.Size(356, 278);
+            this.Controls.Add(this.Cleanlbnew);
+            this.Controls.Add(this.Cleanlb);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.Beschrijf);
@@ -175,5 +197,7 @@
         private System.Windows.Forms.Label Beschrijf;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label Cleanlb;
+        private System.Windows.Forms.Label Cleanlbnew;
     }
 }

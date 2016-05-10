@@ -18,11 +18,16 @@ namespace _4Rails_2
         public string tijdstart;
         public string tijdeind;
         public string beschrijving;
+        public int cleanid;
         public AddCleaning()
         {
             InitializeComponent();
             overview = new Overview();
             overview.Beheerlist();
+            overview.CheckSchoonmaak();
+            overview.CheckClean();
+            cleanid = Convert.ToInt32(overview.cleanidstring) + 1;
+            Cleanlbnew.Text = Convert.ToString(cleanid);
             foreach (var s in overview.tramnrlist)
             {
                comboBox1.Items.Add(s[0]);
@@ -40,7 +45,7 @@ namespace _4Rails_2
                     tijdstart = Date1.Text;
                     tijdeind = Date2.Text;
                     beschrijving = Beschrijf.Text;
-                    overview.AddCleaning(tramnr, staffID, tijdstart, tijdeind, beschrijving);
+                    overview.AddCleaning(cleanid, tramnr, staffID, tijdstart, tijdeind, beschrijving);
                     this.Close();
                 }
                 else
