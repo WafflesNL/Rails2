@@ -38,6 +38,22 @@ namespace _4Rails_2
 
         private void button1_Click(object sender, EventArgs e)
         {
+            bool vrijSpoor = false;
+            foreach (Tram tram in overview.trams)
+            {
+                if (tram.HuidigSpoorNR == RailNewNR && tram.HuidigSectorNR == SectorNewNR)
+                {
+                    vrijSpoor = false;
+                }
+                else
+                {
+                    vrijSpoor = true;
+                }
+            }
+            if (vrijSpoor == true)
+            {
+                //uitvoering
+            }
             status = Cbstatus.Text;
             RailNewNR = Convert.ToString(RailIDNum.Value);
             SectorNewNR = Convert.ToString(SectorNum.Value);
