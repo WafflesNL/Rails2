@@ -40,13 +40,15 @@
             this.tbUser = new System.Windows.Forms.TextBox();
             this.lblUser = new System.Windows.Forms.Label();
             this.lbRegelingen = new System.Windows.Forms.ListBox();
+            this.btnRefresh = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnback
             // 
-            this.btnback.Location = new System.Drawing.Point(12, 12);
+            this.btnback.Location = new System.Drawing.Point(18, 19);
+            this.btnback.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnback.Name = "btnback";
-            this.btnback.Size = new System.Drawing.Size(87, 26);
+            this.btnback.Size = new System.Drawing.Size(130, 41);
             this.btnback.TabIndex = 0;
             this.btnback.Text = "back";
             this.btnback.UseVisualStyleBackColor = true;
@@ -54,44 +56,49 @@
             // 
             // tbTramnr
             // 
-            this.tbTramnr.Location = new System.Drawing.Point(105, 60);
+            this.tbTramnr.Location = new System.Drawing.Point(158, 94);
+            this.tbTramnr.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tbTramnr.Multiline = true;
             this.tbTramnr.Name = "tbTramnr";
-            this.tbTramnr.Size = new System.Drawing.Size(60, 24);
+            this.tbTramnr.Size = new System.Drawing.Size(88, 35);
             this.tbTramnr.TabIndex = 6;
             // 
             // lblTramnr
             // 
             this.lblTramnr.AutoSize = true;
-            this.lblTramnr.Location = new System.Drawing.Point(105, 36);
+            this.lblTramnr.Location = new System.Drawing.Point(158, 56);
+            this.lblTramnr.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTramnr.Name = "lblTramnr";
-            this.lblTramnr.Size = new System.Drawing.Size(54, 17);
+            this.lblTramnr.Size = new System.Drawing.Size(80, 25);
             this.lblTramnr.TabIndex = 11;
             this.lblTramnr.Text = "Tramnr";
             // 
             // lblSpoor
             // 
             this.lblSpoor.AutoSize = true;
-            this.lblSpoor.Location = new System.Drawing.Point(177, 36);
+            this.lblSpoor.Location = new System.Drawing.Point(266, 56);
+            this.lblSpoor.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblSpoor.Name = "lblSpoor";
-            this.lblSpoor.Size = new System.Drawing.Size(46, 17);
+            this.lblSpoor.Size = new System.Drawing.Size(69, 25);
             this.lblSpoor.TabIndex = 12;
             this.lblSpoor.Text = "Spoor";
             // 
             // lblStatus
             // 
             this.lblStatus.AutoSize = true;
-            this.lblStatus.Location = new System.Drawing.Point(295, 36);
+            this.lblStatus.Location = new System.Drawing.Point(442, 56);
+            this.lblStatus.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblStatus.Name = "lblStatus";
-            this.lblStatus.Size = new System.Drawing.Size(48, 17);
+            this.lblStatus.Size = new System.Drawing.Size(73, 25);
             this.lblStatus.TabIndex = 13;
             this.lblStatus.Text = "Status";
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(647, 4);
+            this.button2.Location = new System.Drawing.Point(970, 6);
+            this.button2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(179, 43);
+            this.button2.Size = new System.Drawing.Size(268, 67);
             this.button2.TabIndex = 16;
             this.button2.Text = "Nieuwe Regeling";
             this.button2.UseVisualStyleBackColor = true;
@@ -105,24 +112,27 @@
             "Dienst ",
             "Defect ",
             "Schoonmaak "});
-            this.cbStatus.Location = new System.Drawing.Point(291, 60);
+            this.cbStatus.Location = new System.Drawing.Point(436, 94);
+            this.cbStatus.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cbStatus.Name = "cbStatus";
-            this.cbStatus.Size = new System.Drawing.Size(100, 24);
+            this.cbStatus.Size = new System.Drawing.Size(148, 33);
             this.cbStatus.TabIndex = 17;
             // 
             // tbSpoor
             // 
-            this.tbSpoor.Location = new System.Drawing.Point(165, 60);
+            this.tbSpoor.Location = new System.Drawing.Point(248, 94);
+            this.tbSpoor.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tbSpoor.Multiline = true;
             this.tbSpoor.Name = "tbSpoor";
-            this.tbSpoor.Size = new System.Drawing.Size(60, 24);
+            this.tbSpoor.Size = new System.Drawing.Size(88, 35);
             this.tbSpoor.TabIndex = 7;
             // 
             // btnverwijder
             // 
-            this.btnverwijder.Location = new System.Drawing.Point(647, 53);
+            this.btnverwijder.Location = new System.Drawing.Point(970, 83);
+            this.btnverwijder.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnverwijder.Name = "btnverwijder";
-            this.btnverwijder.Size = new System.Drawing.Size(179, 41);
+            this.btnverwijder.Size = new System.Drawing.Size(268, 64);
             this.btnverwijder.TabIndex = 18;
             this.btnverwijder.Text = "Verwijder Regeling";
             this.btnverwijder.UseVisualStyleBackColor = true;
@@ -130,36 +140,50 @@
             // 
             // tbUser
             // 
-            this.tbUser.Location = new System.Drawing.Point(225, 60);
+            this.tbUser.Location = new System.Drawing.Point(338, 94);
+            this.tbUser.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tbUser.Multiline = true;
             this.tbUser.Name = "tbUser";
-            this.tbUser.Size = new System.Drawing.Size(60, 24);
+            this.tbUser.Size = new System.Drawing.Size(88, 35);
             this.tbUser.TabIndex = 20;
             // 
             // lblUser
             // 
             this.lblUser.AutoSize = true;
-            this.lblUser.Location = new System.Drawing.Point(229, 36);
+            this.lblUser.Location = new System.Drawing.Point(344, 56);
+            this.lblUser.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblUser.Name = "lblUser";
-            this.lblUser.Size = new System.Drawing.Size(38, 17);
+            this.lblUser.Size = new System.Drawing.Size(57, 25);
             this.lblUser.TabIndex = 21;
             this.lblUser.Text = "User";
             // 
             // lbRegelingen
             // 
             this.lbRegelingen.FormattingEnabled = true;
-            this.lbRegelingen.ItemHeight = 16;
-            this.lbRegelingen.Location = new System.Drawing.Point(105, 108);
+            this.lbRegelingen.ItemHeight = 25;
+            this.lbRegelingen.Location = new System.Drawing.Point(158, 169);
+            this.lbRegelingen.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.lbRegelingen.Name = "lbRegelingen";
-            this.lbRegelingen.Size = new System.Drawing.Size(522, 436);
+            this.lbRegelingen.Size = new System.Drawing.Size(781, 679);
             this.lbRegelingen.TabIndex = 1;
             this.lbRegelingen.SelectedIndexChanged += new System.EventHandler(this.lbTramnr_SelectedIndexChanged);
             // 
+            // btnRefresh
+            // 
+            this.btnRefresh.Location = new System.Drawing.Point(1134, 793);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(98, 55);
+            this.btnRefresh.TabIndex = 22;
+            this.btnRefresh.Text = "Refresh";
+            this.btnRefresh.UseVisualStyleBackColor = true;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
+            // 
             // regelingGUI
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(829, 573);
+            this.ClientSize = new System.Drawing.Size(1244, 895);
+            this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.lblUser);
             this.Controls.Add(this.tbUser);
             this.Controls.Add(this.btnverwijder);
@@ -172,6 +196,7 @@
             this.Controls.Add(this.tbTramnr);
             this.Controls.Add(this.lbRegelingen);
             this.Controls.Add(this.btnback);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "regelingGUI";
             this.Text = "regelingGUI";
             this.ResumeLayout(false);
@@ -193,5 +218,6 @@
         private System.Windows.Forms.TextBox tbUser;
         private System.Windows.Forms.Label lblUser;
         private System.Windows.Forms.ListBox lbRegelingen;
+        private System.Windows.Forms.Button btnRefresh;
     }
 }

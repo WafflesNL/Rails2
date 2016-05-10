@@ -102,6 +102,9 @@ namespace _4Rails_2
             cbSoort.Text = "";
             cbUser.Items.Clear();
             cbUser.Text = "";
+
+            this.Hide();
+            this.Close();
         }
     }
 }
