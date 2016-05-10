@@ -43,7 +43,7 @@ namespace _4Rails_2
             bool vrijSpoor = false;
             foreach (Tram tram in overview.trams)
             {
-                if (tram.HuidigSpoorNR == RailNewNR && tram.HuidigSectorNR == SectorNewNR)
+                if (tram.HuidigSpoorNR == Convert.ToInt32(RailNewNR) && tram.HuidigSectorNR == Convert.ToInt32(SectorNewNR))
                 {
                     vrijSpoor = false;
                 }
@@ -60,6 +60,7 @@ namespace _4Rails_2
             RailNewNR = Convert.ToString(RailIDNum.Value);
             SectorNewNR = Convert.ToString(SectorNum.Value);
             overview.modify(status, tramnrs, RailNR, RailNewNR, SectorNR, SectorNewNR);
+            
             beheer.Beheerrefresh();
             this.Close();
         }
