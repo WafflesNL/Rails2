@@ -31,7 +31,7 @@ namespace _4Rails_2
 
             foreach (var items in overview.tramnrlist)
             {
-                lbTramNr.Items.Add(items[0] + "                      " + items[1]);
+                lbTramNr.Items.Add(items[0] + "\t\t" + items[1]);
             }
             this.ID = id;
             this.name = name;
@@ -52,7 +52,7 @@ namespace _4Rails_2
                     }   
                 }
             TramnrStringa = (string)lbTramNr.SelectedItem;
-            TramnrStringb = TramnrStringa.Split(' ')[0];
+            TramnrStringb = TramnrStringa.Split('\t')[0];
             Tramnrlb.Text = TramnrStringb;
             lbTramNr.Refresh();
         }

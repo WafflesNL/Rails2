@@ -50,7 +50,7 @@
             this.lbTramNr.FormattingEnabled = true;
             this.lbTramNr.ItemHeight = 20;
             this.lbTramNr.Location = new System.Drawing.Point(11, 56);
-            this.lbTramNr.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.lbTramNr.Margin = new System.Windows.Forms.Padding(2);
             this.lbTramNr.Name = "lbTramNr";
             this.lbTramNr.Size = new System.Drawing.Size(338, 484);
             this.lbTramNr.TabIndex = 0;
@@ -59,7 +59,7 @@
             // btnOpenSchoonmaak
             // 
             this.btnOpenSchoonmaak.Location = new System.Drawing.Point(360, 54);
-            this.btnOpenSchoonmaak.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnOpenSchoonmaak.Margin = new System.Windows.Forms.Padding(2);
             this.btnOpenSchoonmaak.Name = "btnOpenSchoonmaak";
             this.btnOpenSchoonmaak.Size = new System.Drawing.Size(103, 37);
             this.btnOpenSchoonmaak.TabIndex = 2;
@@ -70,7 +70,7 @@
             // btnOpenTechniek
             // 
             this.btnOpenTechniek.Location = new System.Drawing.Point(360, 11);
-            this.btnOpenTechniek.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnOpenTechniek.Margin = new System.Windows.Forms.Padding(2);
             this.btnOpenTechniek.Name = "btnOpenTechniek";
             this.btnOpenTechniek.Size = new System.Drawing.Size(103, 37);
             this.btnOpenTechniek.TabIndex = 3;
@@ -90,7 +90,7 @@
             // lbStatus
             // 
             this.lbStatus.AutoSize = true;
-            this.lbStatus.Location = new System.Drawing.Point(133, 38);
+            this.lbStatus.Location = new System.Drawing.Point(123, 38);
             this.lbStatus.Name = "lbStatus";
             this.lbStatus.Size = new System.Drawing.Size(37, 13);
             this.lbStatus.TabIndex = 8;
@@ -99,7 +99,7 @@
             // btnTram
             // 
             this.btnTram.Location = new System.Drawing.Point(251, 13);
-            this.btnTram.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnTram.Margin = new System.Windows.Forms.Padding(4);
             this.btnTram.Name = "btnTram";
             this.btnTram.Size = new System.Drawing.Size(103, 37);
             this.btnTram.TabIndex = 9;
@@ -115,7 +115,7 @@
             // Back
             // 
             this.Back.Location = new System.Drawing.Point(517, 513);
-            this.Back.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Back.Margin = new System.Windows.Forms.Padding(4);
             this.Back.Name = "Back";
             this.Back.Size = new System.Drawing.Size(75, 23);
             this.Back.TabIndex = 10;
@@ -126,7 +126,7 @@
             // btnNieuweTram
             // 
             this.btnNieuweTram.Location = new System.Drawing.Point(360, 94);
-            this.btnNieuweTram.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnNieuweTram.Margin = new System.Windows.Forms.Padding(2);
             this.btnNieuweTram.Name = "btnNieuweTram";
             this.btnNieuweTram.Size = new System.Drawing.Size(103, 37);
             this.btnNieuweTram.TabIndex = 11;
@@ -187,7 +187,7 @@
             this.Controls.Add(this.btnOpenTechniek);
             this.Controls.Add(this.btnOpenSchoonmaak);
             this.Controls.Add(this.lbTramNr);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "beheerGUI";
             this.Text = "beheerGUI";
             this.ResumeLayout(false);
