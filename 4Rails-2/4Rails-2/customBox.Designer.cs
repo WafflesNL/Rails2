@@ -112,6 +112,7 @@
             this.Modify.TabIndex = 13;
             this.Modify.Text = "Modify";
             this.Modify.UseVisualStyleBackColor = true;
+            this.Modify.Click += new System.EventHandler(this.Modify_Click);
             // 
             // Delete
             // 
@@ -121,6 +122,7 @@
             this.Delete.TabIndex = 14;
             this.Delete.Text = "Delete";
             this.Delete.UseVisualStyleBackColor = true;
+            this.Delete.Click += new System.EventHandler(this.Delete_Click);
             // 
             // Add
             // 

@@ -13,6 +13,8 @@ namespace _4Rails_2
     public partial class customBox : Form
     {
         Overview overview;
+        public string Tramnrstringa;
+        public string Tramnrstringb;
         public customBox()
         {
             overview = new Overview();
@@ -51,6 +53,19 @@ namespace _4Rails_2
             {
                 
             }
+        }
+
+        private void Modify_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Delete_Click(object sender, EventArgs e)
+        {
+            Tramnrstringa = (string)customlstBox.SelectedItem;
+            Tramnrstringb = Tramnrstringa.Split('\t')[0];
+            customlstBox.Items.Remove(customlstBox.SelectedItem);
+            overview.RemoveCleaning(Tramnrstringb);
         }
     }
 }

@@ -31,6 +31,7 @@ namespace _4Rails_2
 
         //Schoonmaak
         public List<string[]> data1 = new List<string[]>();
+        public string cleanidstring;
 
         //Techniek
         public List<string[]> data2 = new List<string[]>();
@@ -278,10 +279,10 @@ namespace _4Rails_2
      
         //Schoonmaakplanning
 
-        public void AddCleaning(string tramNR, string personeel, string Tijdstart, string Tijdeind, string Beschrijving)
+        public void AddCleaning(int cleanid, string tramNR, string personeel, string Tijdstart, string Tijdeind, string Beschrijving)
         {
             //Insert a row to table
-            string newCleaning = "INSERT INTO Clean(tramid, userid, TijdStart, TijdEind, Beschrijving) VALUES (" + tramNR + ", " + personeel + ", " + Tijdstart + ", " + Tijdeind + ", " + Beschrijving + ");";
+            string newCleaning = "INSERT INTO Clean(cleanID, tramid, userid, TijdStart, TijdEind, Beschrijving) VALUES (" + cleanid + ", "+ tramNR + ", " + personeel + ", " + Tijdstart + ", " + Tijdeind + ", " + Beschrijving + ");";
             DataCom.nonQuery(newCleaning);
         }
 
@@ -296,6 +297,11 @@ namespace _4Rails_2
         {
             //Search for all the trams that need to be cleaned
             return data1 = DataCom.ReadAll("c.Tramid, c.UserID, c.TimeStart, c.TimeEnd, t.Tramstatus", "Clean c, Tram t", "c.TramID = t.TramID");
+        }
+
+        public string CheckClean()
+        {
+            return cleanidstring = DataCom.Read("MAX(CleanID)", "Clean", "CleanID");
         }
 
         //Techniekplanning
