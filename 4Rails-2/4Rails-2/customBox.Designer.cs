@@ -58,20 +58,20 @@
             // Duurlabel
             // 
             this.Duurlabel.AutoSize = true;
-            this.Duurlabel.Location = new System.Drawing.Point(269, 9);
+            this.Duurlabel.Location = new System.Drawing.Point(306, 9);
             this.Duurlabel.Name = "Duurlabel";
-            this.Duurlabel.Size = new System.Drawing.Size(30, 13);
+            this.Duurlabel.Size = new System.Drawing.Size(58, 13);
             this.Duurlabel.TabIndex = 7;
-            this.Duurlabel.Text = "Duur";
+            this.Duurlabel.Text = "Datumeind";
             // 
             // Datumlabel
             // 
             this.Datumlabel.AutoSize = true;
-            this.Datumlabel.Location = new System.Drawing.Point(126, 9);
+            this.Datumlabel.Location = new System.Drawing.Point(160, 9);
             this.Datumlabel.Name = "Datumlabel";
-            this.Datumlabel.Size = new System.Drawing.Size(38, 13);
+            this.Datumlabel.Size = new System.Drawing.Size(58, 13);
             this.Datumlabel.TabIndex = 9;
-            this.Datumlabel.Text = "Datum";
+            this.Datumlabel.Text = "Datumstart";
             // 
             // Personeelslabel
             // 
@@ -85,11 +85,11 @@
             // Statuslabel
             // 
             this.Statuslabel.AutoSize = true;
-            this.Statuslabel.Location = new System.Drawing.Point(305, 9);
+            this.Statuslabel.Location = new System.Drawing.Point(448, 9);
             this.Statuslabel.Name = "Statuslabel";
-            this.Statuslabel.Size = new System.Drawing.Size(37, 13);
+            this.Statuslabel.Size = new System.Drawing.Size(51, 13);
             this.Statuslabel.TabIndex = 11;
-            this.Statuslabel.Text = "Status";
+            this.Statuslabel.Text = "CanDrive";
             // 
             // customBox
             // 

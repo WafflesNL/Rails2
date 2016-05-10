@@ -17,6 +17,7 @@ namespace _4Rails_2
         public string RailNR;
         public string RailNewNR;
         Overview overview;
+        beheerGUI beheer;
         public Tramspecificaties(string tramnr, string RailID)
         {
             InitializeComponent();
