@@ -62,6 +62,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddCleaning.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddCleaning.Designer.cs">
+      <DependentUpon>AddCleaning.cs</DependentUpon>
+    </Compile>
     <Compile Include="Beheerclass.cs" />
     <Compile Include="beheerGUI.cs">
       <SubType>Form</SubType>
@@ -123,6 +129,9 @@
     <Compile Include="Tramspecificaties.Designer.cs">
       <DependentUpon>Tramspecificaties.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AddCleaning.resx">
+      <DependentUpon>AddCleaning.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="beheerGUI.resx">
       <DependentUpon>beheerGUI.cs</DependentUpon>
     </EmbeddedResource>

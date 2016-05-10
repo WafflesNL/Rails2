@@ -12,8 +12,10 @@ namespace _4Rails_2
 {
     public partial class customBox : Form
     {
+        Overview overview;
         public customBox()
         {
+            overview = new Overview();
             InitializeComponent();
         }
 
@@ -35,6 +37,20 @@ namespace _4Rails_2
             }            
             planningBox.ShowDialog();
             return result;
+        }
+
+        private void Add_Click(object sender, EventArgs e)
+        {
+            if (planningBox.Text == "Schoonmaakplanning")
+            {
+                AddCleaning form = new AddCleaning();
+                form.ShowDialog();
+                planningBox.Refresh();
+            }
+            else
+            {
+                
+            }
         }
     }
 }

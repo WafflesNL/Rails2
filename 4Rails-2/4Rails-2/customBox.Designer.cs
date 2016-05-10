@@ -35,6 +35,9 @@
             this.Personeelslabel = new System.Windows.Forms.Label();
             this.Statuslabel = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.Modify = new System.Windows.Forms.Button();
+            this.Delete = new System.Windows.Forms.Button();
+            this.Add = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // customlstBox
@@ -61,9 +64,9 @@
             this.Duurlabel.AutoSize = true;
             this.Duurlabel.Location = new System.Drawing.Point(306, 9);
             this.Duurlabel.Name = "Duurlabel";
-            this.Duurlabel.Size = new System.Drawing.Size(58, 13);
+            this.Duurlabel.Size = new System.Drawing.Size(56, 13);
             this.Duurlabel.TabIndex = 7;
-            this.Duurlabel.Text = "Datumeind";
+            this.Duurlabel.Text = "Datumend";
             // 
             // Datumlabel
             // 
@@ -79,9 +82,9 @@
             this.Personeelslabel.AutoSize = true;
             this.Personeelslabel.Location = new System.Drawing.Point(62, 9);
             this.Personeelslabel.Name = "Personeelslabel";
-            this.Personeelslabel.Size = new System.Drawing.Size(54, 13);
+            this.Personeelslabel.Size = new System.Drawing.Size(40, 13);
             this.Personeelslabel.TabIndex = 10;
-            this.Personeelslabel.Text = "Personeel";
+            this.Personeelslabel.Text = "StaffID";
             // 
             // Statuslabel
             // 
@@ -101,11 +104,42 @@
             this.label1.TabIndex = 12;
             this.label1.Text = "Status";
             // 
+            // Modify
+            // 
+            this.Modify.Location = new System.Drawing.Point(605, 73);
+            this.Modify.Name = "Modify";
+            this.Modify.Size = new System.Drawing.Size(149, 36);
+            this.Modify.TabIndex = 13;
+            this.Modify.Text = "Modify";
+            this.Modify.UseVisualStyleBackColor = true;
+            // 
+            // Delete
+            // 
+            this.Delete.Location = new System.Drawing.Point(605, 120);
+            this.Delete.Name = "Delete";
+            this.Delete.Size = new System.Drawing.Size(149, 36);
+            this.Delete.TabIndex = 14;
+            this.Delete.Text = "Delete";
+            this.Delete.UseVisualStyleBackColor = true;
+            // 
+            // Add
+            // 
+            this.Add.Location = new System.Drawing.Point(605, 31);
+            this.Add.Name = "Add";
+            this.Add.Size = new System.Drawing.Size(149, 36);
+            this.Add.TabIndex = 15;
+            this.Add.Text = "Add";
+            this.Add.UseVisualStyleBackColor = true;
+            this.Add.Click += new System.EventHandler(this.Add_Click);
+            // 
             // customBox
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(613, 482);
+            this.ClientSize = new System.Drawing.Size(766, 482);
+            this.Controls.Add(this.Add);
+            this.Controls.Add(this.Delete);
+            this.Controls.Add(this.Modify);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.Statuslabel);
             this.Controls.Add(this.Personeelslabel);
@@ -129,5 +163,8 @@
         private System.Windows.Forms.Label Personeelslabel;
         private System.Windows.Forms.Label Statuslabel;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button Modify;
+        private System.Windows.Forms.Button Delete;
+        private System.Windows.Forms.Button Add;
     }
 }

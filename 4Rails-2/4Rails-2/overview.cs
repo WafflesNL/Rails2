@@ -261,10 +261,10 @@ namespace _4Rails_2
      
         //Schoonmaakplanning
 
-        public void AddCleaning(string tramNR, string personeel, string datum, string duration)
+        public void AddCleaning(string tramNR, string personeel, string Tijdstart, string Tijdeind, string Beschrijving)
         {
             //Insert a row to table
-            string newCleaning = "INSERT INTO Clean(tramid, userid, time, duration) VALUES (" + tramNR + ", " + personeel + ", " + datum + ", " + duration + ");";
+            string newCleaning = "INSERT INTO Clean(tramid, userid, TijdStart, TijdEind, Beschrijving) VALUES (" + tramNR + ", " + personeel + ", " + Tijdstart + ", " + Tijdeind + ", " + Beschrijving + ");";
             DataCom.nonQuery(newCleaning);
         }
 

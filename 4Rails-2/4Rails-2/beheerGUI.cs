@@ -35,7 +35,6 @@ namespace _4Rails_2
             i = 0;
             j = 0;
             Index = 0;
-            //timer1.Start();
         }
 
         private void Timer1_Tick(object sender, EventArgs e)
