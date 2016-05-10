@@ -87,7 +87,6 @@ namespace _4Rails_2
 
         private void btnBevestig_Click(object sender, EventArgs e)
         {
-            
             int tramNr = Convert.ToInt32(cbTramNR.Text);
             string soort = cbSoort.Text;
             int railNr = Convert.ToInt32(cbSpoorNr.Text);
@@ -103,7 +102,6 @@ namespace _4Rails_2
             cbSoort.Text = "";
             cbUser.Items.Clear();
             cbUser.Text = "";
-            
         }
     }
 }
