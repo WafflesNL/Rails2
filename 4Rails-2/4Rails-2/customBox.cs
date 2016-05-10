@@ -57,7 +57,14 @@ namespace _4Rails_2
 
         private void Modify_Click(object sender, EventArgs e)
         {
+            if (planningBox.Text == "Schoonmaakplanning")
+            {
 
+            }
+            else
+            {
+
+            }
         }
 
         private void Delete_Click(object sender, EventArgs e)
@@ -65,7 +72,16 @@ namespace _4Rails_2
             Tramnrstringa = (string)customlstBox.SelectedItem;
             Tramnrstringb = Tramnrstringa.Split('\t')[0];
             customlstBox.Items.Remove(customlstBox.SelectedItem);
-            overview.RemoveCleaning(Tramnrstringb);
+
+            if (planningBox.Text == "Schoonmaakplanning")
+            {
+                overview.RemoveCleaning(Tramnrstringb);
+            }
+            else
+            {
+
+            }
+
         }
     }
 }
