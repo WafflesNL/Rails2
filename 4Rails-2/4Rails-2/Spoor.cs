@@ -9,14 +9,13 @@ namespace _4Rails_2
     public class Spoor
     {
         public int Spoornummer { get; private set; }
-        private int SectorNummer { get; set; }
+        
         private bool Blocked { get; set; }
 
-        public Spoor(int spoornummer, int sectorNummer)
+        public Spoor(int spoornummer, bool blocked)
         {
             this.Spoornummer = spoornummer;
-            this.SectorNummer = sectorNummer;
-            Blocked = false;
+            this.Blocked = blocked; 
         }
     }
 }
