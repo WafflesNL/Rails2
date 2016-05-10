@@ -37,12 +37,16 @@
             this.RailNRTxt = new System.Windows.Forms.Label();
             this.RailIDNew = new System.Windows.Forms.Label();
             this.RailIDNum = new System.Windows.Forms.NumericUpDown();
+            this.SectorID = new System.Windows.Forms.Label();
+            this.SectorIDlb = new System.Windows.Forms.Label();
+            this.SectorNum = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.RailIDNum)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SectorNum)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(204, 131);
+            this.button1.Location = new System.Drawing.Point(203, 185);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 0;
@@ -139,11 +143,54 @@
             0,
             0});
             // 
+            // SectorID
+            // 
+            this.SectorID.AutoSize = true;
+            this.SectorID.Location = new System.Drawing.Point(14, 126);
+            this.SectorID.Name = "SectorID";
+            this.SectorID.Size = new System.Drawing.Size(49, 13);
+            this.SectorID.TabIndex = 10;
+            this.SectorID.Text = "SectorID";
+            // 
+            // SectorIDlb
+            // 
+            this.SectorIDlb.AutoSize = true;
+            this.SectorIDlb.Location = new System.Drawing.Point(17, 154);
+            this.SectorIDlb.Name = "SectorIDlb";
+            this.SectorIDlb.Size = new System.Drawing.Size(35, 13);
+            this.SectorIDlb.TabIndex = 11;
+            this.SectorIDlb.Text = "label2";
+            // 
+            // SectorNum
+            // 
+            this.SectorNum.Location = new System.Drawing.Point(158, 147);
+            this.SectorNum.Maximum = new decimal(new int[] {
+            40,
+            0,
+            0,
+            0});
+            this.SectorNum.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.SectorNum.Name = "SectorNum";
+            this.SectorNum.Size = new System.Drawing.Size(120, 20);
+            this.SectorNum.TabIndex = 12;
+            this.SectorNum.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
             // Tramspecificaties
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(298, 167);
+            this.ClientSize = new System.Drawing.Size(298, 220);
+            this.Controls.Add(this.SectorNum);
+            this.Controls.Add(this.SectorIDlb);
+            this.Controls.Add(this.SectorID);
             this.Controls.Add(this.RailIDNum);
             this.Controls.Add(this.RailIDNew);
             this.Controls.Add(this.RailNRTxt);
@@ -156,6 +203,7 @@
             this.Name = "Tramspecificaties";
             this.Text = "Tramspecificaties";
             ((System.ComponentModel.ISupportInitialize)(this.RailIDNum)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SectorNum)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -172,5 +220,8 @@
         private System.Windows.Forms.Label RailNRTxt;
         private System.Windows.Forms.Label RailIDNew;
         private System.Windows.Forms.NumericUpDown RailIDNum;
+        private System.Windows.Forms.Label SectorID;
+        private System.Windows.Forms.Label SectorIDlb;
+        private System.Windows.Forms.NumericUpDown SectorNum;
     }
 }
