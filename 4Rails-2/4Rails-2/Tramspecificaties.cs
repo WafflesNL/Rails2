@@ -40,8 +40,9 @@ namespace _4Rails_2
         {
             bool vrijSpoor = false;
             status = Cbstatus.Text;
-            RailNewNR = Convert.ToString(RailIDNum.Value);
-            SectorNewNR = Convert.ToString(SectorNum.Value);
+
+            RailNewNR = Convert.ToString(cbRailNr.Text);
+            SectorNewNR = Convert.ToString(cbSectorNr.Text);
             int railnr = Convert.ToInt32(RailNewNR);
             int sectornr = Convert.ToInt32(SectorNewNR);
             Tram tram = overview.checkLocaties(railnr, sectornr);
@@ -63,6 +64,56 @@ namespace _4Rails_2
 
         private void button2_Click(object sender, EventArgs e)
         {
+        }
+
+        private void Cbstatus_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            cbRailNr.Items.Clear();
+            cbRailNr.Text = "";
+            cbSectorNr.Items.Clear();
+            cbSectorNr.Text = "";
+            if(Cbstatus.Text == "Dienst")
+            {
+                cbRailNr.Items.Add(6);
+                cbRailNr.Items.Add(7);
+                cbRailNr.Items.Add(8);
+                cbRailNr.Items.Add(9);
+                cbRailNr.Items.Add(10);
+            }
+            if(Cbstatus.Text == "Schoonmaak")
+            {
+                cbRailNr.Items.Add(4);
+            }
+            if(Cbstatus.Text == "Defect")
+            {
+                cbRailNr.Items.Add(5);
+            }
+            if(Cbstatus.Text == "Remise")
+            {
+                cbRailNr.Items.Add(1);
+                cbRailNr.Items.Add(2);
+                cbRailNr.Items.Add(3);
+            }
+        }
+
+        private void cbRailNr_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            cbSectorNr.Items.Clear();
+            cbSectorNr.Text = "";
+            int nummer = Convert.ToInt32(cbRailNr.Text);
+            foreach (Sector sector in overview.sectors)
+            {
+                if (sector.RailID == nummer)
+                {
+                    cbSectorNr.Items.Add(sector.SectorNumber);
+                }
+            }
+        }
+
+        private void btnModify2_Click(object sender, EventArgs e)
+        {
+            status = Cbstatus.Text;
+            overview.modifyStatus(status, tramnrs);
         }
     }
 }

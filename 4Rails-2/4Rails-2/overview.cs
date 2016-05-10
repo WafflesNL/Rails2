@@ -368,6 +368,11 @@ namespace _4Rails_2
             DataCom.nonQuery("UPDATE Tram SET SectorID = " + "'" + sectoridnew + "'" + " WHERE SectorID = " + sectorid);
         }
 
+        public void modifyStatus(string status, string tramnr)
+        {
+            DataCom.nonQuery("UPDATE Tram SET Tramstatus = " + "'" + status + "'" + " WHERE TramID = " + tramnr);
+        }
+
         public string GetBeheerRails(string tramnr)
         {
             TramRails = DataCom.Read("RailID", "Tram", "TramID = " + tramnr, "RailID");
