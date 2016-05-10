@@ -55,6 +55,7 @@
             this.lbTramNr.Size = new System.Drawing.Size(338, 484);
             this.lbTramNr.TabIndex = 0;
             this.lbTramNr.MouseClick += new System.Windows.Forms.MouseEventHandler(this.lbTramNr_MouseClick);
+            this.lbTramNr.SelectedIndexChanged += new System.EventHandler(this.lbTramNr_SelectedIndexChanged);
             // 
             // btnOpenSchoonmaak
             // 
@@ -109,7 +110,6 @@
             // 
             // timer1
             // 
-            this.timer1.Enabled = true;
             this.timer1.Tick += new System.EventHandler(this.Timer1_Tick);
             // 
             // Back
@@ -166,11 +166,11 @@
             // 
             this.Tramnrlb.AutoSize = true;
             this.Tramnrlb.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Tramnrlb.Location = new System.Drawing.Point(132, 11);
+            this.Tramnrlb.Location = new System.Drawing.Point(108, 13);
             this.Tramnrlb.Name = "Tramnrlb";
-            this.Tramnrlb.Size = new System.Drawing.Size(51, 20);
+            this.Tramnrlb.Size = new System.Drawing.Size(136, 20);
             this.Tramnrlb.TabIndex = 13;
-            this.Tramnrlb.Text = "label2";
+            this.Tramnrlb.Text = "No Tram Selected";
             // 
             // beheerGUI
             // 

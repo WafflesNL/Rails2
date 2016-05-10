@@ -34,6 +34,7 @@
             this.Datumlabel = new System.Windows.Forms.Label();
             this.Personeelslabel = new System.Windows.Forms.Label();
             this.Statuslabel = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // customlstBox
@@ -43,7 +44,7 @@
             this.customlstBox.ItemHeight = 20;
             this.customlstBox.Location = new System.Drawing.Point(12, 31);
             this.customlstBox.Name = "customlstBox";
-            this.customlstBox.Size = new System.Drawing.Size(503, 444);
+            this.customlstBox.Size = new System.Drawing.Size(586, 444);
             this.customlstBox.TabIndex = 0;
             // 
             // TramNRlabel
@@ -85,17 +86,27 @@
             // Statuslabel
             // 
             this.Statuslabel.AutoSize = true;
-            this.Statuslabel.Location = new System.Drawing.Point(448, 9);
+            this.Statuslabel.Location = new System.Drawing.Point(512, 9);
             this.Statuslabel.Name = "Statuslabel";
             this.Statuslabel.Size = new System.Drawing.Size(51, 13);
             this.Statuslabel.TabIndex = 11;
             this.Statuslabel.Text = "CanDrive";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(450, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(37, 13);
+            this.label1.TabIndex = 12;
+            this.label1.Text = "Status";
+            // 
             // customBox
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(527, 482);
+            this.ClientSize = new System.Drawing.Size(613, 482);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.Statuslabel);
             this.Controls.Add(this.Personeelslabel);
             this.Controls.Add(this.Datumlabel);
@@ -117,5 +128,6 @@
         private System.Windows.Forms.Label Datumlabel;
         private System.Windows.Forms.Label Personeelslabel;
         private System.Windows.Forms.Label Statuslabel;
+        private System.Windows.Forms.Label label1;
     }
 }

@@ -13,8 +13,8 @@ namespace _4Rails_2
 {
     public partial class Login : Form
     {
-        private string Username;
-        private string Password;
+        public string Username;
+        public string Password;
         private bool Remember;
         LoginClass LC;
         

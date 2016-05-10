@@ -24,7 +24,14 @@ namespace _4Rails_2
             planningBox.Text = Title;
             foreach (string[] items in data)
             {
-                planningBox.customlstBox.Items.Add(items[0] + "\t" + items[1] + "\t" + items[2] + "\t" + items[3] + "\t" + "  " + items[4]);
+                if (Title == "Schoonmaakplanning")
+                {
+                    planningBox.customlstBox.Items.Add(items[0] + "\t" + items[1] + "\t" + items[2] + "\t" + items[3] + "\t" + "  " + items[4]);
+                }
+                else
+                {
+                    planningBox.customlstBox.Items.Add(items[0] + "\t" + items[1] + "\t" + items[2] + "\t" + items[3] + "\t" + "  " + items[4] + "\t" + items[5]);
+                }
             }            
             planningBox.ShowDialog();
             return result;
