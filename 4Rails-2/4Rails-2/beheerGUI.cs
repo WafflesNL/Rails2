@@ -112,6 +112,7 @@ namespace _4Rails_2
         private void btnNieuweTram_Click(object sender, EventArgs e)
         {
             nieuweTram.ShowDialog();
+            Beheerrefresh();
         }
 
         private void lbTramNr_MouseClick(object sender, MouseEventArgs e)

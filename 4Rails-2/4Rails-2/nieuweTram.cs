@@ -72,14 +72,15 @@ namespace _4Rails_2
 
         private void btnVoegToe_Click(object sender, EventArgs e)
         {
-            //int tramNr;
-            //int spoorNr;
-            //int sectorNr;
-            //string tramStatus;
-            //int bestemming = spoorNr;
-            //string trampType;
-            
-            //overview.newTram(tramNr, spoorNr, tramStatus, bestemming, trampType, sectorNr);
+            int tramNr = Convert.ToInt32(tbTramNR.Text);
+            int spoorNr = Convert.ToInt32(cbRailID.Text);
+            int sectorNr = Convert.ToInt32(cbSector.Text);
+            string tramStatus = cbTramStatus.Text;
+            int bestemming = spoorNr;
+            string trampType = cbTramType.Text;
+
+            overview.newTram(tramNr, spoorNr, tramStatus, bestemming, trampType, sectorNr);
+            this.Hide();
         }
 
         private void cbRailID_SelectedIndexChanged(object sender, EventArgs e)
@@ -101,36 +102,44 @@ namespace _4Rails_2
 
         private void refreshVrijeplaatsen()
         {
-            Sector temp = new Sector(0, Convert.ToInt32(cbRemiseNr.Text));
-            RemiseNr = Convert.ToInt32(cbRemiseNr.Text);
-            foreach(Sector sector in overview.sectors)
-            {
-                if(sector.RailID == RemiseNr)
-                {
-                    vrijeplaatsen.Add(sector);
-                }
-            }
-            foreach (Tram tram in overview.trams)
-            {
-                if (tram.HuidigSpoorNR == RemiseNr)
-                {
-                    temp.SectorNumber = tram.HuidigSectorNR;
-                    temp.RailID = tram.HuidigSpoorNR;
-                    vrijeplaatsen.Remove(temp);
-                }
-            }
+            //Sector tempo = new Sector(0, 0);
+            //int i = 0;
+            //RemiseNr = Convert.ToInt32(cbRemiseNr.Text);
+            //foreach (Sector sector in overview.sectors)
+            //{
+            //    if (sector.RailID == RemiseNr)
+            //    {
+            //        i = sector.SectorNumber;
+            //        tempo = overview.checkVrij(RemiseNr, i);
+            //        if (tempo.RailID > 0)
+            //        {
+            //            vrijeplaatsen.Add(tempo);
+            //        }
+            //    }
+            //}
 
-            foreach (Sector vrij in vrijeplaatsen)
-            {
-                lbRemise.Items.Add(vrij);
-            }
+            //foreach(Sector vrij in vrijeplaatsen)
+            //{
+            //    lbRemise.Items.Add(vrij);
+            //}
+
+            
         }
 
         private void cbRemiseNr_SelectedIndexChanged(object sender, EventArgs e)
         {
-            lbRemise.Items.Clear();
-            vrijeplaatsen.Clear();
-            refreshVrijeplaatsen();
+            
+        }
+
+        private void cbSector_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            cbTramType.Visible = true;
+            lblTramType.Visible = true;
+        }
+
+        private void cbTramType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            btnVoegToe.Visible = true;
         }
     }
 }

@@ -245,7 +245,7 @@ namespace _4Rails_2
         public void newTram(int tramNr, int spoorNr, string tramStatus, int bestemming, string trampType, int sectorNR)
         {
             Tram tram = new Tram(tramNr, spoorNr, tramStatus, bestemming, trampType, sectorNR);
-            string addTram = "INSERT INTO Tram(TramID, RailID, Tramstatus, Destination, Tramptype, sectorID) VALUES ('" + tramNr + "','" + spoorNr + "','" + tramStatus + "', '" + bestemming + "'," + trampType + "', '" + sectorNR + "')";
+            string addTram = "INSERT INTO Tram(TramID, RailID, Tramstatus, Bestemming, Tramtype, sectorID) VALUES (" + tramNr + "," + spoorNr + ",'" + tramStatus + "', " + bestemming + ",'" + trampType + "', " + sectorNR + ")";
             DataCom.nonQuery(addTram);
             refreshTram();
         }
@@ -262,6 +262,28 @@ namespace _4Rails_2
             }
             return Temp;
         }
+
+        //public Sector checkVrij(int railNr, int sectorNr)
+        //{
+        //    //Sector temp = new Sector(0, 0);
+        //    //foreach (Tram tram in trams)
+        //    //{
+        //    //    if(tram.HuidigSpoorNR == railNr) 
+        //    //    {
+        //    //        if(tram.HuidigSectorNR == sectorNr)
+        //    //        {
+
+        //    //        }
+        //    //        else
+        //    //        {
+        //    //            temp.RailID = railNr;
+        //    //            temp.SectorNumber = sectorNr;
+        //    //        }
+        //    //    }
+                
+        //    //}
+        //    //return temp;
+        //}
 
         public void refreshTram()
         {

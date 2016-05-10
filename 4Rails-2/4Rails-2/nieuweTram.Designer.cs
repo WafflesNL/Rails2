@@ -36,7 +36,7 @@
             this.btnBevestig = new System.Windows.Forms.Button();
             this.cbRailID = new System.Windows.Forms.ComboBox();
             this.btnVoegToe = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cbTramType = new System.Windows.Forms.ComboBox();
             this.lblTramType = new System.Windows.Forms.Label();
             this.cbSector = new System.Windows.Forms.ComboBox();
             this.lblSector = new System.Windows.Forms.Label();
@@ -86,9 +86,6 @@
             // 
             this.cbTramStatus.FormattingEnabled = true;
             this.cbTramStatus.Items.AddRange(new object[] {
-            "Defect",
-            "Schoonmaak",
-            "Dienst",
             "Remise"});
             this.cbTramStatus.Location = new System.Drawing.Point(160, 61);
             this.cbTramStatus.Name = "cbTramStatus";
@@ -128,14 +125,21 @@
             this.btnVoegToe.Visible = false;
             this.btnVoegToe.Click += new System.EventHandler(this.btnVoegToe_Click);
             // 
-            // comboBox1
+            // cbTramType
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(157, 164);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(208, 24);
-            this.comboBox1.TabIndex = 11;
-            this.comboBox1.Visible = false;
+            this.cbTramType.FormattingEnabled = true;
+            this.cbTramType.Items.AddRange(new object[] {
+            "Combino",
+            "11G",
+            "Dubbel kop combino",
+            "12G",
+            "Opleidingstram"});
+            this.cbTramType.Location = new System.Drawing.Point(157, 164);
+            this.cbTramType.Name = "cbTramType";
+            this.cbTramType.Size = new System.Drawing.Size(212, 24);
+            this.cbTramType.TabIndex = 11;
+            this.cbTramType.Visible = false;
+            this.cbTramType.SelectedIndexChanged += new System.EventHandler(this.cbTramType_SelectedIndexChanged);
             // 
             // lblTramType
             // 
@@ -155,6 +159,7 @@
             this.cbSector.Size = new System.Drawing.Size(208, 24);
             this.cbSector.TabIndex = 13;
             this.cbSector.Visible = false;
+            this.cbSector.SelectedIndexChanged += new System.EventHandler(this.cbSector_SelectedIndexChanged);
             // 
             // lblSector
             // 
@@ -201,14 +206,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(940, 323);
+            this.ClientSize = new System.Drawing.Size(927, 323);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cbRemiseNr);
             this.Controls.Add(this.lbRemise);
             this.Controls.Add(this.lblSector);
             this.Controls.Add(this.cbSector);
             this.Controls.Add(this.lblTramType);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.cbTramType);
             this.Controls.Add(this.btnVoegToe);
             this.Controls.Add(this.cbRailID);
             this.Controls.Add(this.btnBevestig);
@@ -234,7 +239,7 @@
         private System.Windows.Forms.Button btnBevestig;
         private System.Windows.Forms.ComboBox cbRailID;
         private System.Windows.Forms.Button btnVoegToe;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cbTramType;
         private System.Windows.Forms.Label lblTramType;
         private System.Windows.Forms.ComboBox cbSector;
         private System.Windows.Forms.Label lblSector;
