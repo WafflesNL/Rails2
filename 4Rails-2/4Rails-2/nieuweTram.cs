@@ -12,11 +12,18 @@ namespace _4Rails_2
 {
     public partial class nieuweTram: Form
     {
+        public List<Sector> vrijeplaatsen;
+        private int RemiseNr;
+
         Overview overview;
         public nieuweTram()
         {
             InitializeComponent();
             overview = new Overview();
+            vrijeplaatsen = new List<Sector>();
+            vrijeplaatsen.Clear();
+            cbRemiseNr.Text = "1";
+            refreshVrijeplaatsen();
         }
 
         static nieuweTram addTramBox;
@@ -65,12 +72,65 @@ namespace _4Rails_2
 
         private void btnVoegToe_Click(object sender, EventArgs e)
         {
+            //int tramNr;
+            //int spoorNr;
+            //int sectorNr;
+            //string tramStatus;
+            //int bestemming = spoorNr;
+            //string trampType;
             
+            //overview.newTram(tramNr, spoorNr, tramStatus, bestemming, trampType, sectorNr);
         }
 
         private void cbRailID_SelectedIndexChanged(object sender, EventArgs e)
         {
-            btnVoegToe.Visible = true;
+            cbSector.Visible = true;
+            lblSector.Visible = true;
+            cbSector.Items.Clear();
+            cbSector.Text = "";
+            int nummer = Convert.ToInt32(cbRailID.Text);
+            foreach (Sector sector in overview.sectors)
+            {
+                if (sector.RailID == nummer)
+                {
+                    cbSector.Items.Add(sector.SectorNumber);
+                }
+            }
+            
+        }
+
+        private void refreshVrijeplaatsen()
+        {
+            Sector temp = new Sector(0, Convert.ToInt32(cbRemiseNr.Text));
+            RemiseNr = Convert.ToInt32(cbRemiseNr.Text);
+            foreach(Sector sector in overview.sectors)
+            {
+                if(sector.RailID == RemiseNr)
+                {
+                    vrijeplaatsen.Add(sector);
+                }
+            }
+            foreach (Tram tram in overview.trams)
+            {
+                if (tram.HuidigSpoorNR == RemiseNr)
+                {
+                    temp.SectorNumber = tram.HuidigSectorNR;
+                    temp.RailID = tram.HuidigSpoorNR;
+                    vrijeplaatsen.Remove(temp);
+                }
+            }
+
+            foreach (Sector vrij in vrijeplaatsen)
+            {
+                lbRemise.Items.Add(vrij);
+            }
+        }
+
+        private void cbRemiseNr_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            lbRemise.Items.Clear();
+            vrijeplaatsen.Clear();
+            refreshVrijeplaatsen();
         }
     }
 }

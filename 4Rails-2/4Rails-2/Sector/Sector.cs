@@ -18,5 +18,10 @@ namespace _4Rails_2
             this.SectorNumber = sectorNumber;
             this.RailID = RailID;
         }
+
+        public override string ToString()
+        {
+            return SectorNumber + " " + RailID;
+        }
     }
 }
