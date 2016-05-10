@@ -12,7 +12,7 @@ namespace _4Rails_2
 {
     public partial class regelingGUI : Form
     {
-
+        int regelingsNr;
         public Overview overview;
         Nieuwe_Regeling nieuweRegeling;
 
@@ -54,7 +54,8 @@ namespace _4Rails_2
 
         private void btnverwijder_Click(object sender, EventArgs e)
         {
-            
+            overview.removeRegulation(regelingsNr);
+            refreshForm();
             
         }
 
@@ -72,9 +73,8 @@ namespace _4Rails_2
         {
             string selected = Convert.ToString(lbRegelingen.SelectedItem);
             string deel = selected.Substring(0, 3);
-            int regelingsNr = Convert.ToInt32(deel);
+            regelingsNr = Convert.ToInt32(deel);
             btnverwijder.Visible = true;
-
 
         }
          

@@ -153,6 +153,12 @@ namespace _4Rails_2
             refreshRegulations();
         }
 
+        public void removeRegulation(int regelingsNr)
+        {
+            string removeRegulation = "Delete from Regeling Where RegelingID =" + regelingsNr;
+            DataCom.nonQuery(removeRegulation);
+        }
+
         public void refreshRegulations()
         {
             regulationList.Clear();
