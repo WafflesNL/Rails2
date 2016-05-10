@@ -74,7 +74,6 @@
     <Compile Include="AddRepair.Designer.cs">
       <DependentUpon>AddRepair.cs</DependentUpon>
     </Compile>
-    <Compile Include="Beheerclass.cs" />
     <Compile Include="beheerGUI.cs">
       <SubType>Form</SubType>
     </Compile>
