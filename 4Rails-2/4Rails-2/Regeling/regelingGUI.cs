@@ -49,16 +49,12 @@ namespace _4Rails_2
         private void button2_Click(object sender, EventArgs e)
         {
             nieuweRegeling.ShowDialog();
+            refreshForm();
         }
 
         private void btnverwijder_Click(object sender, EventArgs e)
         {
-            string toDelete = Convert.ToString(lbRegelingen.SelectedItem);
-            string sql = "DELETE FROM regulation WHERE Tram_ID ="+ toDelete;
-
-
-            DataCom.nonQuery(sql);
-            refreshForm();
+            
             
         }
 

@@ -12,13 +12,13 @@ namespace _4Rails_2
 {
     public partial class Nieuwe_Regeling : Form
     {
-        
+        Overview overview;
 
         
         public Nieuwe_Regeling()
         {
             InitializeComponent();
-            
+            overview = new Overview();
             
             
         }
@@ -106,7 +106,7 @@ namespace _4Rails_2
             cbSoort.Text = "";
             cbUser.Items.Clear();
             cbUser.Text = "";
-            refreshform()
+            
             this.Hide();
             this.Close();
         }
