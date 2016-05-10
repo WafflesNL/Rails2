@@ -89,7 +89,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(459, 59);
+            this.button2.Location = new System.Drawing.Point(647, 4);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(179, 43);
             this.button2.TabIndex = 16;
@@ -120,7 +120,7 @@
             // 
             // btnverwijder
             // 
-            this.btnverwijder.Location = new System.Drawing.Point(459, 108);
+            this.btnverwijder.Location = new System.Drawing.Point(647, 53);
             this.btnverwijder.Name = "btnverwijder";
             this.btnverwijder.Size = new System.Drawing.Size(179, 41);
             this.btnverwijder.TabIndex = 18;
@@ -151,7 +151,7 @@
             this.lbRegelingen.ItemHeight = 16;
             this.lbRegelingen.Location = new System.Drawing.Point(105, 108);
             this.lbRegelingen.Name = "lbRegelingen";
-            this.lbRegelingen.Size = new System.Drawing.Size(286, 372);
+            this.lbRegelingen.Size = new System.Drawing.Size(522, 436);
             this.lbRegelingen.TabIndex = 1;
             this.lbRegelingen.SelectedIndexChanged += new System.EventHandler(this.lbTramnr_SelectedIndexChanged);
             // 
@@ -159,7 +159,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(656, 492);
+            this.ClientSize = new System.Drawing.Size(829, 573);
             this.Controls.Add(this.lblUser);
             this.Controls.Add(this.tbUser);
             this.Controls.Add(this.btnverwijder);

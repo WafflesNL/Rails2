@@ -39,7 +39,9 @@ namespace _4Rails_2
             
             foreach(Regulation regulation in overview.regulations)
             {
+                
                 lbRegelingen.Items.Add(regulation);
+                
             }
         }
 

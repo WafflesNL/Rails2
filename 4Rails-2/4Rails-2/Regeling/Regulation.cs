@@ -23,6 +23,11 @@ namespace _4Rails_2
             this.tramstatus = tramstatus;
         }
 
-        
+        public override string ToString()
+        {
+            return "RegelingsID: " + regelingsID + " TramNR: " + tramNr + " SpoorNr: " + spoorNr + " User: " + User + " Tramstatus: " + tramstatus;
+        }
+
+
     }
 }

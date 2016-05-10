@@ -137,10 +137,10 @@ namespace _4Rails_2
             string Number = DataCom.getCount();
 
                 // Aantal regelingen tellen en dan +1 voor het nieuwe regelingID
-                // nog vervangen naar een max en dan +1
+                // Nog vervangen naar een max en dan +1
                 int count = Convert.ToInt32(Number) + 1;
 
-                string addRegulation = "INSERT INTO Regulation(RegelingID, TramID, RailID, userName, Tramstatus) VALUES ('" + count + "', '" + tramNr + "', '" + spoorNr + "', '" + User + "', '" + tramStatus + "')";
+                string addRegulation = "INSERT INTO Regeling (RegelingID, TramID, RailID, userName, Tramstatus) VALUES (" + count + ", " + tramNr + ", " + spoorNr + ", '" + User + "', '" + tramStatus + "');";
 
                 DataCom.nonQuery(addRegulation);
 
